@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Madina Herbal & Dry Fruits</title>
+  <style>
+    :root {
+      --primary: #1b4332;
+      --accent: #2d6a4f;
+      --highlight: #d4af37;
+      --bg: #f8f9fa;
+      --text: #2b2b2b;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
+    body { background-color: var(--bg); color: var(--text); padding-bottom: 60px; }
+
+    /* Header */
+    header { background-color: var(--primary); color: white; padding: 20px 15px; text-align: center; position: sticky; top: 0; z-index: 100; box-shadow: 0 4px 6px rgba(0,0,0,0.1); }
+    header h1 { font-size: 24px; color: var(--highlight); letter-spacing: 1px; }
+    header p { font-size: 13px; opacity: 0.9; margin-top: 4px; }
+
+    /* Controls Section */
+    .controls { max-width: 1100px; margin: 20px auto; padding: 0 15px; display: flex; flex-wrap: wrap; gap: 10px; justify-content: space-between; }
+    .search-box { flex: 1; min-width: 200px; padding: 10px 15px; border: 1px solid #ccc; border-radius: 6px; font-size: 14px; outline: none; }
+    .category-buttons { display: flex; gap: 8px; overflow-x: auto; }
+    .cat-btn { background: #e9ecef; border: none; padding: 8px 16px; border-radius: 20px; cursor: pointer; font-weight: 600; color: #495057; }
+    .cat-btn.active { background: var(--accent); color: white; }
+
+    /* Main Container */
+    .container { max-width: 1100px; margin: 0 auto; padding: 0 15px; display: grid; grid-template-columns: 2fr 1fr; gap: 25px; }
+    @media (max-width: 768px) { .container { grid-template-columns: 1fr; } }
+
+    /* Product Grid */
+    .product-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 15px; }
+    .product-card { background: white; border-radius: 8px; border: 1px solid #e0e0e0; padding: 15px; text-align: center; display: flex; flex-direction: column; justify-content: space-between; transition: transform 0.2s; }
+    .product-card:hover { transform: translateY(-3px); box-shadow: 0 4px 12px rgba(0,0,0,0.08); }
+    .product-card h3 { font-size: 16px; color: var(--primary); margin: 10px 0 5px; }
+    .badge { display: inline-block; background: #e8f5e9; color: var(--accent); font-size: 11px; padding: 3px 8px; border-radius: 12px; font-weight: bold; margin-bottom: 5px; }
+    .price { font-size: 15px; font-weight: bold; color: #d90429; margin-bottom: 12px; }
+    
+    /* Buttons */
+    .btn-add { background: var(--accent); color: white; border: none; padding: 8px 12px; border-radius: 5px; cursor: pointer; font-weight: 600; width: 100%; }
+    .btn-add:hover { background: var(--primary); }
+
+    /* Cart Sidebar */
+    .cart-box { background: white; border-radius: 8px; border: 1px solid #e0e0e0; padding: 20px; position: sticky; top: 90px; height: fit-content; }
+    .cart-box h2 { font-size: 18px; color: var(--primary); border-bottom: 2px solid #f0f0f0; padding-bottom: 10px; margin-bottom: 15px; }
+    .cart-item { display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px; font-size: 14px; border-bottom: 1px dashed #eee; padding-bottom: 8px; }
+    .remove-btn { color: #d90429; cursor: pointer; font-weight: bold; margin-left: 8px; }
+    
+    .total-price { font-size: 18px; font-weight: bold; color: var(--primary); margin: 15px 0; text-align: right; }
+    
+    /* Checkout Form */
+    .checkout-form input, .checkout-form textarea { width: 100%; padding: 10px; margin-bottom: 10px; border: 1px solid #ccc; border-radius: 5px; font-size: 13px; outline: none; }
+    .btn-wa { background: #25D366; color: white; border: none; width: 100%; padding: 12px; border-radius: 5px; font-size: 15px; font-weight: bold; cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 8px; }
+    .btn-wa:hover { background: #1eb854; }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>Madina Herbal & Dry Fruits</h1>
+  <p>100% Pure Organic Products & Premium Quality Dry Fruits</p>
+</header>
+
+<div class="controls">
+  <input type="text" id="searchInput" class="search-box" placeholder="Search product (e.g. Badam, Shehad)..." onkeyup="filterProducts()">
+  <div class="category-buttons">
+    <button class="cat-btn active" onclick="filterCategory('all', this)">All</button>
+    <button class="cat-btn" onclick="filterCategory('Dry Fruits', this)">Dry Fruits</button>
+    <button class="cat-btn" onclick="filterCategory('Herbal', this)">Herbal Products</button>
+  </div>
+</div>
+
+<div class="container">
+  <!-- Product Section -->
+  <div class="product-grid" id="productGrid"></div>
+
+  <!-- Cart Section -->
+  <div class="cart-box">
+    <h2>Your Shopping Cart</h2>
+    <div id="cartItems"><p style="font-size:13px; color:#777;">Cart is empty.</p></div>
+    <div class="total-price">Total: Rs. <span id="totalAmount">0</span></div>
+
+    <div class="checkout-form">
+      <input type="text" id="custName" placeholder="Full Name">
+      <input type="text" id="custPhone" placeholder="Mobile Number">
+      <textarea id="custAddress" rows="2" placeholder="Full Delivery Address"></textarea>
+      <button class="btn-wa" onclick="sendWhatsAppOrder()">Order via WhatsApp</button>
+    </div>
+  </div>
+</div>
+
+<script>
+  // UPDATE YOUR WHATSAPP NUMBER HERE (Country code 92 ke sath)
+  const ownerWhatsApp = "923000000000";
+
+  // Products Data
+  const products = [
+    { id: 1, name: "Irani Almonds (Badam)", price: 1600, category: "Dry Fruits" },
+    { id: 2, name: "Kagzi Walnuts (Akhrot)", price: 1200, category: "Dry Fruits" },
+    { id: 3, name: "Pistachio Salty (Pista)", price: 2400, category: "Dry Fruits" },
+    { id: 4, name: "Pure Berry Honey (Shehad)", price: 2200, category: "Herbal" },
+    { id: 5, name: "Ajwa Dates (Khajoor)", price: 1800, category: "Dry Fruits" },
+    { id: 6, name: "Isabgol Husk (Chilka)", price: 850, category: "Herbal" },
+    { id: 7, name: "Kalongi Seed Oil", price: 650, category: "Herbal" }
+  ];
+
+  let cart = [];
+  let currentCat = 'all';
+
+  function displayProducts() {
+    const grid = document.getElementById('productGrid');
+    grid.innerHTML = '';
+    
+    products.forEach(p => {
+      if (currentCat === 'all' || p.category === currentCat) {
+        grid.innerHTML += `
+          <div class="product-card" data-name="${p.name.toLowerCase()}">
+            <div>
+              <span class="badge">${p.category}</span>
+              <h3>${p.name}</h3>
+            </div>
+            <div>
+              <div class="price">Rs. ${p.price}</div>
+              <button class="btn-add" onclick="addToCart('${p.name}', ${p.price})">Add to Cart</button>
+            </div>
+          </div>
+        `;
+      }
+    });
+  }
+
+  function addToCart(name, price) {
+    const existing = cart.find(item => item.name === name);
+    if (existing) {
+      existing.qty++;
+    } else {
+      cart.push({ name, price, qty: 1 });
+    }
+    updateCartUI();
+  }
+
+  function removeFromCart(index) {
+    cart.splice(index, 1);
+    updateCartUI();
+  }
+
+  function updateCartUI() {
+    const container = document.getElementById('cartItems');
+    const totalEl = document.getElementById('totalAmount');
+    
+    if (cart.length === 0) {
+      container.innerHTML = '<p style="font-size:13px; color:#777;">Cart is empty.</p>';
+      totalEl.innerText = '0';
+      return;
+    }
+
+    container.innerHTML = '';
+    let total = 0;
+
+    cart.forEach((item, index) => {
+      const subtotal = item.price * item.qty;
+      total += subtotal;
+      container.innerHTML += `
+        <div class="cart-item">
+          <div>
+            <strong>${item.name}</strong><br>
+            <small>Rs. ${item.price} x ${item.qty}</small>
+          </div>
+          <div>
+            <span>Rs. ${subtotal}</span>
+            <span class="remove-btn" onclick="removeFromCart(${index})">&times;</span>
+          </div>
+        </div>
+      `;
+    });
+
+    totalEl.innerText = total;
+  }
+
+  function filterCategory(cat, btn) {
+    currentCat = cat;
+    document.querySelectorAll('.cat-btn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    displayProducts();
+  }
+
+  function filterProducts() {
+    const query = document.getElementById('searchInput').value.toLowerCase();
+    const cards = document.querySelectorAll('.product-card');
+    cards.forEach(card => {
+      const name = card.getAttribute('data-name');
+      card.style.display = name.includes(query) ? 'flex' : 'none';
+    });
+  }
+
+  function sendWhatsAppOrder() {
+    if (cart.length === 0) {
+      alert('Pehle cart me koi item add karein!');
+      return;
+    }
+
+    const name = document.getElementById('custName').value.trim();
+    const phone = document.getElementById('custPhone').value.trim();
+    const address = document.getElementById('custAddress').value.trim();
+
+    if (!name || !phone || !address) {
+      alert('Karam karke apna Naam, Mobile Number aur Address mukammal likhein.');
+      return;
+    }
+
+    let itemsList = '';
+    let total = 0;
+    cart.forEach(item => {
+      itemsList += `• ${item.name} (${item.qty}x) = Rs. ${item.price * item.qty}\n`;
+      total += item.price * item.qty;
+    });
+
+    const message = `*NEW ORDER - Madina Herbal & Dry Fruits*\n\n` +
+                    `*Order Items:*\n${itemsList}\n` +
+                    `*Total Amount:* Rs. ${total}\n\n` +
+                    `*Customer Details:*\n` +
+                    `Name: ${name}\n` +
+                    `Phone: ${phone}\n` +
+                    `Address: ${address}`;
+
+    const url = `https://wa.me/${ownerWhatsApp}?text=${encodeURIComponent(message)}`;
+    window.open(url, '_blank');
+  }
+
+  // Initial Load
+  displayProducts();
+</script>
+
+</body>
+</html>

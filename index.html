@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Madina Herbal & dry fruit - [fresh quality with best price]</title>
+    <title>Madina Herbal & Dry Fruit - [Fresh quality with best price]</title>
     
     <!-- FontAwesome Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -54,7 +54,7 @@
         /* HERO SECTION */
         .hero {
             position: relative;
-            min-height: 65vh;
+            min-height: 55vh;
             background: linear-gradient(rgba(0, 0, 0, 0.55), rgba(0, 0, 0, 0.55)), 
                         url('https://i.ibb.co/KzhGKVxC/Dry-Fruits-for-Daily-Energy-Immunity-ecc133ea-2feb-4ecb-8f4b-152e938c5828.jpg') center/cover no-repeat;
             display: flex;
@@ -106,14 +106,59 @@
             transform: scale(1.05);
         }
 
+        /* SEARCH BAR CONTAINER */
+        .search-container {
+            max-width: 600px;
+            margin: 1.5rem auto 0.5rem auto;
+            padding: 0 15px;
+            position: relative;
+        }
+        .search-wrapper {
+            display: flex;
+            align-items: center;
+            background: #fff;
+            border: 2px solid #e67e22;
+            border-radius: 30px;
+            padding: 5px 15px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+        }
+        .search-wrapper i {
+            color: #e67e22;
+            font-size: 1.2rem;
+            margin-right: 10px;
+        }
+        .search-wrapper input {
+            border: none;
+            outline: none;
+            width: 100%;
+            padding: 10px 5px;
+            font-size: 1rem;
+            background: transparent;
+        }
+
+        /* MAIN CATEGORY SECTIONS */
+        .section-header {
+            margin: 2rem 3% 0.5rem 3%;
+            padding-bottom: 0.5rem;
+            border-bottom: 3px solid #2c3e50;
+            color: #2c3e50;
+            font-size: 1.6rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .section-header i {
+            color: #e67e22;
+        }
+
         /* PRODUCT CAROUSEL SECTION */
         .products-section {
-            padding: 2rem 3%;
+            padding: 0.5rem 3% 1.5rem 3%;
         }
         .carousel-title {
-            margin: 1.8rem 0 0.8rem 0.5rem;
+            margin: 1rem 0 0.5rem 0.5rem;
             color: #2c3e50;
-            font-size: 1.35rem;
+            font-size: 1.2rem;
             border-left: 5px solid #e67e22;
             padding-left: 10px;
             background: rgba(255, 255, 255, 0.85);
@@ -196,6 +241,14 @@
         }
         .add-to-cart-btn:hover {
             background: #219150;
+        }
+
+        /* SEARCH RESULTS GRID */
+        .search-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+            gap: 20px;
+            padding: 1.5rem 3%;
         }
 
         /* FLOATING BUTTONS */
@@ -453,7 +506,7 @@
     <!-- NAVBAR -->
     <header>
         <div class="logo">
-            <h1>Madina Herbal & dry fruit</h1>
+            <h1>Madina Herbal & Dry Fruit</h1>
             <p>[fresh quality with best price]</p>
         </div>
     </header>
@@ -469,22 +522,41 @@
         </div>
     </section>
 
-    <!-- PRODUCTS CAROUSELS -->
-    <section class="products-section" id="products-start">
+    <!-- LIVE SEARCH BAR -->
+    <div class="search-container" id="products-start">
+        <div class="search-wrapper">
+            <i class="fas fa-search"></i>
+            <input type="text" id="search-input" placeholder="Search products (e.g. Almond, Dates, Musli, Honey...)" onkeyup="filterProducts()">
+        </div>
+    </div>
+
+    <!-- SEARCH RESULTS DISPLAY CONTAINER (Dynamically Shown) -->
+    <div id="search-results-wrapper" style="display: none;">
+        <h3 class="section-header"><i class="fas fa-search"></i> Search Results</h3>
+        <div class="search-grid" id="search-grid"></div>
+    </div>
+
+    <!-- MAIN CATEGORIES (Hidden when searching) -->
+    <div id="main-categories">
         
-        <!-- CAROUSEL 1: SEEDS & HERBS -->
-        <h3 class="carousel-title">Organic Seeds & Herbal Products</h3>
-        <div class="carousel-container" id="carousel-1"></div>
+        <!-- SECTION 1: HERBAL PRODUCTS -->
+        <h2 class="section-header"><i class="fas fa-leaf"></i> Herbal Products & Seeds</h2>
+        <section class="products-section">
+            <h3 class="carousel-title">Organic Seeds, Roots & Herbal Packs</h3>
+            <div class="carousel-container" id="carousel-herbal"></div>
+        </section>
 
-        <!-- CAROUSEL 2: ALMONDS, WALNUTS, CASHEWS & PISTACHIO -->
-        <h3 class="carousel-title">Almonds, Walnuts & Cashews</h3>
-        <div class="carousel-container" id="carousel-2"></div>
+        <!-- SECTION 2: DRY FRUITS -->
+        <h2 class="section-header"><i class="fas fa-seedling"></i> Dry Fruits & Nuts</h2>
+        <section class="products-section">
+            <h3 class="carousel-title">Almonds, Walnuts, Cashews & Pistachio</h3>
+            <div class="carousel-container" id="carousel-nuts"></div>
 
-        <!-- CAROUSEL 3: DATES, APRICOTS, FIGS, RAISINS & HONEY -->
-        <h3 class="carousel-title">Dates, Apricots, Figs, Raisins & Honey</h3>
-        <div class="carousel-container" id="carousel-3"></div>
+            <h3 class="carousel-title">Dates, Apricots, Figs, Raisins & Honey</h3>
+            <div class="carousel-container" id="carousel-dates-honey"></div>
+        </section>
 
-    </section>
+    </div>
 
     <!-- FLOATING CART BUTTON -->
     <div class="floating-cart" onclick="toggleCart()">
@@ -569,14 +641,14 @@
 
     <!-- FOOTER -->
     <footer>
-        <p>&copy; 2026 Madina Herbal & dry fruit. All Rights Reserved.</p>
+        <p>&copy; 2026 Madina Herbal & Dry Fruit. All Rights Reserved.</p>
         <p style="font-size: 0.85rem; color: #bdc3c7; margin-top: 4px;">Owner Email: kaifkaif223036@gmail.com | Phone: 03092700965</p>
     </footer>
 
     <!-- JAVASCRIPT LOGIC -->
     <script>
-        // ROW 1: ORGANIC SEEDS & HERBS
-        const productsCategory1 = [
+        // 1. HERBAL PRODUCTS & SEEDS CATEGORY
+        const herbalProducts = [
             { id: 101, name: 'Dry Pumpkin Seeds', price: 2200, displayPrice: '550 / 250g', unitType: '250g', image: 'https://i.ibb.co/XZ5YGpCF/dry-pumpkin-seeds-500x500.jpg' },
             { id: 102, name: 'Sunflower Seeds', price: 1000, displayPrice: '250 / 250g', unitType: '250g', image: 'https://i.ibb.co/0p0H75V3/7df37c6eb75ee4647cc3805a52c8354d.jpg' },
             { id: 103, name: 'White Till Seed', price: 800, displayPrice: '200 / 250g', unitType: '250g', image: 'https://i.ibb.co/k2WNpB2j/white-till-seed.jpg' },
@@ -586,19 +658,21 @@
             { id: 107, name: 'Special Herbal Mix (500g)', price: 500, displayPrice: '500 / Packet', unitType: 'packet', image: 'https://i.ibb.co/cKQS8gqs/1789224100781.png' }
         ];
 
-        // ROW 2: ALMONDS, WALNUTS & CASHEWS
-        const productsCategory2 = [
+        // 2. DRY FRUITS - NUTS & SEEDS CATEGORY
+        const dryFruitNuts = [
             { id: 1, name: 'American Almond Giri', price: 3400, displayPrice: '3400 / kg', unitType: 'kg', image: 'https://i.ibb.co/bg4dF9C9/dry-almonds-500x500-1.jpg' },
             { id: 2, name: 'Magaz Badam Gurbandi', price: 3000, displayPrice: '3000 / kg', unitType: 'kg', image: 'https://i.ibb.co/YFTRZfBX/images-11.jpg' },
             { id: 3, name: 'Xinjiang Thin Shell Walnut (Akhrot)', price: 800, displayPrice: '800 / kg', unitType: 'kg', image: 'https://i.ibb.co/PdfYJpt/chinese-xinjiang-thin-shell-walnut-dried-walnut.jpg' },
             { id: 4, name: 'Walnut Kernel (Akhrot Giri)', price: 2400, displayPrice: '2400 / kg', unitType: 'kg', image: 'https://i.ibb.co/3mBrHR1m/images-8.jpg' },
             { id: 5, name: 'Salted Kaju', price: 3800, displayPrice: '3800 / kg', unitType: 'kg', image: 'https://i.ibb.co/fG1sbp70/teated-18781-703935-151021070958804.jpg' },
             { id: 6, name: 'Plain Kaju', price: 3600, displayPrice: '3600 / kg', unitType: 'kg', image: 'https://i.ibb.co/XZR8mWkn/z4m4491-TOuw-Od07d-RUq-Y3-Jc-Zcq-EF2r9sk-Aysf-Kw-K.jpg' },
-            { id: 7, name: 'Salted Pistachio', price: 5000, displayPrice: '5000 / kg', unitType: 'kg', image: 'https://i.ibb.co/kgc6XyzB/images-4.jpg' }
+            { id: 7, name: 'Salted Pistachio', price: 5000, displayPrice: '5000 / kg', unitType: 'kg', image: 'https://i.ibb.co/kgc6XyzB/images-4.jpg' },
+            { id: 16, name: 'Mong Phali & Kaghzi Badam Mix', price: 1950, displayPrice: '1950 / kg', unitType: 'kg', image: 'https://i.ibb.co/0ydKPb6L/Untitleddesign-86dd85bb-a316-4afb-8d5a-3b094690b02c.png' },
+            { id: 17, name: 'Chilgoza Kernel (Chilgoza Giri)', price: 9900, displayPrice: '9900 / kg', unitType: 'kg', image: 'https://i.ibb.co/Jw5wd3Kp/S186ab039b1354c7eb5b41ed12833a0af-U.jpg' }
         ];
 
-        // ROW 3: DATES, APRICOTS, FIGS, RAISINS & HONEY
-        const productsCategory3 = [
+        // 3. DRY FRUITS - DATES, APRICOTS & HONEY CATEGORY
+        const dryFruitDatesHoney = [
             { id: 18, name: 'Fresh Zahidi Dates (Zahidi Khajoor)', price: 480, displayPrice: '480 / kg', unitType: 'kg', image: 'https://i.ibb.co/qY7gNDg3/fresh-zahidi-dates-500x500.jpg' },
             { id: 19, name: 'Rabbi Dates (Rabbi Khajoor)', price: 800, displayPrice: '800 / kg', unitType: 'kg', image: 'https://i.ibb.co/cWsyRkd/Khajoor-Rabbi-Dates-Rabbi.webp' },
             { id: 20, name: 'Muzafati Dates', price: 900, displayPrice: '900 / kg', unitType: 'kg', image: 'https://i.ibb.co/zttfBfF/product-jpeg.jpg' },
@@ -609,12 +683,10 @@
             { id: 12, name: 'Black Raisin', price: 1600, displayPrice: '1600 / kg', unitType: 'kg', image: 'https://i.ibb.co/84L8k57b/36399765-776a466f-10c3-4461-b2e3-03c9cfc0366f.jpg' },
             { id: 13, name: 'Khopra (Dried Coconut)', price: 1200, displayPrice: '1200 / kg', unitType: 'kg', image: 'https://i.ibb.co/fzG82C88/images-13.jpg' },
             { id: 14, name: 'Phool Makhana', price: 3950, displayPrice: '3950 / kg', unitType: 'kg', image: 'https://i.ibb.co/Y7r2b58C/images-12.jpg' },
-            { id: 15, name: 'Pure Raw Honey (Chota Shehed)', price: 5600, displayPrice: '5600 / kg', unitType: 'kg', image: 'https://i.ibb.co/KppgHPT6/raw-honey2.jpg' },
-            { id: 16, name: 'Mong Phali & Kaghzi Badam Mix', price: 1950, displayPrice: '1950 / kg', unitType: 'kg', image: 'https://i.ibb.co/0ydKPb6L/Untitleddesign-86dd85bb-a316-4afb-8d5a-3b094690b02c.png' },
-            { id: 17, name: 'Chilgoza Kernel (Chilgoza Giri)', price: 9900, displayPrice: '9900 / kg', unitType: 'kg', image: 'https://i.ibb.co/Jw5wd3Kp/S186ab039b1354c7eb5b41ed12833a0af-U.jpg' }
+            { id: 15, name: 'Pure Raw Honey (Chota Shehed)', price: 5600, displayPrice: '5600 / kg', unitType: 'kg', image: 'https://i.ibb.co/KppgHPT6/raw-honey2.jpg' }
         ];
 
-        const allProducts = [...productsCategory1, ...productsCategory2, ...productsCategory3];
+        const allProducts = [...herbalProducts, ...dryFruitNuts, ...dryFruitDatesHoney];
         let cart = [];
 
         function createProductCard(product) {
@@ -631,9 +703,34 @@
         }
 
         function renderAllCarousels() {
-            document.getElementById('carousel-1').innerHTML = productsCategory1.map(createProductCard).join('');
-            document.getElementById('carousel-2').innerHTML = productsCategory2.map(createProductCard).join('');
-            document.getElementById('carousel-3').innerHTML = productsCategory3.map(createProductCard).join('');
+            document.getElementById('carousel-herbal').innerHTML = herbalProducts.map(createProductCard).join('');
+            document.getElementById('carousel-nuts').innerHTML = dryFruitNuts.map(createProductCard).join('');
+            document.getElementById('carousel-dates-honey').innerHTML = dryFruitDatesHoney.map(createProductCard).join('');
+        }
+
+        // SEARCH FUNCTIONALITY
+        function filterProducts() {
+            const query = document.getElementById('search-input').value.toLowerCase().trim();
+            const resultsWrapper = document.getElementById('search-results-wrapper');
+            const searchGrid = document.getElementById('search-grid');
+            const mainCategories = document.getElementById('main-categories');
+
+            if (query === '') {
+                resultsWrapper.style.display = 'none';
+                mainCategories.style.display = 'block';
+                return;
+            }
+
+            const filtered = allProducts.filter(p => p.name.toLowerCase().includes(query));
+
+            if (filtered.length > 0) {
+                searchGrid.innerHTML = filtered.map(createProductCard).join('');
+            } else {
+                searchGrid.innerHTML = '<p style="grid-column: 1/-1; text-align: center; color: #777; padding: 2rem 0;">No matching products found.</p>';
+            }
+
+            mainCategories.style.display = 'none';
+            resultsWrapper.style.display = 'block';
         }
 
         function addToCart(productId) {
@@ -801,46 +898,51 @@
 
         function processOrder(type) {
             if (cart.length === 0) {
-                alert('Your cart is empty! Please add products first.');
+                alert('Aap ka cart khali hai. Pehle kuch products add karein.');
                 return;
             }
 
             const name = document.getElementById('cust-name').value.trim();
             const phone = document.getElementById('cust-phone').value.trim();
             const address = document.getElementById('cust-address').value.trim();
-            const zoneSelect = document.getElementById('delivery-zone');
-            const zoneText = zoneSelect.options[zoneSelect.selectedIndex].text;
-            const deliveryFee = parseInt(zoneSelect.value);
-            const payment = document.getElementById('payment-method').value;
+            const deliveryFee = document.getElementById('delivery-zone').value;
+            const paymentMethod = document.getElementById('payment-method').value;
 
             if (!name || !phone || !address) {
-                alert('Please fill out Name, Phone, and Address fields.');
+                alert('Baraye meharbani saari details (Name, Phone, Address) fill karein.');
                 return;
             }
 
             let subtotalCost = 0;
-            let orderItemsText = cart.map(item => {
+            let orderSummary = "--- NEW ORDER DETAILS ---\n\n";
+            orderSummary += `Customer Name: ${name}\nPhone: ${phone}\nAddress: ${address}\nPayment Method: ${paymentMethod}\n\n`;
+            orderSummary += "Items Ordered:\n";
+
+            cart.forEach((item, index) => {
                 const itemTotal = calculateItemTotal(item);
                 subtotalCost += itemTotal;
-                return `• ${item.name} (${formatQuantity(item)}) = Rs. ${itemTotal}`;
-            }).join('\n');
+                orderSummary += `${index + 1}. ${item.name} (${formatQuantity(item)}) - Rs. ${itemTotal}\n`;
+            });
 
-            const grandTotal = subtotalCost + deliveryFee;
-
-            const message = `*NEW ORDER - Madina Herbal & dry fruit*\n----------------------------\n*Customer Name:* ${name}\n*Phone:* ${phone}\n*Delivery Option:* ${zoneText}\n*Address:* ${address}\n*Payment Method:* ${payment}\n----------------------------\n*ORDER ITEMS:*\n${orderItemsText}\n----------------------------\n*Subtotal:* Rs. ${subtotalCost}\n*Delivery:* Rs. ${deliveryFee}\n*Grand Total:* Rs. ${grandTotal}\n----------------------------\nThank you!`;
+            const grandTotal = subtotalCost + parseInt(deliveryFee);
+            orderSummary += `\nSubtotal: Rs. ${subtotalCost}`;
+            orderSummary += `\nDelivery Fee: Rs. ${deliveryFee}`;
+            orderSummary += `\nGrand Total: Rs. ${grandTotal}`;
 
             if (type === 'whatsapp') {
-                const encodedMsg = encodeURIComponent(message);
-                window.open(`https://wa.me/923092700965?text=${encodedMsg}`, '_blank');
+                const whatsappUrl = `https://wa.me/923092700965?text=${encodeURIComponent(orderSummary)}`;
+                window.open(whatsappUrl, '_blank');
             } else if (type === 'email') {
-                const subject = encodeURIComponent(`New Order from ${name}`);
-                const body = encodeURIComponent(message);
-                window.location.href = `mailto:kaifkaif223036@gmail.com?subject=${subject}&body=${body}`;
+                const mailtoUrl = `mailto:kaifkaif223036@gmail.com?subject=New Order from ${encodeURIComponent(name)}&body=${encodeURIComponent(orderSummary)}`;
+                window.location.href = mailtoUrl;
             }
         }
 
-        // Initialize page
-        renderAllCarousels();
+        // INITIALIZE PAGE
+        window.onload = function() {
+            renderAllCarousels();
+            updateCartUI();
+        };
     </script>
 </body>
 </html>

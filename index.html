@@ -54,7 +54,7 @@
         /* HERO SECTION */
         .hero {
             position: relative;
-            min-height: 55vh;
+            min-height: 45vh;
             background: linear-gradient(rgba(0, 0, 0, 0.55), rgba(0, 0, 0, 0.55)), 
                         url('https://i.ibb.co/KzhGKVxC/Dry-Fruits-for-Daily-Energy-Immunity-ecc133ea-2feb-4ecb-8f4b-152e938c5828.jpg') center/cover no-repeat;
             display: flex;
@@ -65,7 +65,7 @@
             padding: 2.5rem 1rem;
         }
         .hero-content h2 {
-            font-size: 2.2rem;
+            font-size: 1.8rem;
             margin-bottom: 1rem;
             text-shadow: 2px 2px 6px rgba(0,0,0,0.9);
             font-weight: 700;
@@ -78,7 +78,7 @@
             color: #111111;
             padding: 8px 22px;
             border-radius: 30px;
-            font-size: 1.1rem;
+            font-size: 1rem;
             font-weight: 800;
             margin-bottom: 1.5rem;
             box-shadow: 0 4px 15px rgba(243, 156, 18, 0.6);
@@ -91,7 +91,7 @@
             background: #e67e22;
             color: #fff;
             padding: 0.85rem 2.4rem;
-            font-size: 1.15rem;
+            font-size: 1.1rem;
             border: none;
             border-radius: 25px;
             cursor: pointer;
@@ -142,7 +142,7 @@
             padding-bottom: 0.5rem;
             border-bottom: 3px solid #2c3e50;
             color: #2c3e50;
-            font-size: 1.6rem;
+            font-size: 1.5rem;
             display: flex;
             align-items: center;
             gap: 10px;
@@ -151,45 +151,45 @@
             color: #e67e22;
         }
 
-        /* PRODUCT CAROUSEL SECTION */
-        .products-section {
-            padding: 0.5rem 3% 1.5rem 3%;
-        }
-        .carousel-title {
-            margin: 1rem 0 0.5rem 0.5rem;
+        .category-subtitle {
+            margin: 1.2rem 3% 0.5rem 3%;
             color: #2c3e50;
-            font-size: 1.2rem;
+            font-size: 1.15rem;
             border-left: 5px solid #e67e22;
             padding-left: 10px;
-            background: rgba(255, 255, 255, 0.85);
+            background: rgba(255, 255, 255, 0.9);
             display: inline-block;
             padding-right: 15px;
             border-radius: 0 8px 8px 0;
             box-shadow: 0 2px 6px rgba(0,0,0,0.05);
         }
-        .carousel-container {
-            display: flex;
-            overflow-x: auto;
-            gap: 15px;
-            padding: 12px 5px;
-            scroll-snap-type: x mandatory;
-            -webkit-overflow-scrolling: touch;
+
+        /* VERTICAL 2-COLUMN GRID SYSTEM */
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr); /* STRICTLY 2 COLUMNS */
+            gap: 12px;
+            padding: 0.5rem 3% 1.5rem 3%;
         }
-        .carousel-container::-webkit-scrollbar {
-            height: 7px;
+
+        @media (min-width: 768px) {
+            .products-grid {
+                grid-template-columns: repeat(3, 1fr); /* 3 COLUMNS ON TABLET/DESKTOP */
+                gap: 20px;
+            }
         }
-        .carousel-container::-webkit-scrollbar-thumb {
-            background: #e67e22;
-            border-radius: 10px;
+
+        @media (min-width: 1024px) {
+            .products-grid {
+                grid-template-columns: repeat(4, 1fr); /* 4 COLUMNS ON LARGE SCREENS */
+            }
         }
         
         /* PRODUCT CARD */
         .product-card {
-            flex: 0 0 240px;
-            scroll-snap-align: start;
             background: #fff;
-            border-radius: 12px;
-            box-shadow: 0 4px 14px rgba(0,0,0,0.08);
+            border-radius: 10px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.08);
             overflow: hidden;
             display: flex;
             flex-direction: column;
@@ -198,24 +198,29 @@
             border: 1px solid #eadbc8;
         }
         .product-card:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 6px 18px rgba(0,0,0,0.12);
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.12);
         }
         .product-card img {
             width: 100%;
-            height: 170px;
+            height: 140px;
             object-fit: cover;
             background-color: #f4f4f4;
         }
         .product-details {
-            padding: 0.9rem;
+            padding: 0.7rem;
             text-align: center;
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
+            justify-content: space-between;
         }
         .product-title {
-            font-size: 0.98rem;
+            font-size: 0.9rem;
             font-weight: bold;
-            margin-bottom: 0.4rem;
+            margin-bottom: 0.3rem;
             color: #2c3e50;
+            line-height: 1.2;
             height: 2.4em;
             overflow: hidden;
             display: -webkit-box;
@@ -225,30 +230,23 @@
         .product-price {
             color: #d35400;
             font-weight: bold;
-            font-size: 1.05rem;
-            margin-bottom: 0.8rem;
+            font-size: 0.95rem;
+            margin-bottom: 0.6rem;
         }
         .add-to-cart-btn {
             background: #27ae60;
             color: #fff;
             border: none;
             width: 100%;
-            padding: 0.65rem;
+            padding: 0.55rem;
             border-radius: 6px;
             cursor: pointer;
             font-weight: bold;
+            font-size: 0.85rem;
             transition: 0.2s;
         }
         .add-to-cart-btn:hover {
             background: #219150;
-        }
-
-        /* SEARCH RESULTS GRID */
-        .search-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
-            gap: 20px;
-            padding: 1.5rem 3%;
         }
 
         /* FLOATING BUTTONS */
@@ -362,12 +360,12 @@
             background: #e67e22;
             color: white;
             border: none;
-            width: 28px;
-            height: 28px;
+            width: 26px;
+            height: 26px;
             border-radius: 50%;
             cursor: pointer;
             font-weight: bold;
-            font-size: 1rem;
+            font-size: 0.9rem;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -380,15 +378,15 @@
             background: #e74c3c;
             color: white;
             border: none;
-            width: 28px;
-            height: 28px;
+            width: 26px;
+            height: 26px;
             border-radius: 6px;
             cursor: pointer;
             margin-left: 4px;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 0.85rem;
+            font-size: 0.8rem;
         }
         .delete-btn:hover {
             background: #c0392b;
@@ -459,7 +457,7 @@
             flex: 1;
             padding: 0.85rem;
             border-radius: 6px;
-            font-size: 0.95rem;
+            font-size: 0.9rem;
             cursor: pointer;
             font-weight: bold;
             display: flex;
@@ -478,7 +476,7 @@
             flex: 1;
             padding: 0.85rem;
             border-radius: 6px;
-            font-size: 0.95rem;
+            font-size: 0.9rem;
             cursor: pointer;
             font-weight: bold;
             display: flex;
@@ -511,7 +509,7 @@
         </div>
     </header>
 
-    <!-- HERO SECTION WITH HERO IMAGE -->
+    <!-- HERO SECTION -->
     <section class="hero">
         <div class="hero-content">
             <h2>Premium Quality Herbal & Dry Fruits Available</h2>
@@ -533,28 +531,25 @@
     <!-- SEARCH RESULTS DISPLAY CONTAINER (Dynamically Shown) -->
     <div id="search-results-wrapper" style="display: none;">
         <h3 class="section-header"><i class="fas fa-search"></i> Search Results</h3>
-        <div class="search-grid" id="search-grid"></div>
+        <div class="products-grid" id="search-grid"></div>
     </div>
 
-    <!-- MAIN CATEGORIES (Hidden when searching) -->
+    <!-- MAIN CATEGORIES (VERTICAL 2-COLUMN GRID) -->
     <div id="main-categories">
         
         <!-- SECTION 1: HERBAL PRODUCTS -->
         <h2 class="section-header"><i class="fas fa-leaf"></i> Herbal Products & Seeds</h2>
-        <section class="products-section">
-            <h3 class="carousel-title">Organic Seeds, Roots & Herbal Packs</h3>
-            <div class="carousel-container" id="carousel-herbal"></div>
-        </section>
+        <h3 class="category-subtitle">Organic Seeds, Roots & Packs</h3>
+        <div class="products-grid" id="grid-herbal"></div>
 
         <!-- SECTION 2: DRY FRUITS -->
         <h2 class="section-header"><i class="fas fa-seedling"></i> Dry Fruits & Nuts</h2>
-        <section class="products-section">
-            <h3 class="carousel-title">Almonds, Walnuts, Cashews & Pistachio</h3>
-            <div class="carousel-container" id="carousel-nuts"></div>
+        
+        <h3 class="category-subtitle">Almonds, Walnuts, Cashews & Pistachio</h3>
+        <div class="products-grid" id="grid-nuts"></div>
 
-            <h3 class="carousel-title">Dates, Apricots, Figs, Raisins & Honey</h3>
-            <div class="carousel-container" id="carousel-dates-honey"></div>
-        </section>
+        <h3 class="category-subtitle">Dates, Apricots, Figs, Raisins & Honey</h3>
+        <div class="products-grid" id="grid-dates-honey"></div>
 
     </div>
 
@@ -569,7 +564,7 @@
         <i class="fab fa-whatsapp"></i>
     </a>
 
-    <!-- CART MODAL WITH PAYMENT OPTIONS & EMAIL / WHATSAPP ORDER -->
+    <!-- CART MODAL -->
     <div class="modal-overlay" id="cart-modal">
         <div class="modal-content">
             <span class="close-modal" onclick="toggleCart()">&times;</span>
@@ -579,7 +574,7 @@
                 <p style="text-align:center; color:#777;">Your cart is empty.</p>
             </div>
             
-            <!-- BILL SUMMARY WITH DELIVERY CHARGES -->
+            <!-- BILL SUMMARY -->
             <div class="cart-summary" id="cart-summary">
                 <div class="summary-row">
                     <span>Items Subtotal:</span>
@@ -629,7 +624,7 @@
 
                 <div class="action-buttons">
                     <button type="button" class="btn-email" onclick="processOrder('email')">
-                        <i class="fas fa-envelope"></i> Send Order via Email
+                        <i class="fas fa-envelope"></i> Send Email
                     </button>
                     <button type="button" class="btn-whatsapp" onclick="processOrder('whatsapp')">
                         <i class="fab fa-whatsapp"></i> WhatsApp Order
@@ -702,13 +697,13 @@
             `;
         }
 
-        function renderAllCarousels() {
-            document.getElementById('carousel-herbal').innerHTML = herbalProducts.map(createProductCard).join('');
-            document.getElementById('carousel-nuts').innerHTML = dryFruitNuts.map(createProductCard).join('');
-            document.getElementById('carousel-dates-honey').innerHTML = dryFruitDatesHoney.map(createProductCard).join('');
+        function renderAllGrids() {
+            document.getElementById('grid-herbal').innerHTML = herbalProducts.map(createProductCard).join('');
+            document.getElementById('grid-nuts').innerHTML = dryFruitNuts.map(createProductCard).join('');
+            document.getElementById('grid-dates-honey').innerHTML = dryFruitDatesHoney.map(createProductCard).join('');
         }
 
-        // SEARCH FUNCTIONALITY
+        // LIVE SEARCH
         function filterProducts() {
             const query = document.getElementById('search-input').value.toLowerCase().trim();
             const resultsWrapper = document.getElementById('search-results-wrapper');
@@ -866,7 +861,7 @@
                         </div>
                         <div class="qty-controls">
                             <button class="qty-btn" onclick="decreaseQty(${item.id})">-</button>
-                            <span style="font-weight:bold; min-width:55px; text-align:center; font-size:0.85rem;">${formatQuantity(item)}</span>
+                            <span style="font-weight:bold; min-width:50px; text-align:center; font-size:0.85rem;">${formatQuantity(item)}</span>
                             <button class="qty-btn" onclick="increaseQty(${item.id})">+</button>
                             <button class="delete-btn" onclick="removeFromCart(${item.id})"><i class="fas fa-trash-alt"></i></button>
                         </div>
@@ -940,7 +935,7 @@
 
         // INITIALIZE PAGE
         window.onload = function() {
-            renderAllCarousels();
+            renderAllGrids();
             updateCartUI();
         };
     </script>

@@ -167,21 +167,21 @@
         /* VERTICAL 2-COLUMN GRID SYSTEM */
         .products-grid {
             display: grid;
-            grid-template-columns: repeat(2, 1fr); /* STRICTLY 2 COLUMNS */
+            grid-template-columns: repeat(2, 1fr);
             gap: 12px;
             padding: 0.5rem 3% 1.5rem 3%;
         }
 
         @media (min-width: 768px) {
             .products-grid {
-                grid-template-columns: repeat(3, 1fr); /* 3 COLUMNS ON TABLET/DESKTOP */
+                grid-template-columns: repeat(3, 1fr);
                 gap: 20px;
             }
         }
 
         @media (min-width: 1024px) {
             .products-grid {
-                grid-template-columns: repeat(4, 1fr); /* 4 COLUMNS ON LARGE SCREENS */
+                grid-template-columns: repeat(4, 1fr);
             }
         }
         
@@ -524,17 +524,17 @@
     <div class="search-container" id="products-start">
         <div class="search-wrapper">
             <i class="fas fa-search"></i>
-            <input type="text" id="search-input" placeholder="Search products (e.g. Almond, Dates, Musli, Honey...)" onkeyup="filterProducts()">
+            <input type="text" id="search-input" placeholder="Search products (e.g. Almond, Dates, Flax, Musli, Honey...)" onkeyup="filterProducts()">
         </div>
     </div>
 
-    <!-- SEARCH RESULTS DISPLAY CONTAINER (Dynamically Shown) -->
+    <!-- SEARCH RESULTS DISPLAY CONTAINER -->
     <div id="search-results-wrapper" style="display: none;">
         <h3 class="section-header"><i class="fas fa-search"></i> Search Results</h3>
         <div class="products-grid" id="search-grid"></div>
     </div>
 
-    <!-- MAIN CATEGORIES (VERTICAL 2-COLUMN GRID) -->
+    <!-- MAIN CATEGORIES -->
     <div id="main-categories">
         
         <!-- SECTION 1: HERBAL PRODUCTS -->
@@ -650,7 +650,9 @@
             { id: 104, name: 'Dried Safed Musli Roots', price: 1500, displayPrice: '150 / 10g (Min 50g)', unitType: 'gram10', minQty: 50, stepQty: 10, image: 'https://i.ibb.co/v6KPRyYG/dried-safed-musli-roots-500x500.jpg' },
             { id: 105, name: 'Herbal Special Item', price: 4000, displayPrice: '200 / 50g (Min 50g)', unitType: 'gram50', minQty: 50, stepQty: 50, image: 'https://i.ibb.co/C5bB8rJC/71hn-TMAg99-L-AC-UF1000-1000-QL80.jpg' },
             { id: 106, name: 'Herbal Powder Pack (250g)', price: 250, displayPrice: '250 / Packet', unitType: 'packet', image: 'https://i.ibb.co/9mHkX5mY/1789223122209.png' },
-            { id: 107, name: 'Special Herbal Mix (500g)', price: 500, displayPrice: '500 / Packet', unitType: 'packet', image: 'https://i.ibb.co/cKQS8gqs/1789224100781.png' }
+            { id: 107, name: 'Special Herbal Mix (500g)', price: 500, displayPrice: '500 / Packet', unitType: 'packet', image: 'https://i.ibb.co/cKQS8gqs/1789224100781.png' },
+            { id: 108, name: 'Herbal Special Pack', price: 300, displayPrice: '300 / Packet', unitType: 'packet', image: 'https://i.ibb.co/ZZdTSbL/download.jpg' },
+            { id: 109, name: 'Flax Seeds', price: 250, displayPrice: '250 / Packet', unitType: 'packet', image: 'https://i.ibb.co/8nW5KxBj/download-1.jpg' }
         ];
 
         // 2. DRY FRUITS - NUTS & SEEDS CATEGORY

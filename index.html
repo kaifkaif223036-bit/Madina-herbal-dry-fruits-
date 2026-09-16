@@ -4,35 +4,33 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Madina Herbal & Dry Fruit - [Fresh quality with best price]</title>
-    
+
     <!-- FontAwesome Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
 
     <style>
-        /* RESET & BASE STYLES */
         * {
             box-sizing: border-box;
             margin: 0;
             padding: 0;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: 'Poppins', sans-serif;
         }
-        html {
-            scroll-behavior: smooth;
-        }
+        html { scroll-behavior: smooth; }
         body {
-            background-color: #fdfaf6;
-            background-image: radial-gradient(#e67e22 0.5px, transparent 0.5px), radial-gradient(#d35400 0.5px, #fdfaf6 0.5px);
-            background-size: 20px 20px;
-            background-position: 0 0, 10px 10px;
-            color: #2c3e50;
+            background-color: #f7f3e9;
+            background-image: radial-gradient(#e2d7c5 0.8px, transparent 0.8px);
+            background-size: 24px 24px;
+            color: #2d3b2d;
             line-height: 1.6;
-            padding-bottom: 20px;
+            padding-bottom: 30px;
         }
+        h1, h2, h3 { font-family: 'Playfair Display', serif; }
 
         /* HEADER & NAVBAR */
         header {
-            background: #2c3e50;
-            color: #fff;
+            background: #ffffff;
             padding: 1rem 5%;
             position: sticky;
             top: 0;
@@ -40,463 +38,364 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.15);
+            gap: 1rem;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            border-bottom: 2px solid #e8dfcf;
         }
-        .logo h1 {
-            font-size: 1.4rem;
-            color: #f39c12;
-        }
-        .logo p {
+        .logo { display: flex; align-items: center; gap: 12px; flex-shrink: 0; }
+        .logo i { font-size: 2.1rem; color: #4a6b32; }
+        .logo h1 { font-size: 1.25rem; color: #2d3b2d; font-weight: 700; line-height: 1.1; }
+        .logo p { font-size: 0.7rem; color: #6b7c5d; letter-spacing: 1px; text-transform: uppercase; }
+
+        .main-nav { display: none; gap: 26px; list-style: none; }
+        .main-nav a { text-decoration: none; color: #2d3b2d; font-weight: 500; font-size: 0.92rem; }
+        .main-nav a:hover { color: #4a6b32; }
+
+        .header-actions { display: flex; align-items: center; gap: 15px; flex-shrink: 0; }
+        .header-phone { color: #3f5e27; font-size: 1.05rem; display: none; }
+        .nav-whatsapp-btn {
+            background: #3f5e27;
+            color: #fff;
+            padding: 8px 16px;
+            border-radius: 20px;
+            text-decoration: none;
             font-size: 0.8rem;
-            color: #ecf0f1;
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            transition: 0.3s;
+            white-space: nowrap;
         }
+        .nav-whatsapp-btn:hover { background: #2c441a; }
+
+        @media (min-width: 1024px) {
+            .main-nav { display: flex; }
+            .header-phone { display: inline-block; }
+            .nav-whatsapp-btn { padding: 10px 20px; font-size: 0.85rem; }
+        }
+
+        /* CATEGORY QUICK LINKS (mobile nav substitute) */
+        .quick-links {
+            display: flex;
+            gap: 10px;
+            overflow-x: auto;
+            padding: 10px 5% 0 5%;
+            scrollbar-width: none;
+        }
+        .quick-links::-webkit-scrollbar { display: none; }
+        .quick-links a {
+            flex: 0 0 auto;
+            background: #ffffff;
+            border: 1px solid #e8dfcf;
+            color: #2d3b2d;
+            padding: 6px 14px;
+            border-radius: 20px;
+            font-size: 0.78rem;
+            font-weight: 500;
+            text-decoration: none;
+        }
+        @media (min-width: 1024px) { .quick-links { display: none; } }
 
         /* HERO SECTION */
         .hero {
-            position: relative;
-            min-height: 45vh;
-            background: linear-gradient(rgba(0, 0, 0, 0.55), rgba(0, 0, 0, 0.55)), 
-                        url('https://i.ibb.co/KzhGKVxC/Dry-Fruits-for-Daily-Energy-Immunity-ecc133ea-2feb-4ecb-8f4b-152e938c5828.jpg') center/cover no-repeat;
+            padding: 2.5rem 5% 3.5rem 5%;
             display: flex;
+            flex-direction: column;
+            gap: 2rem;
             align-items: center;
-            justify-content: center;
-            text-align: center;
-            color: #fff;
-            padding: 2.5rem 1rem;
         }
-        .hero-content h2 {
-            font-size: 1.8rem;
-            margin-bottom: 1rem;
-            text-shadow: 2px 2px 6px rgba(0,0,0,0.9);
-            font-weight: 700;
-            line-height: 1.3;
+        .hero-text { max-width: 620px; text-align: center; }
+        .hero-text h2 { font-size: 2rem; color: #2d3b2d; font-weight: 700; line-height: 1.25; margin-bottom: 1rem; }
+        .hero-text h2 em { font-style: italic; font-weight: 600; color: #3f5e27; }
+        .hero-text p { font-size: 1rem; color: #526344; margin-bottom: 1.6rem; }
+        .hero-buttons { display: flex; gap: 15px; justify-content: center; flex-wrap: wrap; }
+        .hero-image {
+            width: 100%;
+            max-width: 480px;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 12px 30px rgba(45,59,45,0.18);
+        }
+        .hero-image img { width: 100%; height: 260px; object-fit: cover; display: block; }
+
+        @media (min-width: 900px) {
+            .hero { flex-direction: row; text-align: left; padding: 3.5rem 5% 4.5rem 5%; }
+            .hero-text { text-align: left; flex: 1; }
+            .hero-text h2 { font-size: 2.6rem; }
+            .hero-buttons { justify-content: flex-start; }
+            .hero-image { flex: 1; max-width: 560px; }
+            .hero-image img { height: 340px; }
         }
 
-        .highlight-tag {
-            display: inline-block;
-            background: linear-gradient(135deg, #f1c40f, #e67e22);
-            color: #111111;
-            padding: 8px 22px;
-            border-radius: 30px;
+        .btn-primary-custom {
+            background: #b07d2b;
+            color: #fff;
+            padding: 0.8rem 2rem;
             font-size: 1rem;
-            font-weight: 800;
-            margin-bottom: 1.5rem;
-            box-shadow: 0 4px 15px rgba(243, 156, 18, 0.6);
-            letter-spacing: 0.5px;
-            border: 2px solid #ffffff;
-            text-transform: uppercase;
-        }
-
-        .shop-now-btn {
-            background: #e67e22;
-            color: #fff;
-            padding: 0.85rem 2.4rem;
-            font-size: 1.1rem;
             border: none;
-            border-radius: 25px;
+            border-radius: 8px;
             cursor: pointer;
             text-decoration: none;
             transition: 0.3s ease;
-            font-weight: bold;
-            display: inline-block;
-            box-shadow: 0 4px 12px rgba(230, 126, 34, 0.5);
+            font-weight: 500;
+            box-shadow: 0 4px 10px rgba(176, 125, 43, 0.3);
         }
-        .shop-now-btn:hover {
-            background: #d35400;
-            transform: scale(1.05);
+        .btn-primary-custom:hover { background: #91641f; transform: translateY(-2px); }
+        .btn-secondary-custom {
+            background: #ffffff;
+            color: #2d3b2d;
+            padding: 0.8rem 2rem;
+            font-size: 1rem;
+            border: 1px solid #d4c7b0;
+            border-radius: 8px;
+            cursor: pointer;
+            text-decoration: none;
+            transition: 0.3s ease;
+            font-weight: 500;
         }
+        .btn-secondary-custom:hover { background: #eae2d3; }
 
-        /* SEARCH BAR CONTAINER */
-        .search-container {
-            max-width: 600px;
-            margin: 1.5rem auto 0.5rem auto;
-            padding: 0 15px;
+        /* FEATURE CARDS */
+        .feature-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 20px;
+            max-width: 1100px;
+            margin: -30px auto 2rem auto;
+            padding: 0 20px;
             position: relative;
+            z-index: 10;
         }
+        .feature-card {
+            background: #ffffff;
+            border-radius: 12px;
+            padding: 18px 20px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            box-shadow: 0 6px 18px rgba(0,0,0,0.04);
+            border: 1px solid #eae2d3;
+        }
+        .feature-card i {
+            font-size: 1.8rem;
+            color: #3f5e27;
+            background: #f0f4ec;
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+        .feature-card-img {
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            object-fit: cover;
+            flex-shrink: 0;
+            border: 2px solid #3f5e27;
+        }
+        .feature-card h4 { font-size: 0.95rem; color: #2d3b2d; font-family: 'Poppins', sans-serif; }
+        .feature-card p { font-size: 0.8rem; color: #728265; }
+
+        /* SEARCH BAR */
+        .search-container { max-width: 650px; margin: 1rem auto 1.5rem auto; padding: 0 20px; }
         .search-wrapper {
             display: flex;
             align-items: center;
-            background: #fff;
-            border: 2px solid #e67e22;
+            background: #ffffff;
+            border: 1px solid #c9bd9f;
             border-radius: 30px;
-            padding: 5px 15px;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+            padding: 6px 20px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.03);
         }
-        .search-wrapper i {
-            color: #e67e22;
-            font-size: 1.2rem;
-            margin-right: 10px;
-        }
-        .search-wrapper input {
-            border: none;
-            outline: none;
-            width: 100%;
-            padding: 10px 5px;
-            font-size: 1rem;
-            background: transparent;
-        }
+        .search-wrapper i { color: #3f5e27; font-size: 1.1rem; margin-right: 12px; }
+        .search-wrapper input { border: none; outline: none; width: 100%; padding: 8px 0; font-size: 0.95rem; background: transparent; }
 
-        /* MAIN CATEGORY SECTIONS */
-        .section-header {
-            margin: 2rem 3% 0.5rem 3%;
-            padding-bottom: 0.5rem;
-            border-bottom: 3px solid #2c3e50;
-            color: #2c3e50;
-            font-size: 1.5rem;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-        .section-header i {
-            color: #e67e22;
-        }
+        /* SECTION HEADERS */
+        .section-title-wrapper { text-align: center; margin: 2.5rem 0 0.4rem 0; }
+        .section-title-wrapper h2 { font-size: 1.55rem; color: #2d3b2d; display: inline-block; position: relative; padding: 0 15px; }
+        .section-title-wrapper h2::before, .section-title-wrapper h2::after { content: "🌿"; font-size: 1rem; margin: 0 8px; opacity: 0.7; }
 
         .category-subtitle {
-            margin: 1.2rem 3% 0.5rem 3%;
-            color: #2c3e50;
-            font-size: 1.15rem;
-            border-left: 5px solid #e67e22;
-            padding-left: 10px;
-            background: rgba(255, 255, 255, 0.9);
-            display: inline-block;
-            padding-right: 15px;
-            border-radius: 0 8px 8px 0;
-            box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+            margin: 1.4rem 4% 0.8rem 4%;
+            color: #3f5e27;
+            font-size: 1.05rem;
+            font-weight: 600;
+            border-bottom: 2px solid #ded3be;
+            padding-bottom: 5px;
+            display: block;
         }
 
-        /* VERTICAL 2-COLUMN GRID SYSTEM */
-        .products-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 12px;
-            padding: 0.5rem 3% 1.5rem 3%;
+        /* PRODUCT GRID */
+        .products-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 15px; padding: 0 4% 0.5rem 4%; }
+        @media (min-width: 768px) { .products-grid { grid-template-columns: repeat(3, 1fr); gap: 22px; } }
+        @media (min-width: 1024px) { .products-grid { grid-template-columns: repeat(4, 1fr); } }
+
+        /* SHOW MORE BUTTON STYLING */
+        .show-more-wrapper { text-align: center; margin: 1rem 0 2rem 0; }
+        .btn-show-more {
+            background-color: #3f5e27;
+            color: #ffffff;
+            border: none;
+            padding: 10px 24px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            border-radius: 25px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 10px rgba(63, 94, 39, 0.2);
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .btn-show-more:hover {
+            background-color: #2c441a;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 14px rgba(63, 94, 39, 0.3);
         }
 
-        @media (min-width: 768px) {
-            .products-grid {
-                grid-template-columns: repeat(3, 1fr);
-                gap: 20px;
-            }
-        }
-
-        @media (min-width: 1024px) {
-            .products-grid {
-                grid-template-columns: repeat(4, 1fr);
-            }
-        }
-        
         /* PRODUCT CARD */
         .product-card {
-            background: #fff;
-            border-radius: 10px;
-            box-shadow: 0 3px 10px rgba(0,0,0,0.08);
+            background: #ffffff;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.04);
             overflow: hidden;
             display: flex;
             flex-direction: column;
             justify-content: space-between;
-            transition: transform 0.2s, box-shadow 0.2s;
-            border: 1px solid #eadbc8;
+            transition: transform 0.25s ease, box-shadow 0.25s ease;
+            border: 1px solid #eae2d3;
         }
-        .product-card:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 5px 15px rgba(0,0,0,0.12);
-        }
-        .product-card img {
-            width: 100%;
-            height: 140px;
-            object-fit: cover;
-            background-color: #f4f4f4;
-        }
-        .product-details {
-            padding: 0.7rem;
-            text-align: center;
-            display: flex;
-            flex-direction: column;
-            flex-grow: 1;
-            justify-content: space-between;
-        }
+        .product-card:hover { transform: translateY(-4px); box-shadow: 0 8px 20px rgba(0,0,0,0.08); }
+        .product-card img { width: 100%; height: 150px; object-fit: cover; background-color: #f2ece1; }
+        .product-details { padding: 0.9rem; display: flex; flex-direction: column; flex-grow: 1; justify-content: space-between; }
         .product-title {
-            font-size: 0.9rem;
-            font-weight: bold;
-            margin-bottom: 0.3rem;
-            color: #2c3e50;
-            line-height: 1.2;
-            height: 2.4em;
+            font-size: 0.88rem;
+            font-weight: 600;
+            margin-bottom: 0.4rem;
+            color: #2d3b2d;
+            line-height: 1.3;
+            height: 2.6em;
             overflow: hidden;
             display: -webkit-box;
             -webkit-line-clamp: 2;
             -webkit-box-orient: vertical;
         }
-        .product-price {
-            color: #d35400;
-            font-weight: bold;
-            font-size: 0.95rem;
-            margin-bottom: 0.6rem;
-        }
+        .product-price { color: #b07d2b; font-weight: 700; font-size: 0.9rem; margin-bottom: 0.7rem; }
         .add-to-cart-btn {
-            background: #27ae60;
+            background: #3f5e27;
             color: #fff;
             border: none;
             width: 100%;
             padding: 0.55rem;
-            border-radius: 6px;
+            border-radius: 20px;
             cursor: pointer;
-            font-weight: bold;
-            font-size: 0.85rem;
+            font-weight: 500;
+            font-size: 0.8rem;
             transition: 0.2s;
         }
-        .add-to-cart-btn:hover {
-            background: #219150;
-        }
+        .add-to-cart-btn:hover { background: #2c441a; }
 
         /* FLOATING BUTTONS */
         .floating-cart {
-            position: fixed;
-            bottom: 85px;
-            right: 20px;
-            background: #e67e22;
-            color: white;
-            width: 58px;
-            height: 58px;
-            border-radius: 50%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            font-size: 1.4rem;
-            box-shadow: 0 4px 14px rgba(0,0,0,0.3);
-            cursor: pointer;
-            z-index: 1000;
+            position: fixed; bottom: 85px; right: 20px;
+            background: #3f5e27; color: white;
+            width: 55px; height: 55px; border-radius: 50%;
+            display: flex; justify-content: center; align-items: center;
+            font-size: 1.3rem; box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            cursor: pointer; z-index: 1000;
         }
         .cart-count {
-            position: absolute;
-            top: 2px;
-            right: 2px;
-            background: #c0392b;
-            color: white;
-            font-size: 0.75rem;
-            padding: 2px 7px;
-            border-radius: 50%;
-            font-weight: bold;
+            position: absolute; top: 2px; right: 2px;
+            background: #b07d2b; color: white;
+            font-size: 0.7rem; padding: 2px 6px; border-radius: 50%; font-weight: bold;
         }
         .whatsapp-float {
-            position: fixed;
-            bottom: 18px;
-            right: 20px;
-            background: #25d366;
-            color: white;
-            width: 58px;
-            height: 58px;
-            border-radius: 50%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            font-size: 1.8rem;
-            box-shadow: 0 4px 14px rgba(0,0,0,0.3);
-            z-index: 1000;
-            text-decoration: none;
+            position: fixed; bottom: 20px; right: 20px;
+            background: #25d366; color: white;
+            width: 55px; height: 55px; border-radius: 50%;
+            display: flex; justify-content: center; align-items: center;
+            font-size: 1.7rem; box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            z-index: 1000; text-decoration: none;
         }
 
-        /* CART MODAL & CUSTOMER DETAILS */
+        /* CART MODAL */
         .modal-overlay {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0,0,0,0.65);
-            display: none;
-            justify-content: center;
-            align-items: center;
-            z-index: 2000;
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(45,59,45,0.55);
+            display: none; justify-content: center; align-items: center; z-index: 2000;
         }
         .modal-content {
-            background: #fff;
-            padding: 1.5rem;
-            width: 92%;
-            max-width: 480px;
-            border-radius: 12px;
-            max-height: 90vh;
-            overflow-y: auto;
-            position: relative;
+            background: #fff; padding: 1.5rem; width: 92%; max-width: 480px;
+            border-radius: 14px; max-height: 90vh; overflow-y: auto; position: relative;
         }
-        .close-modal {
-            position: absolute;
-            top: 15px;
-            right: 18px;
-            font-size: 1.6rem;
-            cursor: pointer;
-            color: #888;
-        }
+        .close-modal { position: absolute; top: 15px; right: 18px; font-size: 1.5rem; cursor: pointer; color: #888; }
+        .modal-content h2 { color: #2d3b2d; margin-bottom: 0.5rem; font-size: 1.3rem; }
+        .modal-content h3 { color: #2d3b2d; margin-bottom: 0.6rem; font-size: 1.05rem; font-family: 'Poppins', sans-serif; font-weight: 600; }
         .cart-items-list {
-            list-style: none;
-            margin: 1rem 0;
-            border-top: 1px solid #eee;
-            border-bottom: 1px solid #eee;
-            padding: 0.8rem 0;
-            max-height: 180px;
-            overflow-y: auto;
+            list-style: none; margin: 1rem 0;
+            border-top: 1px solid #eee; border-bottom: 1px solid #eee;
+            padding: 0.8rem 0; max-height: 180px; overflow-y: auto;
         }
         .cart-item {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 0.8rem;
-            font-size: 0.9rem;
-            background: #fdfaf6;
-            padding: 8px 10px;
-            border-radius: 8px;
-            border: 1px solid #f0e6d2;
+            display: flex; justify-content: space-between; align-items: center;
+            margin-bottom: 0.8rem; font-size: 0.88rem;
+            background: #fbf9f5; padding: 8px 10px; border-radius: 8px; border: 1px solid #eae2d3;
         }
-        .cart-item-info {
-            flex: 1;
-            padding-right: 10px;
-        }
-        .qty-controls {
-            display: flex;
-            align-items: center;
-            gap: 5px;
-        }
+        .cart-item-info { flex: 1; padding-right: 10px; }
+        .qty-controls { display: flex; align-items: center; gap: 5px; }
         .qty-btn {
-            background: #e67e22;
-            color: white;
-            border: none;
-            width: 26px;
-            height: 26px;
-            border-radius: 50%;
-            cursor: pointer;
-            font-weight: bold;
-            font-size: 0.9rem;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            transition: 0.2s;
+            background: #3f5e27; color: white; border: none;
+            width: 25px; height: 25px; border-radius: 50%; cursor: pointer;
+            font-weight: bold; font-size: 0.85rem;
+            display: flex; align-items: center; justify-content: center;
         }
-        .qty-btn:hover {
-            background: #d35400;
-        }
+        .qty-btn:hover { background: #2c441a; }
         .delete-btn {
-            background: #e74c3c;
-            color: white;
-            border: none;
-            width: 26px;
-            height: 26px;
-            border-radius: 6px;
-            cursor: pointer;
-            margin-left: 4px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 0.8rem;
+            background: #c0392b; color: white; border: none;
+            width: 25px; height: 25px; border-radius: 6px; cursor: pointer;
+            margin-left: 4px; display: flex; align-items: center; justify-content: center; font-size: 0.75rem;
         }
-        .delete-btn:hover {
-            background: #c0392b;
-        }
-        
-        /* BILL SUMMARY BOX */
-        .cart-summary {
-            background: #f8f9fa;
-            border-radius: 8px;
-            padding: 10px 14px;
-            margin-bottom: 1rem;
-            font-size: 0.95rem;
-            border: 1px solid #e9ecef;
-        }
-        .summary-row {
-            display: flex;
-            justify-content: space-between;
-            margin-bottom: 5px;
-            color: #555;
-        }
+        .delete-btn:hover { background: #a3301f; }
+
+        .cart-summary { background: #f7f3e9; border-radius: 8px; padding: 10px 14px; margin-bottom: 1rem; font-size: 0.9rem; border: 1px solid #eae2d3; }
+        .summary-row { display: flex; justify-content: space-between; margin-bottom: 4px; color: #555; }
         .summary-row.total-row {
-            border-top: 1px dashed #ccc;
-            padding-top: 6px;
-            margin-top: 6px;
-            font-weight: bold;
-            color: #2c3e50;
-            font-size: 1.1rem;
+            border-top: 1px dashed #bbb; padding-top: 6px; margin-top: 6px;
+            font-weight: bold; color: #2d3b2d; font-size: 1.05rem;
         }
 
-        .checkout-form label {
-            font-size: 0.85rem;
-            font-weight: bold;
-            color: #444;
-            display: block;
-            margin-bottom: 0.3rem;
-        }
+        .checkout-form label { font-size: 0.85rem; font-weight: 600; color: #2d3b2d; display: block; margin-bottom: 0.2rem; }
         .checkout-form input, .checkout-form textarea, .checkout-form select {
-            width: 100%;
-            padding: 0.7rem;
-            margin-bottom: 0.9rem;
-            border: 1px solid #ccc;
-            border-radius: 6px;
-            font-size: 0.95rem;
+            width: 100%; padding: 0.65rem; margin-bottom: 0.8rem;
+            border: 1px solid #ccc; border-radius: 6px; font-size: 0.9rem; font-family: 'Poppins', sans-serif;
         }
 
-        /* BANK / EASYPAISA INFO DISPLAY BOX */
         .bank-details-box {
-            display: none;
-            background: #fdf3e7;
-            border: 1px dashed #e67e22;
-            padding: 12px;
-            border-radius: 8px;
-            font-size: 0.88rem;
-            margin-bottom: 1rem;
-            color: #2c3e50;
-            line-height: 1.5;
+            display: none; background: #f4efe4; border: 1px dashed #b07d2b;
+            padding: 10px; border-radius: 8px; font-size: 0.85rem; margin-bottom: 1rem; color: #2d3b2d;
         }
 
-        .action-buttons {
-            display: flex;
-            gap: 10px;
-            margin-top: 10px;
-        }
+        .action-buttons { display: flex; gap: 10px; margin-top: 10px; }
         .btn-email {
-            background: #3498db;
-            color: white;
-            border: none;
-            flex: 1;
-            padding: 0.85rem;
-            border-radius: 6px;
-            font-size: 0.9rem;
-            cursor: pointer;
-            font-weight: bold;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 8px;
-            transition: 0.2s;
+            background: #2980b9; color: white; border: none; flex: 1;
+            padding: 0.75rem; border-radius: 20px; font-size: 0.85rem; cursor: pointer; font-weight: 600;
+            display: flex; align-items: center; justify-content: center; gap: 6px;
         }
-        .btn-email:hover {
-            background: #2980b9;
-        }
+        .btn-email:hover { background: #21618c; }
         .btn-whatsapp {
-            background: #25d366;
-            color: white;
-            border: none;
-            flex: 1;
-            padding: 0.85rem;
-            border-radius: 6px;
-            font-size: 0.9rem;
-            cursor: pointer;
-            font-weight: bold;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 8px;
-            transition: 0.2s;
+            background: #25d366; color: white; border: none; flex: 1;
+            padding: 0.75rem; border-radius: 20px; font-size: 0.85rem; cursor: pointer; font-weight: 600;
+            display: flex; align-items: center; justify-content: center; gap: 6px;
         }
-        .btn-whatsapp:hover {
-            background: #1eb854;
-        }
+        .btn-whatsapp:hover { background: #1eb854; }
 
         /* FOOTER */
-        footer {
-            background: #2c3e50;
-            color: #fff;
-            text-align: center;
-            padding: 1.5rem;
-            margin-top: 2rem;
-        }
+        footer { background: #2d3b2d; color: #eae2d3; text-align: center; padding: 1.5rem; margin-top: 3rem; }
+        footer p { font-size: 0.85rem; }
     </style>
 </head>
 <body>
@@ -504,21 +403,76 @@
     <!-- NAVBAR -->
     <header>
         <div class="logo">
-            <h1>Madina Herbal & Dry Fruit</h1>
-            <p>[fresh quality with best price]</p>
+            <i class="fas fa-leaf"></i>
+            <div>
+                <h1>Madina</h1>
+                <p>Herbal &amp; Dry Fruit</p>
+            </div>
+        </div>
+        <nav>
+            <ul class="main-nav">
+                <li><a href="#products-start">Home</a></li>
+                <li><a href="#grid-herbal">Herbal Products</a></li>
+                <li><a href="#grid-nuts">Dry Fruits</a></li>
+                <li><a href="#about">About Us</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+        <div class="header-actions">
+            <i class="fas fa-phone-alt header-phone"></i>
+            <a href="https://wa.me/923092700965" target="_blank" class="nav-whatsapp-btn">
+                <i class="fab fa-whatsapp"></i> Order on WhatsApp
+            </a>
         </div>
     </header>
 
+    <div class="quick-links">
+        <a href="#grid-herbal">Herbal Products</a>
+        <a href="#grid-nuts">Dry Fruits &amp; Nuts</a>
+        <a href="#grid-dates-honey">Dates &amp; Honey</a>
+        <a href="#contact">Contact</a>
+    </div>
+
     <!-- HERO SECTION -->
-    <section class="hero">
-        <div class="hero-content">
-            <h2>Premium Quality Herbal & Dry Fruits Available</h2>
-            <div>
-                <span class="highlight-tag">fresh quality with best price</span>
+    <section class="hero" id="about">
+        <div class="hero-text">
+            <h2>Natural Goodness<br><em>for a</em> Healthier Life</h2>
+            <p>[fresh quality with best price] &mdash; explore our herbal roots &amp; seeds, premium dry fruits, and pure honey.</p>
+            <div class="hero-buttons">
+                <a href="#products-start" class="btn-primary-custom">Shop Now</a>
+                <a href="https://wa.me/923092700965" target="_blank" class="btn-secondary-custom">Contact Us</a>
             </div>
-            <a href="#products-start" class="shop-now-btn">Shop Now</a>
+        </div>
+        <div class="hero-image">
+            <img src="https://i.ibb.co/KzhGKVxC/Dry-Fruits-for-Daily-Energy-Immunity-ecc133ea-2feb-4ecb-8f4b-152e938c5828.jpg" alt="Assorted herbal products and dry fruits">
         </div>
     </section>
+
+    <!-- FEATURE CARDS -->
+    <div class="feature-cards">
+        <div class="feature-card">
+            <i class="fas fa-mortar-pestle"></i>
+            <div>
+                <h4>Herbal Supplements</h4>
+                <p>Natural remedies for your well-being.</p>
+            </div>
+        </div>
+        <div class="feature-card">
+            <!-- UPDATED WITH DRY FRUIT IMAGE -->
+            <img src="https://i.ibb.co/bg4dF9C9/dry-almonds-500x500-1.jpg" alt="Premium Dry Fruits" class="feature-card-img">
+            <div>
+                <h4>Premium Dry Fruits</h4>
+                <p>High-quality, nutritious dry fruits.</p>
+            </div>
+        </div>
+        <div class="feature-card">
+            <i class="fas fa-heartbeat"></i>
+            <div>
+                <h4>Health &amp; Wellness</h4>
+                <p>Boost your health naturally.</p>
+            </div>
+        </div>
+    </div>
 
     <!-- LIVE SEARCH BAR -->
     <div class="search-container" id="products-start">
@@ -530,27 +484,44 @@
 
     <!-- SEARCH RESULTS DISPLAY CONTAINER -->
     <div id="search-results-wrapper" style="display: none;">
-        <h3 class="section-header"><i class="fas fa-search"></i> Search Results</h3>
+        <div class="section-title-wrapper">
+            <h2>Search Results</h2>
+        </div>
         <div class="products-grid" id="search-grid"></div>
     </div>
 
     <!-- MAIN CATEGORIES -->
     <div id="main-categories">
-        
+        <div class="section-title-wrapper">
+            <h2>Our Products</h2>
+        </div>
+
         <!-- SECTION 1: HERBAL PRODUCTS -->
-        <h2 class="section-header"><i class="fas fa-leaf"></i> Herbal Products & Seeds</h2>
-        <h3 class="category-subtitle">Organic Seeds, Roots & Packs</h3>
+        <span class="category-subtitle"><i class="fas fa-leaf"></i> Organic Seeds, Roots &amp; Packs</span>
         <div class="products-grid" id="grid-herbal"></div>
+        <div class="show-more-wrapper">
+            <button class="btn-show-more" id="btn-herbal" onclick="toggleShowMore('herbal')">
+                Show More <i class="fas fa-chevron-down"></i>
+            </button>
+        </div>
 
-        <!-- SECTION 2: DRY FRUITS -->
-        <h2 class="section-header"><i class="fas fa-seedling"></i> Dry Fruits & Nuts</h2>
-        
-        <h3 class="category-subtitle">Almonds, Walnuts, Cashews & Pistachio</h3>
+        <!-- SECTION 2: DRY FRUITS NUTS -->
+        <span class="category-subtitle"><i class="fas fa-seedling"></i> Almonds, Walnuts, Cashews &amp; Pistachio</span>
         <div class="products-grid" id="grid-nuts"></div>
+        <div class="show-more-wrapper">
+            <button class="btn-show-more" id="btn-nuts" onclick="toggleShowMore('nuts')">
+                Show More <i class="fas fa-chevron-down"></i>
+            </button>
+        </div>
 
-        <h3 class="category-subtitle">Dates, Apricots, Figs, Raisins & Honey</h3>
+        <!-- SECTION 3: DATES & HONEY -->
+        <span class="category-subtitle"><i class="fas fa-box"></i> Dates, Apricots, Figs, Raisins &amp; Honey</span>
         <div class="products-grid" id="grid-dates-honey"></div>
-
+        <div class="show-more-wrapper">
+            <button class="btn-show-more" id="btn-dates-honey" onclick="toggleShowMore('dates-honey')">
+                Show More <i class="fas fa-chevron-down"></i>
+            </button>
+        </div>
     </div>
 
     <!-- FLOATING CART BUTTON -->
@@ -568,12 +539,12 @@
     <div class="modal-overlay" id="cart-modal">
         <div class="modal-content">
             <span class="close-modal" onclick="toggleCart()">&times;</span>
-            <h2 style="color: #2c3e50; margin-bottom: 0.5rem;">Your Shopping Cart</h2>
-            
+            <h2>Your Shopping Cart</h2>
+
             <div class="cart-items-list" id="cart-items">
                 <p style="text-align:center; color:#777;">Your cart is empty.</p>
             </div>
-            
+
             <!-- BILL SUMMARY -->
             <div class="cart-summary" id="cart-summary">
                 <div class="summary-row">
@@ -590,14 +561,14 @@
                 </div>
             </div>
 
-            <h3 style="margin-bottom: 0.6rem; color: #2c3e50;">Customer Details</h3>
+            <h3>Customer Details</h3>
             <form class="checkout-form" id="checkout-form" onsubmit="event.preventDefault();">
                 <label for="cust-name">Full Name</label>
                 <input type="text" id="cust-name" placeholder="Enter your full name" required>
-                
+
                 <label for="cust-phone">Phone Number</label>
                 <input type="tel" id="cust-phone" placeholder="Enter phone number (e.g. 03092700965)" required>
-                
+
                 <label for="delivery-zone">Select Delivery Option</label>
                 <select id="delivery-zone" onchange="updateCartUI()">
                     <option value="100">Local Delivery (Rs. 100)</option>
@@ -616,7 +587,7 @@
 
                 <!-- BANK & EASYPAISA DETAILS BOX -->
                 <div class="bank-details-box" id="bank-info">
-                    <strong style="color:#d35400; font-size:0.95rem;">Payment Account Details:</strong><br>
+                    <strong style="color:#b07d2b; font-size:0.95rem;">Payment Account Details:</strong><br>
                     • <strong>EasyPaisa:</strong> 03467224956<br>
                     • <strong>Meezan Bank:</strong> 98280106636773<br>
                     <small style="display:block; margin-top:4px; color:#555;"><i>* Payment bhejne ke baad screenshot receipt zaroor share karein.</i></small>
@@ -635,9 +606,9 @@
     </div>
 
     <!-- FOOTER -->
-    <footer>
+    <footer id="contact">
         <p>&copy; 2026 Madina Herbal & Dry Fruit. All Rights Reserved.</p>
-        <p style="font-size: 0.85rem; color: #bdc3c7; margin-top: 4px;">Owner Email: kaifkaif223036@gmail.com | Phone: 03092700965</p>
+        <p style="margin-top: 4px;">Owner Email: kaifkaif223036@gmail.com | Phone: 03092700965</p>
     </footer>
 
     <!-- JAVASCRIPT LOGIC -->
@@ -686,6 +657,13 @@
         const allProducts = [...herbalProducts, ...dryFruitNuts, ...dryFruitDatesHoney];
         let cart = [];
 
+        // State to keep track of expanded categories
+        const categoryState = {
+            herbal: false,
+            nuts: false,
+            'dates-honey': false
+        };
+
         function createProductCard(product) {
             return `
                 <div class="product-card">
@@ -699,10 +677,36 @@
             `;
         }
 
+        // Render Grid with limit (4 items initially)
+        function renderCategoryGrid(gridId, products, isExpanded) {
+            const listToRender = isExpanded ? products : products.slice(0, 4);
+            document.getElementById(gridId).innerHTML = listToRender.map(createProductCard).join('');
+        }
+
         function renderAllGrids() {
-            document.getElementById('grid-herbal').innerHTML = herbalProducts.map(createProductCard).join('');
-            document.getElementById('grid-nuts').innerHTML = dryFruitNuts.map(createProductCard).join('');
-            document.getElementById('grid-dates-honey').innerHTML = dryFruitDatesHoney.map(createProductCard).join('');
+            renderCategoryGrid('grid-herbal', herbalProducts, categoryState.herbal);
+            renderCategoryGrid('grid-nuts', dryFruitNuts, categoryState.nuts);
+            renderCategoryGrid('grid-dates-honey', dryFruitDatesHoney, categoryState.dates-honey);
+        }
+
+        // Toggle Show More / Show Less
+        function toggleShowMore(category) {
+            categoryState[category] = !categoryState[category];
+            const btn = document.getElementById(`btn-${category}`);
+
+            if (category === 'herbal') {
+                renderCategoryGrid('grid-herbal', herbalProducts, categoryState.herbal);
+            } else if (category === 'nuts') {
+                renderCategoryGrid('grid-nuts', dryFruitNuts, categoryState.nuts);
+            } else if (category === 'dates-honey') {
+                renderCategoryGrid('grid-dates-honey', dryFruitDatesHoney, categoryState['dates-honey']);
+            }
+
+            if (categoryState[category]) {
+                btn.innerHTML = 'Show Less <i class="fas fa-chevron-up"></i>';
+            } else {
+                btn.innerHTML = 'Show More <i class="fas fa-chevron-down"></i>';
+            }
         }
 
         // LIVE SEARCH
@@ -859,7 +863,7 @@
                     <div class="cart-item">
                         <div class="cart-item-info">
                             <strong>${item.name}</strong><br>
-                            <span style="color:#d35400;">Rs. ${item.displayPrice} &times; ${formatQuantity(item)} = <strong>Rs. ${itemTotal}</strong></span>
+                            <span style="color:#b07d2b;">Rs. ${item.displayPrice} &times; ${formatQuantity(item)} = <strong>Rs. ${itemTotal}</strong></span>
                         </div>
                         <div class="qty-controls">
                             <button class="qty-btn" onclick="decreaseQty(${item.id})">-</button>

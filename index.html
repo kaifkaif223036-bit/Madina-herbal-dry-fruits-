@@ -75,7 +75,7 @@
             .nav-whatsapp-btn { padding: 10px 20px; font-size: 0.85rem; }
         }
 
-        /* CATEGORY QUICK LINKS (mobile nav substitute) */
+        /* CATEGORY QUICK LINKS */
         .quick-links {
             display: flex;
             gap: 10px;
@@ -270,12 +270,42 @@
             border: 1px solid #eae2d3;
         }
         .product-card:hover { transform: translateY(-4px); box-shadow: 0 8px 20px rgba(0,0,0,0.08); }
-        .product-card img { width: 100%; height: 150px; object-fit: cover; background-color: #f2ece1; }
+        
+        .product-img-wrapper {
+            position: relative;
+            cursor: pointer;
+            overflow: hidden;
+        }
+        .product-card img { 
+            width: 100%; 
+            height: 150px; 
+            object-fit: cover; 
+            background-color: #f2ece1; 
+            transition: transform 0.3s ease;
+        }
+        .product-img-wrapper:hover img {
+            transform: scale(1.05);
+        }
+        .img-zoom-badge {
+            position: absolute;
+            bottom: 8px;
+            right: 8px;
+            background: rgba(45, 59, 45, 0.8);
+            color: #ffffff;
+            border-radius: 50%;
+            width: 28px;
+            height: 28px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.75rem;
+        }
+
         .product-details { padding: 0.9rem; display: flex; flex-direction: column; flex-grow: 1; justify-content: space-between; }
         .product-title {
             font-size: 0.88rem;
             font-weight: 600;
-            margin-bottom: 0.4rem;
+            margin-bottom: 0.3rem;
             color: #2d3b2d;
             line-height: 1.3;
             height: 2.6em;
@@ -284,7 +314,21 @@
             -webkit-line-clamp: 2;
             -webkit-box-orient: vertical;
         }
-        .product-price { color: #b07d2b; font-weight: 700; font-size: 0.9rem; margin-bottom: 0.7rem; }
+        .product-price { color: #b07d2b; font-weight: 700; font-size: 0.9rem; margin-bottom: 0.5rem; }
+        
+        /* PRODUCT DESCRIPTION BOX */
+        .product-desc {
+            font-size: 0.75rem;
+            color: #526344;
+            background: #fbf9f5;
+            padding: 8px;
+            border-radius: 6px;
+            border: 1px dashed #d4c7b0;
+            margin-bottom: 0.8rem;
+            line-height: 1.4;
+        }
+        .product-desc strong { color: #3f5e27; display: inline-block; }
+
         .add-to-cart-btn {
             background: #3f5e27;
             color: #fff;
@@ -322,17 +366,46 @@
             z-index: 1000; text-decoration: none;
         }
 
-        /* CART MODAL */
+        /* MODALS GENERAL */
         .modal-overlay {
             position: fixed; top: 0; left: 0; width: 100%; height: 100%;
-            background: rgba(45,59,45,0.55);
+            background: rgba(45,59,45,0.7);
             display: none; justify-content: center; align-items: center; z-index: 2000;
+            padding: 15px;
         }
         .modal-content {
-            background: #fff; padding: 1.5rem; width: 92%; max-width: 480px;
+            background: #fff; padding: 1.5rem; width: 100%; max-width: 480px;
             border-radius: 14px; max-height: 90vh; overflow-y: auto; position: relative;
         }
         .close-modal { position: absolute; top: 15px; right: 18px; font-size: 1.5rem; cursor: pointer; color: #888; }
+
+        /* IMAGE LIGHTBOX MODAL */
+        .image-modal-content {
+            background: #ffffff;
+            border-radius: 14px;
+            max-width: 550px;
+            width: 100%;
+            padding: 20px;
+            text-align: center;
+            position: relative;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.25);
+        }
+        .image-modal-content img {
+            width: 100%;
+            max-height: 60vh;
+            object-fit: contain;
+            border-radius: 8px;
+            margin-bottom: 12px;
+            background-color: #f7f3e9;
+        }
+        .image-modal-title {
+            font-size: 1.2rem;
+            color: #2d3b2d;
+            font-weight: 700;
+            margin-bottom: 6px;
+        }
+
+        /* CART MODAL DETAILS */
         .modal-content h2 { color: #2d3b2d; margin-bottom: 0.5rem; font-size: 1.3rem; }
         .modal-content h3 { color: #2d3b2d; margin-bottom: 0.6rem; font-size: 1.05rem; font-family: 'Poppins', sans-serif; font-weight: 600; }
         .cart-items-list {
@@ -458,7 +531,6 @@
             </div>
         </div>
         <div class="feature-card">
-            <!-- UPDATED WITH DRY FRUIT IMAGE -->
             <img src="https://i.ibb.co/bg4dF9C9/dry-almonds-500x500-1.jpg" alt="Premium Dry Fruits" class="feature-card-img">
             <div>
                 <h4>Premium Dry Fruits</h4>
@@ -534,6 +606,17 @@
     <a href="https://wa.me/923092700965" class="whatsapp-float" target="_blank" title="Contact on WhatsApp">
         <i class="fab fa-whatsapp"></i>
     </a>
+
+    <!-- IMAGE PREVIEW MODAL (LIGHTBOX) -->
+    <div class="modal-overlay" id="image-modal" onclick="closeImageModal(event)">
+        <div class="image-modal-content">
+            <span class="close-modal" onclick="closeImageModalDirect()">&times;</span>
+            <img id="preview-img" src="" alt="Product Preview">
+            <div class="image-modal-title" id="preview-title"></div>
+            <p id="preview-price" style="color:#b07d2b; font-weight:700; margin-bottom:8px;"></p>
+            <button id="preview-cart-btn" class="add-to-cart-btn" style="max-width:200px; margin:0 auto;">Add to Cart</button>
+        </div>
+    </div>
 
     <!-- CART MODAL -->
     <div class="modal-overlay" id="cart-modal">
@@ -615,43 +698,130 @@
     <script>
         // 1. HERBAL PRODUCTS & SEEDS CATEGORY
         const herbalProducts = [
-            { id: 101, name: 'Dry Pumpkin Seeds', price: 2200, displayPrice: '550 / 250g', unitType: '250g', image: 'https://i.ibb.co/XZ5YGpCF/dry-pumpkin-seeds-500x500.jpg' },
-            { id: 102, name: 'Sunflower Seeds', price: 1000, displayPrice: '250 / 250g', unitType: '250g', image: 'https://i.ibb.co/0p0H75V3/7df37c6eb75ee4647cc3805a52c8354d.jpg' },
-            { id: 103, name: 'White Till Seed', price: 800, displayPrice: '200 / 250g', unitType: '250g', image: 'https://i.ibb.co/k2WNpB2j/white-till-seed.jpg' },
-            { id: 104, name: 'Dried Safed Musli Roots', price: 1500, displayPrice: '150 / 10g (Min 50g)', unitType: 'gram10', minQty: 50, stepQty: 10, image: 'https://i.ibb.co/v6KPRyYG/dried-safed-musli-roots-500x500.jpg' },
-            { id: 105, name: 'Herbal Special Item', price: 4000, displayPrice: '200 / 50g (Min 50g)', unitType: 'gram50', minQty: 50, stepQty: 50, image: 'https://i.ibb.co/C5bB8rJC/71hn-TMAg99-L-AC-UF1000-1000-QL80.jpg' },
-            { id: 106, name: 'Herbal Powder Pack (250g)', price: 250, displayPrice: '250 / Packet', unitType: 'packet', image: 'https://i.ibb.co/9mHkX5mY/1789223122209.png' },
-            { id: 107, name: 'Special Herbal Mix (500g)', price: 500, displayPrice: '500 / Packet', unitType: 'packet', image: 'https://i.ibb.co/cKQS8gqs/1789224100781.png' },
-            { id: 108, name: 'Herbal Special Pack', price: 300, displayPrice: '300 / Packet', unitType: 'packet', image: 'https://i.ibb.co/ZZdTSbL/download.jpg' },
-            { id: 109, name: 'Flax Seeds', price: 250, displayPrice: '250 / Packet', unitType: 'packet', image: 'https://i.ibb.co/8nW5KxBj/download-1.jpg' }
+            { 
+                id: 101, name: 'Dry Pumpkin Seeds', price: 2200, displayPrice: '550 / 250g', unitType: '250g', image: 'https://i.ibb.co/XZ5YGpCF/dry-pumpkin-seeds-500x500.jpg',
+                benefits: 'Magnesium & Zinc se bharpoor, dil aur prostate ke liye behtar.', vitamins: 'Zinc, Magnesium, Vitamin E', routine: 'Rana 1 chamach subah nashtay ke sath ya shake mein.'
+            },
+            { 
+                id: 102, name: 'Sunflower Seeds', price: 1000, displayPrice: '250 / 250g', unitType: '250g', image: 'https://i.ibb.co/0p0H75V3/7df37c6eb75ee4647cc3805a52c8354d.jpg',
+                benefits: 'Skin glow aur immunity booster, soozish kam karta hai.', vitamins: 'Vitamin E, B-Complex, Selenium', routine: 'Snack ke tor par shaam ko 1-2 chamach lein.'
+            },
+            { 
+                id: 103, name: 'White Till Seed', price: 800, displayPrice: '200 / 250g', unitType: '250g', image: 'https://i.ibb.co/k2WNpB2j/white-till-seed.jpg',
+                benefits: 'Haddiyon ko mazboot karta hai, calcium ka acha zariya.', vitamins: 'Calcium, Iron, Magnesium', routine: 'Khane mein shamil karein ya doodh ke sath 1 chamach.'
+            },
+            { 
+                id: 104, name: 'Dried Safed Musli Roots', price: 1500, displayPrice: '150 / 10g (Min 50g)', unitType: 'gram10', minQty: 50, stepQty: 10, image: 'https://i.ibb.co/v6KPRyYG/dried-safed-musli-roots-500x500.jpg',
+                benefits: 'Taqat aur stamina barhane ke liye mufeed herbal jadi booti.', vitamins: 'Saponins, Carbohydrates, Alkaloids', routine: 'Raat ko garam doodh ke sath aadha chamach powder.'
+            },
+            { 
+                id: 105, name: 'Herbal Special Item', price: 4000, displayPrice: '200 / 50g (Min 50g)', unitType: 'gram50', minQty: 50, stepQty: 50, image: 'https://i.ibb.co/C5bB8rJC/71hn-TMAg99-L-AC-UF1000-1000-QL80.jpg',
+                benefits: 'Jism ko takat deta hai aur mizaj mein tazgi lata hai.', vitamins: 'Natural Minerals & Herbal Extracts', routine: 'Tassawur shuda tareeqay se subah doodh ke sath.'
+            },
+            { 
+                id: 106, name: 'Herbal Powder Pack (250g)', price: 250, displayPrice: '250 / Packet', unitType: 'packet', image: 'https://i.ibb.co/9mHkX5mY/1789223122209.png',
+                benefits: 'Meda aur hazma durust rakhta hai, gas se nijat.', vitamins: 'Natural Fiber & Digestive Enzymes', routine: 'Khane ke baad aadha chamach pani ke sath.'
+            },
+            { 
+                id: 107, name: 'Special Herbal Mix (500g)', price: 500, displayPrice: '500 / Packet', unitType: 'packet', image: 'https://i.ibb.co/cKQS8gqs/1789224100781.png',
+                benefits: 'Khas herbal ajza ka majmua jo susti door kare.', vitamins: 'Multivitamins & Antioxidants', routine: 'Rozana subah nashtay ke baad 1 chamach.'
+            },
+            { 
+                id: 108, name: 'Herbal Special Pack', price: 300, displayPrice: '300 / Packet', unitType: 'packet', image: 'https://i.ibb.co/ZZdTSbL/download.jpg',
+                benefits: 'Immunity ko strong kare aur jism ko energetic rakhe.', vitamins: 'Vitamin C & Anti-inflammatory compounds', routine: 'Rozana ek bar garam pani ya chai mein shamil karein.'
+            },
+            { 
+                id: 109, name: 'Flax Seeds', price: 250, displayPrice: '250 / Packet', unitType: 'packet', image: 'https://i.ibb.co/8nW5KxBj/download-1.jpg',
+                benefits: 'Wazan kam karne aur cholesterol control karne mein mufeed.', vitamins: 'Omega-3 Fatty Acids, Fiber', routine: 'Pees kar subah dahi ya pani ke sath 1 chamach.'
+            }
         ];
 
         // 2. DRY FRUITS - NUTS & SEEDS CATEGORY
         const dryFruitNuts = [
-            { id: 1, name: 'American Almond Giri', price: 3400, displayPrice: '3400 / kg', unitType: 'kg', image: 'https://i.ibb.co/bg4dF9C9/dry-almonds-500x500-1.jpg' },
-            { id: 2, name: 'Magaz Badam Gurbandi', price: 3000, displayPrice: '3000 / kg', unitType: 'kg', image: 'https://i.ibb.co/YFTRZfBX/images-11.jpg' },
-            { id: 3, name: 'Xinjiang Thin Shell Walnut (Akhrot)', price: 800, displayPrice: '800 / kg', unitType: 'kg', image: 'https://i.ibb.co/PdfYJpt/chinese-xinjiang-thin-shell-walnut-dried-walnut.jpg' },
-            { id: 4, name: 'Walnut Kernel (Akhrot Giri)', price: 2400, displayPrice: '2400 / kg', unitType: 'kg', image: 'https://i.ibb.co/3mBrHR1m/images-8.jpg' },
-            { id: 5, name: 'Salted Kaju', price: 3800, displayPrice: '3800 / kg', unitType: 'kg', image: 'https://i.ibb.co/fG1sbp70/teated-18781-703935-151021070958804.jpg' },
-            { id: 6, name: 'Plain Kaju', price: 3600, displayPrice: '3600 / kg', unitType: 'kg', image: 'https://i.ibb.co/XZR8mWkn/z4m4491-TOuw-Od07d-RUq-Y3-Jc-Zcq-EF2r9sk-Aysf-Kw-K.jpg' },
-            { id: 7, name: 'Salted Pistachio', price: 5000, displayPrice: '5000 / kg', unitType: 'kg', image: 'https://i.ibb.co/kgc6XyzB/images-4.jpg' },
-            { id: 16, name: 'Mong Phali & Kaghzi Badam Mix', price: 1950, displayPrice: '1950 / kg', unitType: 'kg', image: 'https://i.ibb.co/0ydKPb6L/Untitleddesign-86dd85bb-a316-4afb-8d5a-3b094690b02c.png' },
-            { id: 17, name: 'Chilgoza Kernel (Chilgoza Giri)', price: 9900, displayPrice: '9900 / kg', unitType: 'kg', image: 'https://i.ibb.co/Jw5wd3Kp/S186ab039b1354c7eb5b41ed12833a0af-U.jpg' }
+            { 
+                id: 1, name: 'American Almond Giri', price: 3400, displayPrice: '3400 / kg', unitType: 'kg', image: 'https://i.ibb.co/bg4dF9C9/dry-almonds-500x500-1.jpg',
+                benefits: 'Dimag aur eyesight ke liye behtareen, cholesterol kam karta hai.', vitamins: 'Vitamin E, Protein, Healthy Fats', routine: 'Raat ko 5-7 badam pani mein bhigo kar subah khayein.'
+            },
+            { 
+                id: 2, name: 'Magaz Badam Gurbandi', price: 3000, displayPrice: '3000 / kg', unitType: 'kg', image: 'https://i.ibb.co/YFTRZfBX/images-11.jpg',
+                benefits: 'Khas roghan se bharpoor, hafiza taiz karta hai.', vitamins: 'Vitamin E, Omega-3, Magnesium', routine: 'Subah nashtay mein 5-6 dany istemal karein.'
+            },
+            { 
+                id: 3, name: 'Xinjiang Thin Shell Walnut (Akhrot)', price: 800, displayPrice: '800 / kg', unitType: 'kg', image: 'https://i.ibb.co/PdfYJpt/chinese-xinjiang-thin-shell-walnut-dried-walnut.jpg',
+                benefits: 'Dil aur dimag ke liye qudrati booster, akhrot giri nikalna asan.', vitamins: 'Omega-3 Fatty Acids, Vitamin B6', routine: 'Rozana 2 akhrot shaam ke vaqt khayein.'
+            },
+            { 
+                id: 4, name: 'Walnut Kernel (Akhrot Giri)', price: 2400, displayPrice: '2400 / kg', unitType: 'kg', image: 'https://i.ibb.co/3mBrHR1m/images-8.jpg',
+                benefits: 'Mood behtar banata hai aur dimag ki salahiyat barhata hai.', vitamins: 'Antioxidants, Copper, Manganese', routine: 'Rozana 3-4 giri shaam ke waqt ya shake mein.'
+            },
+            { 
+                id: 5, name: 'Salted Kaju', price: 3800, displayPrice: '3800 / kg', unitType: 'kg', image: 'https://i.ibb.co/fG1sbp70/teated-18781-703935-151021070958804.jpg',
+                benefits: 'Khas zaiqa, energy aur instant stamina ke liye.', vitamins: 'Zinc, Iron, Magnesium', routine: 'Teatime snack ke tor par 4-5 dany.'
+            },
+            { 
+                id: 6, name: 'Plain Kaju', price: 3600, displayPrice: '3600 / kg', unitType: 'kg', image: 'https://i.ibb.co/XZR8mWkn/z4m4491-TOuw-Od07d-RUq-Y3-Jc-Zcq-EF2r9sk-Aysf-Kw-K.jpg',
+                benefits: 'Pathtey (muscles) mazboot karta hai, natural health booster.', vitamins: 'Vitamin K, Vitamin B6, Protein', routine: 'Rozana 5-6 kaju smoothie ya waisi khayein.'
+            },
+            { 
+                id: 7, name: 'Salted Pistachio', price: 5000, displayPrice: '5000 / kg', unitType: 'kg', image: 'https://i.ibb.co/kgc6XyzB/images-4.jpg',
+                benefits: 'Aankhon ki rozan-i ke liye aur khoon ki kami door karne mein mufeed.', vitamins: 'Vitamin B6, Potassium, Lutein', routine: 'Shaam ko 10-12 dany snack ke tor par.'
+            },
+            { 
+                id: 16, name: 'Mong Phali & Kaghzi Badam Mix', price: 1950, displayPrice: '1950 / kg', unitType: 'kg', image: 'https://i.ibb.co/0ydKPb6L/Untitleddesign-86dd85bb-a316-4afb-8d5a-3b094690b02c.png',
+                benefits: 'Sardi ke mausam mein taqat aur garmaish ka behtareen zariya.', vitamins: 'Protein, Healthy Fats, Vitamin E', routine: 'Raat ko chai ke sath munasib miqdar mein.'
+            },
+            { 
+                id: 17, name: 'Chilgoza Kernel (Chilgoza Giri)', price: 9900, displayPrice: '9900 / kg', unitType: 'kg', image: 'https://i.ibb.co/Jw5wd3Kp/S186ab039b1354c7eb5b41ed12833a0af-U.jpg',
+                benefits: 'Aala tareen qudrati meva, jism ko benazeer taqat deta hai.', vitamins: 'Zinc, Vitamin E, Vitamin K', routine: 'Rozana 10-15 dany subah ya shaam.'
+            }
         ];
 
         // 3. DRY FRUITS - DATES, APRICOTS & HONEY CATEGORY
         const dryFruitDatesHoney = [
-            { id: 18, name: 'Fresh Zahidi Dates (Zahidi Khajoor)', price: 480, displayPrice: '480 / kg', unitType: 'kg', image: 'https://i.ibb.co/qY7gNDg3/fresh-zahidi-dates-500x500.jpg' },
-            { id: 19, name: 'Rabbi Dates (Rabbi Khajoor)', price: 800, displayPrice: '800 / kg', unitType: 'kg', image: 'https://i.ibb.co/cWsyRkd/Khajoor-Rabbi-Dates-Rabbi.webp' },
-            { id: 20, name: 'Muzafati Dates', price: 900, displayPrice: '900 / kg', unitType: 'kg', image: 'https://i.ibb.co/zttfBfF/product-jpeg.jpg' },
-            { id: 8, name: 'Dry Apricot (Khumani)', price: 1000, displayPrice: '1000 / kg', unitType: 'kg', image: 'https://i.ibb.co/kj0mKHp/images-10.jpg' },
-            { id: 9, name: 'Apricot (Khumani Special)', price: 1400, displayPrice: '1400 / kg', unitType: 'kg', image: 'https://i.ibb.co/PG92LmTd/images-9.jpg' },
-            { id: 10, name: 'Fig (Anjeer)', price: 2900, displayPrice: '2900 / kg', unitType: 'kg', image: 'https://i.ibb.co/cP0pgP2/images-3.jpg' },
-            { id: 11, name: 'Premium Raisin (Kishmish)', price: 1400, displayPrice: '1400 / kg', unitType: 'kg', image: 'https://i.ibb.co/VYCFk7Nv/Sdf266a4d4f9d476c97e9dbc95c2574470.jpg' },
-            { id: 12, name: 'Black Raisin', price: 1600, displayPrice: '1600 / kg', unitType: 'kg', image: 'https://i.ibb.co/84L8k57b/36399765-776a466f-10c3-4461-b2e3-03c9cfc0366f.jpg' },
-            { id: 13, name: 'Khopra (Dried Coconut)', price: 1200, displayPrice: '1200 / kg', unitType: 'kg', image: 'https://i.ibb.co/fzG82C88/images-13.jpg' },
-            { id: 14, name: 'Phool Makhana', price: 3950, displayPrice: '3950 / kg', unitType: 'kg', image: 'https://i.ibb.co/Y7r2b58C/images-12.jpg' },
-            { id: 15, name: 'Pure Raw Honey (Chota Shehed)', price: 5600, displayPrice: '5600 / kg', unitType: 'kg', image: 'https://i.ibb.co/KppgHPT6/raw-honey2.jpg' }
+            { 
+                id: 18, name: 'Fresh Zahidi Dates (Zahidi Khajoor)', price: 480, displayPrice: '480 / kg', unitType: 'kg', image: 'https://i.ibb.co/qY7gNDg3/fresh-zahidi-dates-500x500.jpg',
+                benefits: 'Instant energy booster, hazma durust rakhti hai.', vitamins: 'Iron, Potassium, Fiber', routine: 'Subah nashtay mein 3 Khajoor khayein.'
+            },
+            { 
+                id: 19, name: 'Rabbi Dates (Rabbi Khajoor)', price: 800, displayPrice: '800 / kg', unitType: 'kg', image: 'https://i.ibb.co/cWsyRkd/Khajoor-Rabbi-Dates-Rabbi.webp',
+                benefits: 'Khoon ki kami door karti hai, dil ke liye munasib.', vitamins: 'Magnesium, Vitamin B6, Iron', routine: 'Rozana 2-3 dany doodh ke sath.'
+            },
+            { 
+                id: 20, name: 'Muzafati Dates', price: 900, displayPrice: '900 / kg', unitType: 'kg', image: 'https://i.ibb.co/zttfBfF/product-jpeg.jpg',
+                benefits: 'Naram aur meethi, jism ko fori takat aur tawanai deti hai.', vitamins: 'Natural Sugars, Potassium, Calcium', routine: 'Shaam ko ya workout ke baad 2 dany.'
+            },
+            { 
+                id: 8, name: 'Dry Apricot (Khumani)', price: 1000, displayPrice: '1000 / kg', unitType: 'kg', image: 'https://i.ibb.co/kj0mKHp/images-10.jpg',
+                benefits: 'Mede ki sozish aur qabaz ke liye behtareen ilaj.', vitamins: 'Vitamin A, Vitamin C, Fiber', routine: 'Raat ko 3-4 khumani pani mein bhigo kar subah khayein.'
+            },
+            { 
+                id: 9, name: 'Apricot (Khumani Special)', price: 1400, displayPrice: '1400 / kg', unitType: 'kg', image: 'https://i.ibb.co/PG92LmTd/images-9.jpg',
+                benefits: 'Jild (skin) ko shaffaf banati hai aur eyesight strong karti hai.', vitamins: 'Beta-Carotene, Potassium, Iron', routine: 'Din mein kisi bhi waqt 3-4 dany.'
+            },
+            { 
+                id: 10, name: 'Fig (Anjeer)', price: 2900, displayPrice: '2900 / kg', unitType: 'kg', image: 'https://i.ibb.co/cP0pgP2/images-3.jpg',
+                benefits: 'Qabaz ka qudrati shafa-bakhsh ilaj, haffiza strong kare.', vitamins: 'Calcium, Potassium, Fiber', routine: 'Raat ko 2-3 anjeer pani mein bhigo kar subah khayein.'
+            },
+            { 
+                id: 11, name: 'Premium Raisin (Kishmish)', price: 1400, displayPrice: '1400 / kg', unitType: 'kg', image: 'https://i.ibb.co/VYCFk7Nv/Sdf266a4d4f9d476c97e9dbc95c2574470.jpg',
+                benefits: 'Khoon saf karti hai aur chehre par glow lati hai.', vitamins: 'Iron, Boron, Vitamin B Complex', routine: 'Rozana 10-12 dany paani mein bhigo kar khayein.'
+            },
+            { 
+                id: 12, name: 'Black Raisin', price: 1600, displayPrice: '1600 / kg', unitType: 'kg', image: 'https://i.ibb.co/84L8k57b/36399765-776a466f-10c3-4461-b2e3-03c9cfc0366f.jpg',
+                benefits: 'Hair fall kam karti hai aur blood pressure normal rakhti hai.', vitamins: 'Antioxidants, High Iron, Potassium', routine: 'Subah nihar munh 8-10 dany.'
+            },
+            { 
+                id: 13, name: 'Khopra (Dried Coconut)', price: 1200, displayPrice: '1200 / kg', unitType: 'kg', image: 'https://i.ibb.co/fzG82C88/images-13.jpg',
+                benefits: 'Haddiyon aur jism ki taqat ke liye aala qudrati zariya.', vitamins: 'Healthy Fatty Acids, Manganese', routine: 'Small pieces snack ke tor par khayein.'
+            },
+            { 
+                id: 14, name: 'Phool Makhana', price: 3950, displayPrice: '3950 / kg', unitType: 'kg', image: 'https://i.ibb.co/Y7r2b58C/images-12.jpg',
+                benefits: 'Jodon aur kamar dard ke liye behtareen, low-calorie snack.', vitamins: 'Calcium, Protein, Magnesium', routine: 'Halka sa roast kar ke shaam ko khayein.'
+            },
+            { 
+                id: 15, name: 'Pure Raw Honey (Chota Shehed)', price: 5600, displayPrice: '5600 / kg', unitType: 'kg', image: 'https://i.ibb.co/KppgHPT6/raw-honey2.jpg',
+                benefits: 'Khansi, nazla aur immunity ke liye 100% pure shafa.', vitamins: 'Natural Enzymes, Antioxidants, Minerals', routine: 'Subah neem garam pani mein 1 chamach mix kar ke peein.'
+            }
         ];
 
         const allProducts = [...herbalProducts, ...dryFruitNuts, ...dryFruitDatesHoney];
@@ -667,10 +837,20 @@
         function createProductCard(product) {
             return `
                 <div class="product-card">
-                    <img src="${product.image}" alt="${product.name}" onerror="this.src='https://via.placeholder.com/240x170?text=Madina+Herbal'">
+                    <div class="product-img-wrapper" onclick="openImageModal(${product.id})" title="Click to enlarge image">
+                        <img src="${product.image}" alt="${product.name}" onerror="this.src='https://via.placeholder.com/240x170?text=Madina+Herbal'">
+                        <div class="img-zoom-badge"><i class="fas fa-search-plus"></i></div>
+                    </div>
                     <div class="product-details">
                         <div class="product-title">${product.name}</div>
                         <div class="product-price">Rs. ${product.displayPrice}</div>
+                        
+                        <div class="product-desc">
+                            <strong>Fawaid:</strong> ${product.benefits}<br>
+                            <strong>Vitamins:</strong> ${product.vitamins}<br>
+                            <strong>Routine:</strong> ${product.routine}
+                        </div>
+
                         <button class="add-to-cart-btn" onclick="addToCart(${product.id})">Add to Cart</button>
                     </div>
                 </div>
@@ -686,7 +866,7 @@
         function renderAllGrids() {
             renderCategoryGrid('grid-herbal', herbalProducts, categoryState.herbal);
             renderCategoryGrid('grid-nuts', dryFruitNuts, categoryState.nuts);
-            renderCategoryGrid('grid-dates-honey', dryFruitDatesHoney, categoryState.dates-honey);
+            renderCategoryGrid('grid-dates-honey', dryFruitDatesHoney, categoryState['dates-honey']);
         }
 
         // Toggle Show More / Show Less
@@ -707,6 +887,34 @@
             } else {
                 btn.innerHTML = 'Show More <i class="fas fa-chevron-down"></i>';
             }
+        }
+
+        // IMAGE LIGHTBOX MODAL LOGIC
+        function openImageModal(productId) {
+            const product = allProducts.find(p => p.id === productId);
+            if (!product) return;
+
+            document.getElementById('preview-img').src = product.image;
+            document.getElementById('preview-title').innerText = product.name;
+            document.getElementById('preview-price').innerText = `Rs. ${product.displayPrice}`;
+            
+            const cartBtn = document.getElementById('preview-cart-btn');
+            cartBtn.onclick = function() {
+                addToCart(product.id);
+                closeImageModalDirect();
+            };
+
+            document.getElementById('image-modal').style.display = 'flex';
+        }
+
+        function closeImageModal(event) {
+            if (event.target.id === 'image-modal') {
+                document.getElementById('image-modal').style.display = 'none';
+            }
+        }
+
+        function closeImageModalDirect() {
+            document.getElementById('image-modal').style.display = 'none';
         }
 
         // LIVE SEARCH

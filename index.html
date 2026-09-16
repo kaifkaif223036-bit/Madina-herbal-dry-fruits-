@@ -3,10 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Madina Herbal & Dry Fruit - [Fresh quality with best price]</title>
+    <title>Madina Herbal & Dry Fruit - Fresh Quality With Best Price</title>
     
     <!-- FontAwesome Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
 
     <style>
         /* RESET & BASE STYLES */
@@ -14,25 +16,27 @@
             box-sizing: border-box;
             margin: 0;
             padding: 0;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: 'Poppins', sans-serif;
         }
         html {
             scroll-behavior: smooth;
         }
         body {
-            background-color: #fdfaf6;
-            background-image: radial-gradient(#e67e22 0.5px, transparent 0.5px), radial-gradient(#d35400 0.5px, #fdfaf6 0.5px);
-            background-size: 20px 20px;
-            background-position: 0 0, 10px 10px;
-            color: #2c3e50;
+            background-color: #f7f3e9;
+            background-image: radial-gradient(#e2d7c5 0.8px, transparent 0.8px);
+            background-size: 24px 24px;
+            color: #2d3b2d;
             line-height: 1.6;
-            padding-bottom: 20px;
+            padding-bottom: 30px;
+        }
+
+        h1, h2, h3, .brand-title {
+            font-family: 'Playfair Display', serif;
         }
 
         /* HEADER & NAVBAR */
         header {
-            background: #2c3e50;
-            color: #fff;
+            background: #ffffff;
             padding: 1rem 5%;
             position: sticky;
             top: 0;
@@ -40,142 +44,235 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.15);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            border-bottom: 2px solid #e8dfcf;
+        }
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        .logo i {
+            font-size: 2.2rem;
+            color: #4a6b32;
         }
         .logo h1 {
-            font-size: 1.4rem;
-            color: #f39c12;
+            font-size: 1.3rem;
+            color: #2d3b2d;
+            font-weight: 700;
+            line-height: 1.1;
         }
         .logo p {
-            font-size: 0.8rem;
-            color: #ecf0f1;
+            font-size: 0.75rem;
+            color: #6b7c5d;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        .header-actions {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .nav-whatsapp-btn {
+            background: #3f5e27;
+            color: #fff;
+            padding: 8px 18px;
+            border-radius: 20px;
+            text-decoration: none;
+            font-size: 0.85rem;
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            transition: 0.3s;
+        }
+        .nav-whatsapp-btn:hover {
+            background: #2c441a;
         }
 
         /* HERO SECTION */
         .hero {
             position: relative;
-            min-height: 45vh;
-            background: linear-gradient(rgba(0, 0, 0, 0.55), rgba(0, 0, 0, 0.55)), 
+            min-height: 50vh;
+            background: linear-gradient(rgba(247, 243, 233, 0.85), rgba(247, 243, 233, 0.85)), 
                         url('https://i.ibb.co/KzhGKVxC/Dry-Fruits-for-Daily-Energy-Immunity-ecc133ea-2feb-4ecb-8f4b-152e938c5828.jpg') center/cover no-repeat;
             display: flex;
             align-items: center;
             justify-content: center;
             text-align: center;
-            color: #fff;
-            padding: 2.5rem 1rem;
+            padding: 3rem 1.5rem;
+        }
+        .hero-content {
+            max-width: 750px;
         }
         .hero-content h2 {
-            font-size: 1.8rem;
+            font-size: 2.3rem;
+            color: #2d3b2d;
             margin-bottom: 1rem;
-            text-shadow: 2px 2px 6px rgba(0,0,0,0.9);
             font-weight: 700;
-            line-height: 1.3;
+            line-height: 1.2;
+        }
+        .hero-content p {
+            font-size: 1.05rem;
+            color: #526344;
+            margin-bottom: 1.8rem;
         }
 
-        .highlight-tag {
-            display: inline-block;
-            background: linear-gradient(135deg, #f1c40f, #e67e22);
-            color: #111111;
-            padding: 8px 22px;
-            border-radius: 30px;
-            font-size: 1rem;
-            font-weight: 800;
-            margin-bottom: 1.5rem;
-            box-shadow: 0 4px 15px rgba(243, 156, 18, 0.6);
-            letter-spacing: 0.5px;
-            border: 2px solid #ffffff;
-            text-transform: uppercase;
+        .hero-buttons {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+            flex-wrap: wrap;
         }
 
-        .shop-now-btn {
-            background: #e67e22;
+        .btn-primary-custom {
+            background: #b07d2b;
             color: #fff;
-            padding: 0.85rem 2.4rem;
-            font-size: 1.1rem;
+            padding: 0.8rem 2rem;
+            font-size: 1rem;
             border: none;
-            border-radius: 25px;
+            border-radius: 8px;
             cursor: pointer;
             text-decoration: none;
             transition: 0.3s ease;
-            font-weight: bold;
-            display: inline-block;
-            box-shadow: 0 4px 12px rgba(230, 126, 34, 0.5);
+            font-weight: 500;
+            box-shadow: 0 4px 10px rgba(176, 125, 43, 0.3);
         }
-        .shop-now-btn:hover {
-            background: #d35400;
-            transform: scale(1.05);
+        .btn-primary-custom:hover {
+            background: #91641f;
+            transform: translateY(-2px);
         }
 
-        /* SEARCH BAR CONTAINER */
-        .search-container {
-            max-width: 600px;
-            margin: 1.5rem auto 0.5rem auto;
-            padding: 0 15px;
+        .btn-secondary-custom {
+            background: #ffffff;
+            color: #2d3b2d;
+            padding: 0.8rem 2rem;
+            font-size: 1rem;
+            border: 1px solid #d4c7b0;
+            border-radius: 8px;
+            cursor: pointer;
+            text-decoration: none;
+            transition: 0.3s ease;
+            font-weight: 500;
+        }
+        .btn-secondary-custom:hover {
+            background: #eae2d3;
+        }
+
+        /* FEATURE CARDS */
+        .feature-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 20px;
+            max-width: 1100px;
+            margin: -30px auto 2rem auto;
+            padding: 0 20px;
             position: relative;
+            z-index: 10;
+        }
+        .feature-card {
+            background: #ffffff;
+            border-radius: 12px;
+            padding: 18px 20px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            box-shadow: 0 6px 18px rgba(0,0,0,0.04);
+            border: 1px solid #eae2d3;
+        }
+        .feature-card i {
+            font-size: 2rem;
+            color: #3f5e27;
+            background: #f0f4ec;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .feature-card h4 {
+            font-size: 0.95rem;
+            color: #2d3b2d;
+        }
+        .feature-card p {
+            font-size: 0.8rem;
+            color: #728265;
+        }
+
+        /* SEARCH BAR */
+        .search-container {
+            max-width: 650px;
+            margin: 1rem auto 1.5rem auto;
+            padding: 0 20px;
         }
         .search-wrapper {
             display: flex;
             align-items: center;
-            background: #fff;
-            border: 2px solid #e67e22;
+            background: #ffffff;
+            border: 1px solid #c9bd9f;
             border-radius: 30px;
-            padding: 5px 15px;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+            padding: 6px 20px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.03);
         }
         .search-wrapper i {
-            color: #e67e22;
-            font-size: 1.2rem;
-            margin-right: 10px;
+            color: #3f5e27;
+            font-size: 1.1rem;
+            margin-right: 12px;
         }
         .search-wrapper input {
             border: none;
             outline: none;
             width: 100%;
-            padding: 10px 5px;
-            font-size: 1rem;
+            padding: 8px 0;
+            font-size: 0.95rem;
             background: transparent;
         }
 
-        /* MAIN CATEGORY SECTIONS */
-        .section-header {
-            margin: 2rem 3% 0.5rem 3%;
-            padding-bottom: 0.5rem;
-            border-bottom: 3px solid #2c3e50;
-            color: #2c3e50;
-            font-size: 1.5rem;
-            display: flex;
-            align-items: center;
-            gap: 10px;
+        /* SECTION HEADERS */
+        .section-title-wrapper {
+            text-align: center;
+            margin: 2.5rem 0 1rem 0;
+            position: relative;
         }
-        .section-header i {
-            color: #e67e22;
+        .section-title-wrapper h2 {
+            font-size: 1.6rem;
+            color: #2d3b2d;
+            display: inline-block;
+            position: relative;
+            padding: 0 15px;
+        }
+        .section-title-wrapper h2::before, .section-title-wrapper h2::after {
+            content: "🌿";
+            font-size: 1rem;
+            margin: 0 8px;
+            opacity: 0.7;
         }
 
         .category-subtitle {
-            margin: 1.2rem 3% 0.5rem 3%;
-            color: #2c3e50;
-            font-size: 1.15rem;
-            border-left: 5px solid #e67e22;
-            padding-left: 10px;
-            background: rgba(255, 255, 255, 0.9);
-            display: inline-block;
-            padding-right: 15px;
-            border-radius: 0 8px 8px 0;
-            box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+            margin: 1.5rem 4% 0.8rem 4%;
+            color: #3f5e27;
+            font-size: 1.1rem;
+            font-weight: 600;
+            border-bottom: 2px solid #ded3be;
+            padding-bottom: 5px;
+            display: block;
         }
 
-        /* VERTICAL 2-COLUMN GRID SYSTEM */
+        /* PRODUCT GRID */
         .products-grid {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
-            gap: 12px;
-            padding: 0.5rem 3% 1.5rem 3%;
+            gap: 15px;
+            padding: 0 4% 1.5rem 4%;
         }
 
         @media (min-width: 768px) {
             .products-grid {
                 grid-template-columns: repeat(3, 1fr);
-                gap: 20px;
+                gap: 22px;
             }
         }
 
@@ -184,32 +281,31 @@
                 grid-template-columns: repeat(4, 1fr);
             }
         }
-        
+
         /* PRODUCT CARD */
         .product-card {
-            background: #fff;
-            border-radius: 10px;
-            box-shadow: 0 3px 10px rgba(0,0,0,0.08);
+            background: #ffffff;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.04);
             overflow: hidden;
             display: flex;
             flex-direction: column;
             justify-content: space-between;
-            transition: transform 0.2s, box-shadow 0.2s;
-            border: 1px solid #eadbc8;
+            transition: transform 0.25s ease, box-shadow 0.25s ease;
+            border: 1px solid #eae2d3;
         }
         .product-card:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 5px 15px rgba(0,0,0,0.12);
+            transform: translateY(-4px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.08);
         }
         .product-card img {
             width: 100%;
-            height: 140px;
+            height: 150px;
             object-fit: cover;
-            background-color: #f4f4f4;
+            background-color: #f2ece1;
         }
         .product-details {
-            padding: 0.7rem;
-            text-align: center;
+            padding: 0.9rem;
             display: flex;
             flex-direction: column;
             flex-grow: 1;
@@ -217,36 +313,45 @@
         }
         .product-title {
             font-size: 0.9rem;
-            font-weight: bold;
-            margin-bottom: 0.3rem;
-            color: #2c3e50;
-            line-height: 1.2;
-            height: 2.4em;
+            font-weight: 600;
+            margin-bottom: 0.4rem;
+            color: #2d3b2d;
+            line-height: 1.3;
+            height: 2.6em;
             overflow: hidden;
             display: -webkit-box;
             -webkit-line-clamp: 2;
             -webkit-box-orient: vertical;
         }
+        .price-cart-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 0.6rem;
+            gap: 5px;
+        }
         .product-price {
-            color: #d35400;
-            font-weight: bold;
-            font-size: 0.95rem;
-            margin-bottom: 0.6rem;
+            color: #8c5d18;
+            font-weight: 700;
+            font-size: 0.9rem;
         }
         .add-to-cart-btn {
-            background: #27ae60;
+            background: #3f5e27;
             color: #fff;
             border: none;
-            width: 100%;
-            padding: 0.55rem;
+            padding: 0.45rem 0.8rem;
             border-radius: 6px;
             cursor: pointer;
-            font-weight: bold;
-            font-size: 0.85rem;
+            font-weight: 500;
+            font-size: 0.8rem;
             transition: 0.2s;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            white-space: nowrap;
         }
         .add-to-cart-btn:hover {
-            background: #219150;
+            background: #2c441a;
         }
 
         /* FLOATING BUTTONS */
@@ -254,16 +359,16 @@
             position: fixed;
             bottom: 85px;
             right: 20px;
-            background: #e67e22;
+            background: #3f5e27;
             color: white;
-            width: 58px;
-            height: 58px;
+            width: 55px;
+            height: 55px;
             border-radius: 50%;
             display: flex;
             justify-content: center;
             align-items: center;
-            font-size: 1.4rem;
-            box-shadow: 0 4px 14px rgba(0,0,0,0.3);
+            font-size: 1.3rem;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
             cursor: pointer;
             z-index: 1000;
         }
@@ -271,39 +376,39 @@
             position: absolute;
             top: 2px;
             right: 2px;
-            background: #c0392b;
+            background: #b07d2b;
             color: white;
-            font-size: 0.75rem;
-            padding: 2px 7px;
+            font-size: 0.7rem;
+            padding: 2px 6px;
             border-radius: 50%;
             font-weight: bold;
         }
         .whatsapp-float {
             position: fixed;
-            bottom: 18px;
+            bottom: 20px;
             right: 20px;
             background: #25d366;
             color: white;
-            width: 58px;
-            height: 58px;
+            width: 55px;
+            height: 55px;
             border-radius: 50%;
             display: flex;
             justify-content: center;
             align-items: center;
-            font-size: 1.8rem;
-            box-shadow: 0 4px 14px rgba(0,0,0,0.3);
+            font-size: 1.7rem;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
             z-index: 1000;
             text-decoration: none;
         }
 
-        /* CART MODAL & CUSTOMER DETAILS */
+        /* CART MODAL */
         .modal-overlay {
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            background: rgba(0,0,0,0.65);
+            background: rgba(0,0,0,0.5);
             display: none;
             justify-content: center;
             align-items: center;
@@ -323,7 +428,7 @@
             position: absolute;
             top: 15px;
             right: 18px;
-            font-size: 1.6rem;
+            font-size: 1.5rem;
             cursor: pointer;
             color: #888;
         }
@@ -341,11 +446,11 @@
             justify-content: space-between;
             align-items: center;
             margin-bottom: 0.8rem;
-            font-size: 0.9rem;
-            background: #fdfaf6;
+            font-size: 0.88rem;
+            background: #fbf9f5;
             padding: 8px 10px;
             border-radius: 8px;
-            border: 1px solid #f0e6d2;
+            border: 1px solid #eae2d3;
         }
         .cart-item-info {
             flex: 1;
@@ -357,92 +462,82 @@
             gap: 5px;
         }
         .qty-btn {
-            background: #e67e22;
+            background: #3f5e27;
             color: white;
             border: none;
-            width: 26px;
-            height: 26px;
+            width: 25px;
+            height: 25px;
             border-radius: 50%;
             cursor: pointer;
             font-weight: bold;
-            font-size: 0.9rem;
+            font-size: 0.85rem;
             display: flex;
             align-items: center;
             justify-content: center;
-            transition: 0.2s;
-        }
-        .qty-btn:hover {
-            background: #d35400;
         }
         .delete-btn {
-            background: #e74c3c;
+            background: #c0392b;
             color: white;
             border: none;
-            width: 26px;
-            height: 26px;
+            width: 25px;
+            height: 25px;
             border-radius: 6px;
             cursor: pointer;
             margin-left: 4px;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 0.8rem;
+            font-size: 0.75rem;
         }
-        .delete-btn:hover {
-            background: #c0392b;
-        }
-        
-        /* BILL SUMMARY BOX */
+
         .cart-summary {
-            background: #f8f9fa;
+            background: #f7f3e9;
             border-radius: 8px;
             padding: 10px 14px;
             margin-bottom: 1rem;
-            font-size: 0.95rem;
-            border: 1px solid #e9ecef;
+            font-size: 0.9rem;
+            border: 1px solid #eae2d3;
         }
         .summary-row {
             display: flex;
             justify-content: space-between;
-            margin-bottom: 5px;
+            margin-bottom: 4px;
             color: #555;
         }
         .summary-row.total-row {
-            border-top: 1px dashed #ccc;
+            border-top: 1px dashed #bbb;
             padding-top: 6px;
             margin-top: 6px;
             font-weight: bold;
-            color: #2c3e50;
-            font-size: 1.1rem;
+            color: #2d3b2d;
+            font-size: 1.05rem;
         }
 
         .checkout-form label {
             font-size: 0.85rem;
-            font-weight: bold;
-            color: #444;
+            font-weight: 600;
+            color: #2d3b2d;
             display: block;
-            margin-bottom: 0.3rem;
+            margin-bottom: 0.2rem;
         }
         .checkout-form input, .checkout-form textarea, .checkout-form select {
             width: 100%;
-            padding: 0.7rem;
-            margin-bottom: 0.9rem;
+            padding: 0.65rem;
+            margin-bottom: 0.8rem;
             border: 1px solid #ccc;
             border-radius: 6px;
-            font-size: 0.95rem;
+            font-size: 0.9rem;
         }
 
-        /* BANK / EASYPAISA INFO DISPLAY BOX */
         .bank-details-box {
             display: none;
-            background: #fdf3e7;
-            border: 1px dashed #e67e22;
-            padding: 12px;
+            background: #f4efe4;
+            border: 1px dashed #b07d2b;
+            padding: 10px;
             border-radius: 8px;
-            font-size: 0.88rem;
+            font-size: 0.85rem;
             margin-bottom: 1rem;
-            color: #2c3e50;
-            line-height: 1.5;
+            color: #2d3b2d;
         }
 
         .action-buttons {
@@ -451,51 +546,43 @@
             margin-top: 10px;
         }
         .btn-email {
-            background: #3498db;
+            background: #2980b9;
             color: white;
             border: none;
             flex: 1;
-            padding: 0.85rem;
+            padding: 0.75rem;
             border-radius: 6px;
-            font-size: 0.9rem;
+            font-size: 0.85rem;
             cursor: pointer;
-            font-weight: bold;
+            font-weight: 600;
             display: flex;
             align-items: center;
             justify-content: center;
-            gap: 8px;
-            transition: 0.2s;
-        }
-        .btn-email:hover {
-            background: #2980b9;
+            gap: 6px;
         }
         .btn-whatsapp {
             background: #25d366;
             color: white;
             border: none;
             flex: 1;
-            padding: 0.85rem;
+            padding: 0.75rem;
             border-radius: 6px;
-            font-size: 0.9rem;
+            font-size: 0.85rem;
             cursor: pointer;
-            font-weight: bold;
+            font-weight: 600;
             display: flex;
             align-items: center;
             justify-content: center;
-            gap: 8px;
-            transition: 0.2s;
-        }
-        .btn-whatsapp:hover {
-            background: #1eb854;
+            gap: 6px;
         }
 
         /* FOOTER */
         footer {
-            background: #2c3e50;
-            color: #fff;
+            background: #2d3b2d;
+            color: #eae2d3;
             text-align: center;
             padding: 1.5rem;
-            margin-top: 2rem;
+            margin-top: 3rem;
         }
     </style>
 </head>
@@ -504,21 +591,55 @@
     <!-- NAVBAR -->
     <header>
         <div class="logo">
-            <h1>Madina Herbal & Dry Fruit</h1>
-            <p>[fresh quality with best price]</p>
+            <i class="fas fa-leaf"></i>
+            <div>
+                <h1>Madina</h1>
+                <p>HERBAL & DRY FRUITS</p>
+            </div>
+        </div>
+        <div class="header-actions">
+            <a href="https://wa.me/923092700965" target="_blank" class="nav-whatsapp-btn">
+                <i class="fab fa-whatsapp"></i> Order on WhatsApp
+            </a>
         </div>
     </header>
 
     <!-- HERO SECTION -->
     <section class="hero">
         <div class="hero-content">
-            <h2>Premium Quality Herbal & Dry Fruits Available</h2>
-            <div>
-                <span class="highlight-tag">fresh quality with best price</span>
+            <h2>Natural Goodness<br><i>for a</i> Healthier Life</h2>
+            <p>Explore our selection of herbal remedies and premium dried fruits.</p>
+            <div class="hero-buttons">
+                <a href="#products-start" class="btn-primary-custom">Shop Now</a>
+                <a href="https://wa.me/923092700965" target="_blank" class="btn-secondary-custom">Contact Us</a>
             </div>
-            <a href="#products-start" class="shop-now-btn">Shop Now</a>
         </div>
     </section>
+
+    <!-- FEATURE CARDS -->
+    <div class="feature-cards">
+        <div class="feature-card">
+            <i class="fas fa-mortar-pestle"></i>
+            <div>
+                <h4>Herbal Supplements</h4>
+                <p>Natural remedies for your well-being.</p>
+            </div>
+        </div>
+        <div class="feature-card">
+            <i class="fas fa-seedling"></i>
+            <div>
+                <h4>Premium Dry Fruits</h4>
+                <p>High-quality, nutritious dry fruits.</p>
+            </div>
+        </div>
+        <div class="feature-card">
+            <i class="fas fa-heartbeat"></i>
+            <div>
+                <h4>Health & Wellness</h4>
+                <p>Boost your health naturally.</p>
+            </div>
+        </div>
+    </div>
 
     <!-- LIVE SEARCH BAR -->
     <div class="search-container" id="products-start">
@@ -530,32 +651,34 @@
 
     <!-- SEARCH RESULTS DISPLAY CONTAINER -->
     <div id="search-results-wrapper" style="display: none;">
-        <h3 class="section-header"><i class="fas fa-search"></i> Search Results</h3>
+        <div class="section-title-wrapper">
+            <h2>Search Results</h2>
+        </div>
         <div class="products-grid" id="search-grid"></div>
     </div>
 
     <!-- MAIN CATEGORIES -->
     <div id="main-categories">
-        
+        <div class="section-title-wrapper">
+            <h2>Our Products</h2>
+        </div>
+
         <!-- SECTION 1: HERBAL PRODUCTS -->
-        <h2 class="section-header"><i class="fas fa-leaf"></i> Herbal Products & Seeds</h2>
-        <h3 class="category-subtitle">Organic Seeds, Roots & Packs</h3>
+        <span class="category-subtitle"><i class="fas fa-leaf"></i> Herbal Products & Seeds</span>
         <div class="products-grid" id="grid-herbal"></div>
 
-        <!-- SECTION 2: DRY FRUITS -->
-        <h2 class="section-header"><i class="fas fa-seedling"></i> Dry Fruits & Nuts</h2>
-        
-        <h3 class="category-subtitle">Almonds, Walnuts, Cashews & Pistachio</h3>
+        <!-- SECTION 2: DRY FRUITS NUTS -->
+        <span class="category-subtitle"><i class="fas fa-seedling"></i> Nuts & Kernels</span>
         <div class="products-grid" id="grid-nuts"></div>
 
-        <h3 class="category-subtitle">Dates, Apricots, Figs, Raisins & Honey</h3>
+        <!-- SECTION 3: DATES & HONEY -->
+        <span class="category-subtitle"><i class="fas fa-box"></i> Dates, Apricots & Honey</span>
         <div class="products-grid" id="grid-dates-honey"></div>
-
     </div>
 
     <!-- FLOATING CART BUTTON -->
     <div class="floating-cart" onclick="toggleCart()">
-        <i class="fas fa-shopping-cart"></i>
+        <i class="fas fa-shopping-bag"></i>
         <span class="cart-count" id="cart-count">0</span>
     </div>
 
@@ -568,7 +691,7 @@
     <div class="modal-overlay" id="cart-modal">
         <div class="modal-content">
             <span class="close-modal" onclick="toggleCart()">&times;</span>
-            <h2 style="color: #2c3e50; margin-bottom: 0.5rem;">Your Shopping Cart</h2>
+            <h2 style="color: #2d3b2d; margin-bottom: 0.5rem; font-family: 'Playfair Display';">Your Shopping Cart</h2>
             
             <div class="cart-items-list" id="cart-items">
                 <p style="text-align:center; color:#777;">Your cart is empty.</p>
@@ -590,7 +713,7 @@
                 </div>
             </div>
 
-            <h3 style="margin-bottom: 0.6rem; color: #2c3e50;">Customer Details</h3>
+            <h3 style="margin-bottom: 0.6rem; color: #2d3b2d; font-size: 1.05rem;">Customer Details</h3>
             <form class="checkout-form" id="checkout-form" onsubmit="event.preventDefault();">
                 <label for="cust-name">Full Name</label>
                 <input type="text" id="cust-name" placeholder="Enter your full name" required>
@@ -616,10 +739,10 @@
 
                 <!-- BANK & EASYPAISA DETAILS BOX -->
                 <div class="bank-details-box" id="bank-info">
-                    <strong style="color:#d35400; font-size:0.95rem;">Payment Account Details:</strong><br>
+                    <strong style="color:#b07d2b;">Payment Account Details:</strong><br>
                     • <strong>EasyPaisa:</strong> 03467224956<br>
                     • <strong>Meezan Bank:</strong> 98280106636773<br>
-                    <small style="display:block; margin-top:4px; color:#555;"><i>* Payment bhejne ke baad screenshot receipt zaroor share karein.</i></small>
+                    <small style="display:block; margin-top:4px; color:#666;"><i>* Payment bhejne ke baad screenshot receipt zaroor share karein.</i></small>
                 </div>
 
                 <div class="action-buttons">
@@ -637,7 +760,7 @@
     <!-- FOOTER -->
     <footer>
         <p>&copy; 2026 Madina Herbal & Dry Fruit. All Rights Reserved.</p>
-        <p style="font-size: 0.85rem; color: #bdc3c7; margin-top: 4px;">Owner Email: kaifkaif223036@gmail.com | Phone: 03092700965</p>
+        <p style="font-size: 0.8rem; color: #a3b098; margin-top: 4px;">Owner Email: kaifkaif223036@gmail.com | Phone: 03092700965</p>
     </footer>
 
     <!-- JAVASCRIPT LOGIC -->
@@ -692,8 +815,12 @@
                     <img src="${product.image}" alt="${product.name}" onerror="this.src='https://via.placeholder.com/240x170?text=Madina+Herbal'">
                     <div class="product-details">
                         <div class="product-title">${product.name}</div>
-                        <div class="product-price">Rs. ${product.displayPrice}</div>
-                        <button class="add-to-cart-btn" onclick="addToCart(${product.id})">Add to Cart</button>
+                        <div class="price-cart-row">
+                            <div class="product-price">Rs. ${product.displayPrice}</div>
+                            <button class="add-to-cart-btn" onclick="addToCart(${product.id})">
+                                <i class="fas fa-cart-plus"></i> Add
+                            </button>
+                        </div>
                     </div>
                 </div>
             `;
@@ -859,11 +986,11 @@
                     <div class="cart-item">
                         <div class="cart-item-info">
                             <strong>${item.name}</strong><br>
-                            <span style="color:#d35400;">Rs. ${item.displayPrice} &times; ${formatQuantity(item)} = <strong>Rs. ${itemTotal}</strong></span>
+                            <span style="color:#b07d2b;">Rs. ${item.displayPrice} &times; ${formatQuantity(item)} = <strong>Rs. ${itemTotal}</strong></span>
                         </div>
                         <div class="qty-controls">
                             <button class="qty-btn" onclick="decreaseQty(${item.id})">-</button>
-                            <span style="font-weight:bold; min-width:50px; text-align:center; font-size:0.85rem;">${formatQuantity(item)}</span>
+                            <span style="font-weight:bold; min-width:45px; text-align:center; font-size:0.8rem;">${formatQuantity(item)}</span>
                             <button class="qty-btn" onclick="increaseQty(${item.id})">+</button>
                             <button class="delete-btn" onclick="removeFromCart(${item.id})"><i class="fas fa-trash-alt"></i></button>
                         </div>

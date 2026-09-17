@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Madina Herbal & Dry Fruit - Fresh quality with best price</title>
+    <title>Madina Herbal & Dry Fruit - Fresh Quality Best Price</title>
 
     <!-- FontAwesome Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -75,7 +75,7 @@
             .nav-whatsapp-btn { padding: 10px 20px; font-size: 0.85rem; }
         }
 
-        /* CATEGORY QUICK LINKS */
+        /* QUICK LINKS */
         .quick-links {
             display: flex;
             gap: 10px;
@@ -311,7 +311,7 @@
         }
         .close-modal { position: absolute; top: 15px; right: 18px; font-size: 1.5rem; cursor: pointer; color: #888; }
         .modal-content h2 { color: #2d3b2d; margin-bottom: 0.5rem; font-size: 1.3rem; }
-        .modal-content h3 { color: #2d3b2d; margin-bottom: 0.6rem; font-size: 1.05rem; font-family: 'Poppins', sans-serif; font-weight: 600; }
+        
         .cart-items-list {
             list-style: none; margin: 1rem 0;
             border-top: 1px solid #eee; border-bottom: 1px solid #eee;
@@ -322,21 +322,17 @@
             margin-bottom: 0.8rem; font-size: 0.88rem;
             background: #fbf9f5; padding: 8px 10px; border-radius: 8px; border: 1px solid #eae2d3;
         }
-        .cart-item-info { flex: 1; padding-right: 10px; }
         .qty-controls { display: flex; align-items: center; gap: 5px; }
         .qty-btn {
             background: #3f5e27; color: white; border: none;
             width: 25px; height: 25px; border-radius: 50%; cursor: pointer;
-            font-weight: bold; font-size: 0.85rem;
-            display: flex; align-items: center; justify-content: center;
+            font-weight: bold; font-size: 0.85rem; display: flex; align-items: center; justify-content: center;
         }
-        .qty-btn:hover { background: #2c441a; }
         .delete-btn {
             background: #c0392b; color: white; border: none;
             width: 25px; height: 25px; border-radius: 6px; cursor: pointer;
             margin-left: 4px; display: flex; align-items: center; justify-content: center; font-size: 0.75rem;
         }
-        .delete-btn:hover { background: #a3301f; }
 
         .cart-summary { background: #f7f3e9; border-radius: 8px; padding: 10px 14px; margin-bottom: 1rem; font-size: 0.9rem; border: 1px solid #eae2d3; }
         .summary-row { display: flex; justify-content: space-between; margin-bottom: 4px; color: #555; }
@@ -351,11 +347,6 @@
             border: 1px solid #ccc; border-radius: 6px; font-size: 0.9rem; font-family: 'Poppins', sans-serif;
         }
 
-        .bank-details-box {
-            display: none; background: #f4efe4; border: 1px dashed #b07d2b;
-            padding: 10px; border-radius: 8px; font-size: 0.85rem; margin-bottom: 1rem; color: #2d3b2d;
-        }
-
         .btn-place-order {
             background: #3f5e27; color: white; border: none; width: 100%;
             padding: 0.85rem; border-radius: 20px; font-size: 1rem; cursor: pointer; font-weight: 600;
@@ -366,7 +357,18 @@
 
         .order-success-msg {
             display: none; background: #d4edda; color: #155724; border: 1px solid #c3e6cb;
-            padding: 12px; border-radius: 8px; margin-top: 10px; text-align: center; font-size: 0.9rem;
+            padding: 15px; border-radius: 8px; margin-top: 10px; text-align: center; font-size: 0.95rem;
+        }
+        .btn-print {
+            background: #b07d2b; color: white; border: none; padding: 8px 16px;
+            border-radius: 15px; cursor: pointer; margin-top: 10px; font-weight: 600;
+        }
+
+        /* PRINT STYLING */
+        @media print {
+            body * { visibility: hidden; }
+            #printable-receipt, #printable-receipt * { visibility: visible; }
+            #printable-receipt { position: absolute; left: 0; top: 0; width: 100%; }
         }
 
         /* FOOTER */
@@ -397,7 +399,7 @@
         <div class="header-actions">
             <i class="fas fa-phone-alt header-phone"></i>
             <a href="https://wa.me/923092700965" target="_blank" class="nav-whatsapp-btn">
-                <i class="fab fa-whatsapp"></i> Order on WhatsApp
+                <i class="fab fa-whatsapp"></i> WhatsApp
             </a>
         </div>
     </header>
@@ -405,7 +407,6 @@
     <div class="quick-links">
         <a href="#grid-herbal">Herbal Products</a>
         <a href="#grid-nuts">Dry Fruits &amp; Nuts</a>
-        <a href="#grid-dates-honey">Dates &amp; Honey</a>
         <a href="#contact">Contact</a>
     </div>
 
@@ -413,7 +414,7 @@
     <section class="hero" id="about">
         <div class="hero-text">
             <h2>Natural Goodness<br><em>for a</em> Healthier Life</h2>
-            <p>Fresh quality with best price &mdash; explore our herbal roots &amp; seeds, premium dry fruits, and pure honey.</p>
+            <p>Fresh quality with best price — explore our herbal roots &amp; seeds, premium dry fruits, and pure honey.</p>
             <div class="hero-buttons">
                 <a href="#products-start" class="btn-primary-custom">Shop Now</a>
                 <a href="https://wa.me/923092700965" target="_blank" class="btn-secondary-custom">Contact Us</a>
@@ -453,16 +454,8 @@
     <div class="search-container" id="products-start">
         <div class="search-wrapper">
             <i class="fas fa-search"></i>
-            <input type="text" id="search-input" placeholder="Search products (e.g. Almond, Dates, Flax, Musli, Honey...)" onkeyup="filterProducts()">
+            <input type="text" id="search-input" placeholder="Search products (e.g. Almond, Dates, Flax, Musli...)" onkeyup="filterProducts()">
         </div>
-    </div>
-
-    <!-- SEARCH RESULTS DISPLAY CONTAINER -->
-    <div id="search-results-wrapper" style="display: none;">
-        <div class="section-title-wrapper">
-            <h2>Search Results</h2>
-        </div>
-        <div class="products-grid" id="search-grid"></div>
     </div>
 
     <!-- MAIN CATEGORIES -->
@@ -471,354 +464,244 @@
             <h2>Our Products</h2>
         </div>
 
-        <!-- SECTION 1: HERBAL PRODUCTS -->
         <span class="category-subtitle" id="grid-herbal"><i class="fas fa-leaf"></i> Organic Herbal Products</span>
         <div class="products-grid">
-            <div class="product-card" data-name="flax seed alsi seeds" data-title="Flax Seed (Alsi) 250g" data-price="250" data-img="https://i.ibb.co/L5k6v7F/flax-seeds.jpg">
-                <img src="https://i.ibb.co/L5k6v7F/flax-seeds.jpg" alt="Flax Seed">
+            <div class="product-card">
+                <img src="https://i.ibb.co/bg4dF9C9/dry-almonds-500x500-1.jpg" alt="Herbal Mixture">
                 <div class="product-details">
-                    <div class="product-title">Flax Seed (Alsi) 250g</div>
-                    <div class="product-price">Rs. 250</div>
-                    <button class="add-to-cart-btn" onclick="addToCart('Flax Seed (Alsi) 250g', 250)">Add to Cart</button>
-                </div>
-            </div>
-            <div class="product-card" data-name="white musli safed musli" data-title="Safed Musli Powder 100g" data-price="600" data-img="https://i.ibb.co/m0fGZ9M/safed-musli.jpg">
-                <img src="https://i.ibb.co/m0fGZ9M/safed-musli.jpg" alt="Safed Musli">
-                <div class="product-details">
-                    <div class="product-title">Safed Musli Powder 100g</div>
-                    <div class="product-price">Rs. 600</div>
-                    <button class="add-to-cart-btn" onclick="addToCart('Safed Musli Powder 100g', 600)">Add to Cart</button>
-                </div>
-            </div>
-        </div>
-
-        <!-- SECTION 2: DRY FRUITS & NUTS -->
-        <span class="category-subtitle" id="grid-nuts"><i class="fas fa-seedling"></i> Premium Dry Fruits &amp; Nuts</span>
-        <div class="products-grid">
-            <div class="product-card" data-name="american almond badam" data-title="American Almonds 250g" data-price="750" data-img="https://i.ibb.co/bg4dF9C9/dry-almonds-500x500-1.jpg">
-                <img src="https://i.ibb.co/bg4dF9C9/dry-almonds-500x500-1.jpg" alt="Almond">
-                <div class="product-details">
-                    <div class="product-title">American Almonds 250g</div>
-                    <div class="product-price">Rs. 750</div>
-                    <button class="add-to-cart-btn" onclick="addToCart('American Almonds 250g', 750)">Add to Cart</button>
-                </div>
-            </div>
-            <div class="product-card" data-name="cashew kaju plain" data-title="Plain Kaju (Cashews) 250g" data-price="900" data-img="https://i.ibb.co/4M0NvyL/cashews.jpg">
-                <img src="https://i.ibb.co/4M0NvyL/cashews.jpg" alt="Cashews">
-                <div class="product-details">
-                    <div class="product-title">Plain Kaju (Cashews) 250g</div>
-                    <div class="product-price">Rs. 900</div>
-                    <button class="add-to-cart-btn" onclick="addToCart('Plain Kaju (Cashews) 250g', 900)">Add to Cart</button>
-                </div>
-            </div>
-        </div>
-
-        <!-- SECTION 3: DATES & HONEY -->
-        <span class="category-subtitle" id="grid-dates-honey"><i class="fas fa-jar"></i> Pure Honey &amp; Premium Dates</span>
-        <div class="products-grid">
-            <div class="product-card" data-name="ajwa dates khajoor" data-title="Ajwa Dates (Khajoor) 500g" data-price="1200" data-img="https://i.ibb.co/VMyh0XG/ajwa-dates.jpg">
-                <img src="https://i.ibb.co/VMyh0XG/ajwa-dates.jpg" alt="Ajwa Dates">
-                <div class="product-details">
-                    <div class="product-title">Ajwa Dates (Khajoor) 500g</div>
+                    <div class="product-title">Special Herbal Mix</div>
                     <div class="product-price">Rs. 1,200</div>
-                    <button class="add-to-cart-btn" onclick="addToCart('Ajwa Dates (Khajoor) 500g', 1200)">Add to Cart</button>
+                    <button class="add-to-cart-btn" onclick="addToCart('Special Herbal Mix', 1200)">Add to Cart</button>
                 </div>
             </div>
-            <div class="product-card" data-name="pure sidr honey berry shahad" data-title="Pure Sidr Honey 500g" data-price="1800" data-img="https://i.ibb.co/0Vp9HwY/sidr-honey.jpg">
-                <img src="https://i.ibb.co/0Vp9HwY/sidr-honey.jpg" alt="Sidr Honey">
+        </div>
+
+        <span class="category-subtitle" id="grid-nuts"><i class="fas fa-seedling"></i> Premium Dry Fruits</span>
+        <div class="products-grid">
+            <div class="product-card">
+                <img src="https://i.ibb.co/bg4dF9C9/dry-almonds-500x500-1.jpg" alt="Almonds">
                 <div class="product-details">
-                    <div class="product-title">Pure Sidr Honey 500g</div>
-                    <div class="product-price">Rs. 1,800</div>
-                    <button class="add-to-cart-btn" onclick="addToCart('Pure Sidr Honey 500g', 1800)">Add to Cart</button>
+                    <div class="product-title">Kagzi Almonds (500g)</div>
+                    <div class="product-price">Rs. 1,500</div>
+                    <button class="add-to-cart-btn" onclick="addToCart('Kagzi Almonds (500g)', 1500)">Add to Cart</button>
                 </div>
             </div>
         </div>
     </div>
 
-    <!-- FLOATING CART BUTTON -->
-    <div class="floating-cart" onclick="toggleCartModal()">
-        <i class="fas fa-shopping-cart"></i>
+    <!-- FLOATING CART & WHATSAPP BUTTONS -->
+    <div class="floating-cart" onclick="openCart()">
+        <i class="fas fa-shopping-bag"></i>
         <span class="cart-count" id="cart-count">0</span>
     </div>
 
-    <!-- FLOATING WHATSAPP BUTTON -->
-    <a href="https://wa.me/923092700965" class="whatsapp-float" target="_blank" id="contact">
+    <a href="https://wa.me/923092700965" target="_blank" class="whatsapp-float">
         <i class="fab fa-whatsapp"></i>
     </a>
 
     <!-- CART & CHECKOUT MODAL -->
     <div class="modal-overlay" id="cart-modal">
         <div class="modal-content">
-            <span class="close-modal" onclick="toggleCartModal()">&times;</span>
+            <span class="close-modal" onclick="closeCart()">&times;</span>
             <h2>Your Shopping Cart</h2>
 
             <ul class="cart-items-list" id="cart-items-list">
-                <!-- Cart items will be loaded dynamically via JS -->
+                <!-- Cart items will be generated here dynamically -->
             </ul>
 
             <div class="cart-summary">
-                <div class="summary-row"><span>Subtotal:</span><span id="subtotal-val">Rs. 0</span></div>
-                <div class="summary-row"><span>Delivery Charges:</span><span id="delivery-val">Rs. 200</span></div>
-                <div class="summary-row total-row"><span>Total:</span><span id="total-val">Rs. 200</span></div>
+                <div class="summary-row"><span>Subtotal:</span><span id="cart-subtotal">Rs. 0</span></div>
+                <div class="summary-row"><span>Delivery:</span><span>Rs. 250</span></div>
+                <div class="summary-row total-row"><span>Total:</span><span id="cart-total">Rs. 250</span></div>
             </div>
 
-            <!-- FORMSPREE CHECKOUT FORM -->
-            <form id="checkout-form" class="checkout-form" action="https://formspree.io/f/xbgljond" method="POST">
-                <h3>Checkout Details</h3>
+            <!-- FORMSPREE DIRECT ORDER FORM -->
+            <form id="order-form" class="checkout-form" action="https://formspree.io/f/xbgljond" method="POST">
+                <input type="hidden" name="Order_Details" id="hidden-order-details">
+                <input type="hidden" name="Total_Amount" id="hidden-total-amount">
 
                 <label for="cust-name">Full Name *</label>
-                <input type="text" id="cust-name" name="Name" required placeholder="Muhammad Ahmed">
+                <input type="text" id="cust-name" name="Customer_Name" required placeholder="Enter your full name">
 
                 <label for="cust-phone">Phone Number *</label>
-                <input type="tel" id="cust-phone" name="Phone" required placeholder="03001234567">
-
-                <label for="cust-email">Email Address</label>
-                <input type="email" id="cust-email" name="Email" placeholder="example@mail.com">
+                <input type="tel" id="cust-phone" name="Customer_Phone" required placeholder="03XXXXXXXXX">
 
                 <label for="cust-address">Delivery Address *</label>
-                <textarea id="cust-address" name="Address" rows="2" required placeholder="House No, Street, City"></textarea>
+                <textarea id="cust-address" name="Customer_Address" rows="2" required placeholder="Complete house address & city"></textarea>
 
-                <label for="payment-method">Payment Method *</label>
-                <select id="payment-method" name="Payment_Method" onchange="toggleBankDetails()" required>
+                <label for="pay-method">Payment Method</label>
+                <select id="pay-method" name="Payment_Method">
                     <option value="Cash on Delivery">Cash on Delivery (COD)</option>
-                    <option value="Bank Transfer / EasyPaisa">Bank Transfer / EasyPaisa / JazzCash</option>
+                    <option value="Bank Transfer">Bank Transfer / EasyPaisa / JazzCash</option>
                 </select>
 
-                <div class="bank-details-box" id="bank-details-box">
-                    <strong>Account Details:</strong><br>
-                    Bank: Meezan Bank<br>
-                    Title: Madina Herbal<br>
-                    Account / IBAN: PK00 MEZN 0000 1234 5678<br>
-                    EasyPaisa/JazzCash: 03092700965<br>
-                    <small>*Please send payment screenshot on WhatsApp after placing order.</small>
-                </div>
-
                 <button type="submit" class="btn-place-order" id="submit-btn">
-                    <i class="fas fa-check-circle"></i> Place Order
+                    <i class="fas fa-paper-plane"></i> Place Order Now
                 </button>
             </form>
 
             <div class="order-success-msg" id="order-success-msg">
-                🎉 Thank you! Your order has been placed successfully. We will contact you soon.
+                <i class="fas fa-check-circle" style="font-size: 2rem; color: #155724;"></i>
+                <h3>Shukriya! Aap ka order receive ho gaya hai.</h3>
+                <p>Hum jald hi aap se rabta karain ge.</p>
+                
+                <div id="printable-receipt" style="margin-top: 15px; text-align: left; background: #fff; padding: 10px; border: 1px solid #ccc; font-size: 0.85rem;">
+                    <h4>Madina Herbal Order Receipt</h4>
+                    <p id="receipt-details"></p>
+                </div>
+
+                <button class="btn-print" onclick="window.print()">Print Order Receipt</button>
             </div>
         </div>
     </div>
 
     <!-- FOOTER -->
-    <footer>
-        <p>&copy; 2026 Madina Herbal &amp; Dry Fruit Store. All Rights Reserved.</p>
+    <footer id="contact">
+        <p>&copy; 2026 Madina Herbal &amp; Dry Fruit. All Rights Reserved.</p>
     </footer>
 
-    <!-- JAVASCRIPT -->
+    <!-- JAVASCRIPT LOGIC -->
     <script>
         let cart = [];
-        const deliveryCharge = 200;
 
-        // Add Product to Cart
         function addToCart(title, price) {
-            let existingIndex = cart.findIndex(item => item.title === title);
-            if (existingIndex > -1) {
-                cart[existingIndex].quantity += 1;
+            let item = cart.find(i => i.title === title);
+            if (item) {
+                item.qty++;
             } else {
-                cart.push({ title: title, price: price, quantity: 1 });
+                cart.push({ title, price, qty: 1 });
             }
             updateCartUI();
-            toggleCartModal(true);
+            openCart();
         }
 
-        // Update Cart UI & Prices
-        function updateCartUI() {
-            const listEl = document.getElementById('cart-items-list');
-            const countEl = document.getElementById('cart-count');
-            const subtotalEl = document.getElementById('subtotal-val');
-            const totalEl = document.getElementById('total-val');
-
-            listEl.innerHTML = '';
-            let totalItems = 0;
-            let subtotal = 0;
-
-            if (cart.length === 0) {
-                listEl.innerHTML = '<li style="text-align:center; color:#888; padding: 10px;">Your cart is empty.</li>';
-            } else {
-                cart.forEach((item, index) => {
-                    totalItems += item.quantity;
-                    subtotal += item.price * item.quantity;
-
-                    let li = document.createElement('li');
-                    li.className = 'cart-item';
-                    li.innerHTML = `
-                        <div class="cart-item-info">
-                            <strong>${item.title}</strong><br>
-                            Rs. ${item.price} x ${item.quantity} = Rs. ${item.price * item.quantity}
-                        </div>
-                        <div class="qty-controls">
-                            <button class="qty-btn" onclick="changeQty(${index}, -1)">-</button>
-                            <span>${item.quantity}</span>
-                            <button class="qty-btn" onclick="changeQty(${index}, 1)">+</button>
-                            <button class="delete-btn" onclick="removeItem(${index})"><i class="fas fa-trash"></i></button>
-                        </div>
-                    `;
-                    listEl.appendChild(li);
-                });
-            }
-
-            countEl.innerText = totalItems;
-            subtotalEl.innerText = `Rs. ${subtotal}`;
-            
-            let grandTotal = subtotal > 0 ? subtotal + deliveryCharge : 0;
-            totalEl.innerText = `Rs. ${grandTotal}`;
-        }
-
-        // Change Item Quantity
-        function changeQty(index, change) {
-            cart[index].quantity += change;
-            if (cart[index].quantity <= 0) {
+        function changeQty(index, delta) {
+            cart[index].qty += delta;
+            if (cart[index].qty <= 0) {
                 cart.splice(index, 1);
             }
             updateCartUI();
         }
 
-        // Remove Item
-        function removeItem(index) {
+        function deleteItem(index) {
             cart.splice(index, 1);
             updateCartUI();
         }
 
-        // Open/Close Cart Modal
-        function toggleCartModal(forceOpen = false) {
-            const modal = document.getElementById('cart-modal');
-            if (forceOpen) {
-                modal.style.display = 'flex';
-            } else {
-                modal.style.display = modal.style.display === 'flex' ? 'none' : 'flex';
-            }
-        }
+        function updateCartUI() {
+            const list = document.getElementById('cart-items-list');
+            const cartCount = document.getElementById('cart-count');
+            const subtotalElem = document.getElementById('cart-subtotal');
+            const totalElem = document.getElementById('cart-total');
 
-        // Show/Hide Bank Details
-        function toggleBankDetails() {
-            const method = document.getElementById('payment-method').value;
-            const bankBox = document.getElementById('bank-details-box');
-            bankBox.style.display = (method.includes('Bank') || method.includes('EasyPaisa')) ? 'block' : 'none';
-        }
+            list.innerHTML = '';
+            let subtotal = 0;
+            let totalQty = 0;
 
-        // FIX: LIVE SEARCH FILTER (Rebuilds DOM dynamically to keep buttons fully active)
-        function filterProducts() {
-            let input = document.getElementById('search-input').value.toLowerCase().trim();
-            let mainCategories = document.getElementById('main-categories');
-            let searchWrapper = document.getElementById('search-results-wrapper');
-            let searchGrid = document.getElementById('search-grid');
+            cart.forEach((item, index) => {
+                subtotal += item.price * item.qty;
+                totalQty += item.qty;
 
-            if (input === "") {
-                mainCategories.style.display = 'block';
-                searchWrapper.style.display = 'none';
-                searchGrid.innerHTML = '';
-                return;
-            }
-
-            mainCategories.style.display = 'none';
-            searchWrapper.style.display = 'block';
-            searchGrid.innerHTML = '';
-
-            let allCards = document.querySelectorAll('#main-categories .product-card');
-            let matchCount = 0;
-
-            allCards.forEach(card => {
-                let name = card.getAttribute('data-name');
-                if (name && name.toLowerCase().includes(input)) {
-                    let title = card.getAttribute('data-title');
-                    let price = parseInt(card.getAttribute('data-price'));
-                    let imgSrc = card.getAttribute('data-img');
-
-                    let newCard = document.createElement('div');
-                    newCard.className = 'product-card';
-                    newCard.innerHTML = `
-                        <img src="${imgSrc}" alt="${title}">
-                        <div class="product-details">
-                            <div class="product-title">${title}</div>
-                            <div class="product-price">Rs. ${price.toLocaleString()}</div>
-                            <button class="add-to-cart-btn">Add to Cart</button>
-                        </div>
-                    `;
-
-                    // Bind active click handler to prevent search grid breakdown
-                    newCard.querySelector('.add-to-cart-btn').addEventListener('click', function() {
-                        addToCart(title, price);
-                    });
-
-                    searchGrid.appendChild(newCard);
-                    matchCount++;
-                }
+                let li = document.createElement('li');
+                li.className = 'cart-item';
+                li.innerHTML = `
+                    <div>
+                        <strong>${item.title}</strong><br>
+                        Rs. ${item.price} x ${item.qty} = Rs. ${item.price * item.qty}
+                    </div>
+                    <div class="qty-controls">
+                        <button class="qty-btn" onclick="changeQty(${index}, -1)">-</button>
+                        <span>${item.qty}</span>
+                        <button class="qty-btn" onclick="changeQty(${index}, 1)">+</button>
+                        <button class="delete-btn" onclick="deleteItem(${index})"><i class="fas fa-trash"></i></button>
+                    </div>
+                `;
+                list.appendChild(li);
             });
 
-            if (matchCount === 0) {
-                searchGrid.innerHTML = '<p style="grid-column: 1/-1; text-align: center; color: #888;">No products found matching your search.</p>';
-            }
+            cartCount.innerText = totalQty;
+            subtotalElem.innerText = `Rs. ${subtotal}`;
+            let delivery = cart.length > 0 ? 250 : 0;
+            let grandTotal = subtotal + delivery;
+            totalElem.innerText = `Rs. ${grandTotal}`;
+
+            // Update hidden fields for Formspree submit
+            let detailsText = cart.map(i => `${i.title} (Qty: ${i.qty}) - Rs.${i.price * i.qty}`).join('\n');
+            document.getElementById('hidden-order-details').value = detailsText;
+            document.getElementById('hidden-total-amount').value = `Rs. ${grandTotal} (Inc. Rs.250 Delivery)`;
         }
 
-        // FIX: FORMSPREE AJAX SUBMISSION USING JSON (Prevents CORS & Parsing errors on GitHub Pages)
-        document.getElementById('checkout-form').addEventListener('submit', async function(e) {
+        function openCart() { document.getElementById('cart-modal').style.display = 'flex'; }
+        function closeCart() { document.getElementById('cart-modal').style.display = 'none'; }
+
+        // Formspree AJAX Submission Handling
+        const form = document.getElementById('order-form');
+        form.addEventListener('submit', function(e) {
             e.preventDefault();
             
             if (cart.length === 0) {
-                alert('Your cart is empty! Please add products before placing an order.');
+                alert('Aap ka cart khali hai!');
                 return;
             }
 
-            const form = e.target;
-            const submitBtn = document.getElementById('submit-btn');
-            const successMsg = document.getElementById('order-success-msg');
-            
-            submitBtn.disabled = true;
-            submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Processing Order...';
+            const btn = document.getElementById('submit-btn');
+            btn.innerHTML = 'Sending Order...';
+            btn.disabled = true;
 
-            let subtotal = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
-            let grandTotal = subtotal + deliveryCharge;
-            let orderItemsStr = cart.map(i => `${i.title} (x${i.quantity}) - Rs.${i.price * i.quantity}`).join(' | ');
+            const formData = new FormData(form);
 
-            const payload = {
-                Name: document.getElementById('cust-name').value,
-                Phone: document.getElementById('cust-phone').value,
-                Email: document.getElementById('cust-email').value,
-                Address: document.getElementById('cust-address').value,
-                Payment_Method: document.getElementById('payment-method').value,
-                Order_Items: orderItemsStr,
-                Total_Amount: `Rs. ${grandTotal} (Subtotal: Rs. ${subtotal} + Delivery: Rs. ${deliveryCharge})`
-            };
-
-            try {
-                const response = await fetch(form.action, {
-                    method: "POST",
-                    body: JSON.stringify(payload),
-                    headers: {
-                        'Content-Type': 'application/json',
-                        'Accept': 'application/json'
-                    }
-                });
-
+            fetch(form.action, {
+                method: 'POST',
+                body: formData,
+                headers: { 'Accept': 'application/json' }
+            }).then(response => {
                 if (response.ok) {
-                    successMsg.style.display = 'block';
                     form.style.display = 'none';
+                    const successMsg = document.getElementById('order-success-msg');
+                    successMsg.style.display = 'block';
+
+                    // Generate Printable Receipt Details
+                    const name = document.getElementById('cust-name').value;
+                    const phone = document.getElementById('cust-phone').value;
+                    const address = document.getElementById('cust-address').value;
+                    const total = document.getElementById('hidden-total-amount').value;
+                    const details = document.getElementById('hidden-order-details').value;
+
+                    document.getElementById('receipt-details').innerHTML = `
+                        <strong>Name:</strong> ${name}<br>
+                        <strong>Phone:</strong> ${phone}<br>
+                        <strong>Address:</strong> ${address}<br>
+                        <strong>Items:</strong><br>${details.replace(/\n/g, '<br>')}<br>
+                        <strong>Total Amount:</strong> ${total}
+                    `;
+
                     cart = [];
                     updateCartUI();
-                    setTimeout(() => {
-                        toggleCartModal();
-                        form.reset();
-                        form.style.display = 'block';
-                        successMsg.style.display = 'none';
-                        submitBtn.disabled = false;
-                        submitBtn.innerHTML = '<i class="fas fa-check-circle"></i> Place Order';
-                    }, 4000);
                 } else {
-                    alert('Order submission failed. Please ensure your Formspree form ID is active and valid.');
-                    submitBtn.disabled = false;
-                    submitBtn.innerHTML = '<i class="fas fa-check-circle"></i> Place Order';
+                    alert('Order submit karne mein koi masla hua hai. Dobara koshish karain.');
+                    btn.innerHTML = '<i class="fas fa-paper-plane"></i> Place Order Now';
+                    btn.disabled = false;
                 }
-            } catch (error) {
-                alert('Connection error. Please check your internet connection.');
-                submitBtn.disabled = false;
-                submitBtn.innerHTML = '<i class="fas fa-check-circle"></i> Place Order';
-            }
+            }).catch(error => {
+                alert('Connection error. Internet check karain.');
+                btn.innerHTML = '<i class="fas fa-paper-plane"></i> Place Order Now';
+                btn.disabled = false;
+            });
         });
+
+        // Search Filter Logic
+        function filterProducts() {
+            let input = document.getElementById('search-input').value.toLowerCase();
+            let cards = document.querySelectorAll('.product-card');
+            cards.forEach(card => {
+                let title = card.querySelector('.product-title').innerText.toLowerCase();
+                if (title.includes(input)) {
+                    card.style.display = 'flex';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        }
     </script>
 </body>
 </html>

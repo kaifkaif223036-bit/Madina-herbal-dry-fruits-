@@ -744,7 +744,7 @@
             }
         }
 
-        // FORMSPREE AJAX FORM SUBMISSION
+        // FORMSPREE AJAX FORM SUBMISSION (FIXED JSON PAYLOAD)
         document.getElementById('checkout-form').addEventListener('submit', async function(e) {
             e.preventDefault();
             
@@ -760,11 +760,25 @@
             submitBtn.disabled = true;
             submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Processing Order...';
 
+            // Constructing JSON Payload to prevent Formspree CORS & Parsing errors
+            const payload = {
+                Order_Items: document.getElementById('form-order-items').value,
+                Total_Amount: document.getElementById('form-total-amount').value,
+                Name: document.getElementById('cust-name').value,
+                Phone: document.getElementById('cust-phone').value,
+                Email: document.getElementById('cust-email').value,
+                Address: document.getElementById('cust-address').value,
+                Payment_Method: document.getElementById('payment-method').value
+            };
+
             try {
                 const response = await fetch(form.action, {
-                    method: form.method,
-                    body: new FormData(form),
-                    headers: { 'Accept': 'application/json' }
+                    method: "POST",
+                    body: JSON.stringify(payload),
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'Accept': 'application/json'
+                    }
                 });
 
                 if (response.ok) {
@@ -781,7 +795,7 @@
                         submitBtn.innerHTML = '<i class="fas fa-check-circle"></i> Place Order';
                     }, 4000);
                 } else {
-                    alert('There was a problem submitting your order. Please try again or order via WhatsApp.');
+                    alert('Order submission failed. Please ensure Formspree form ID is activated and domains are allowed.');
                     submitBtn.disabled = false;
                     submitBtn.innerHTML = '<i class="fas fa-check-circle"></i> Place Order';
                 }

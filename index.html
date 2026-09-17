@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Madina Herbal & Dry Fruit - Fresh Quality Best Price</title>
+    <title>Madina Herbal & Dry Fruit - [Fresh quality with best price]</title>
 
     <!-- FontAwesome Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -75,7 +75,7 @@
             .nav-whatsapp-btn { padding: 10px 20px; font-size: 0.85rem; }
         }
 
-        /* QUICK LINKS */
+        /* CATEGORY QUICK LINKS (mobile nav substitute) */
         .quick-links {
             display: flex;
             gap: 10px;
@@ -234,6 +234,29 @@
         @media (min-width: 768px) { .products-grid { grid-template-columns: repeat(3, 1fr); gap: 22px; } }
         @media (min-width: 1024px) { .products-grid { grid-template-columns: repeat(4, 1fr); } }
 
+        /* SHOW MORE BUTTON STYLING */
+        .show-more-wrapper { text-align: center; margin: 1rem 0 2rem 0; }
+        .btn-show-more {
+            background-color: #3f5e27;
+            color: #ffffff;
+            border: none;
+            padding: 10px 24px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            border-radius: 25px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 10px rgba(63, 94, 39, 0.2);
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .btn-show-more:hover {
+            background-color: #2c441a;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 14px rgba(63, 94, 39, 0.3);
+        }
+
         /* PRODUCT CARD */
         .product-card {
             background: #ffffff;
@@ -311,7 +334,7 @@
         }
         .close-modal { position: absolute; top: 15px; right: 18px; font-size: 1.5rem; cursor: pointer; color: #888; }
         .modal-content h2 { color: #2d3b2d; margin-bottom: 0.5rem; font-size: 1.3rem; }
-        
+        .modal-content h3 { color: #2d3b2d; margin-bottom: 0.6rem; font-size: 1.05rem; font-family: 'Poppins', sans-serif; font-weight: 600; }
         .cart-items-list {
             list-style: none; margin: 1rem 0;
             border-top: 1px solid #eee; border-bottom: 1px solid #eee;
@@ -322,17 +345,21 @@
             margin-bottom: 0.8rem; font-size: 0.88rem;
             background: #fbf9f5; padding: 8px 10px; border-radius: 8px; border: 1px solid #eae2d3;
         }
+        .cart-item-info { flex: 1; padding-right: 10px; }
         .qty-controls { display: flex; align-items: center; gap: 5px; }
         .qty-btn {
             background: #3f5e27; color: white; border: none;
             width: 25px; height: 25px; border-radius: 50%; cursor: pointer;
-            font-weight: bold; font-size: 0.85rem; display: flex; align-items: center; justify-content: center;
+            font-weight: bold; font-size: 0.85rem;
+            display: flex; align-items: center; justify-content: center;
         }
+        .qty-btn:hover { background: #2c441a; }
         .delete-btn {
             background: #c0392b; color: white; border: none;
             width: 25px; height: 25px; border-radius: 6px; cursor: pointer;
             margin-left: 4px; display: flex; align-items: center; justify-content: center; font-size: 0.75rem;
         }
+        .delete-btn:hover { background: #a3301f; }
 
         .cart-summary { background: #f7f3e9; border-radius: 8px; padding: 10px 14px; margin-bottom: 1rem; font-size: 0.9rem; border: 1px solid #eae2d3; }
         .summary-row { display: flex; justify-content: space-between; margin-bottom: 4px; color: #555; }
@@ -347,28 +374,95 @@
             border: 1px solid #ccc; border-radius: 6px; font-size: 0.9rem; font-family: 'Poppins', sans-serif;
         }
 
+        .bank-details-box {
+            display: none; background: #f4efe4; border: 1px dashed #b07d2b;
+            padding: 10px; border-radius: 8px; font-size: 0.85rem; margin-bottom: 1rem; color: #2d3b2d;
+        }
+
+        .action-buttons { display: flex; gap: 10px; margin-top: 10px; }
+        .btn-email {
+            background: #2980b9; color: white; border: none; flex: 1;
+            padding: 0.75rem; border-radius: 20px; font-size: 0.85rem; cursor: pointer; font-weight: 600;
+            display: flex; align-items: center; justify-content: center; gap: 6px;
+        }
+        .btn-email:hover { background: #21618c; }
+        .btn-whatsapp {
+            background: #25d366; color: white; border: none; flex: 1;
+            padding: 0.75rem; border-radius: 20px; font-size: 0.85rem; cursor: pointer; font-weight: 600;
+            display: flex; align-items: center; justify-content: center; gap: 6px;
+        }
+        .btn-whatsapp:hover { background: #1eb854; }
+
         .btn-place-order {
-            background: #3f5e27; color: white; border: none; width: 100%;
-            padding: 0.85rem; border-radius: 20px; font-size: 1rem; cursor: pointer; font-weight: 600;
-            display: flex; align-items: center; justify-content: center; gap: 8px;
-            transition: background 0.3s ease;
+            background: #3f5e27;
+            color: #fff;
+            border: none;
+            width: 100%;
+            padding: 0.85rem;
+            border-radius: 22px;
+            font-size: 0.95rem;
+            font-weight: 700;
+            cursor: pointer;
+            margin-top: 6px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            transition: 0.2s;
         }
         .btn-place-order:hover { background: #2c441a; }
+        .btn-place-order:disabled { opacity: 0.7; cursor: not-allowed; }
 
-        .order-success-msg {
-            display: none; background: #d4edda; color: #155724; border: 1px solid #c3e6cb;
-            padding: 15px; border-radius: 8px; margin-top: 10px; text-align: center; font-size: 0.95rem;
+        /* ORDER SUCCESS / CONFIRMATION VIEW */
+        .order-success-view { text-align: center; }
+        .success-icon {
+            width: 64px; height: 64px; border-radius: 50%;
+            background: #eaf3e2; color: #3f5e27;
+            display: flex; align-items: center; justify-content: center;
+            font-size: 2rem; margin: 0.5rem auto 1rem auto;
         }
+        .order-success-view h2 { color: #2d3b2d; margin-bottom: 0.4rem; }
+        .order-success-note { color: #526344; font-size: 0.9rem; margin-bottom: 1.2rem; }
+
+        .printable-receipt {
+            text-align: left;
+            background: #fbf9f5;
+            border: 1px dashed #c9bd9f;
+            border-radius: 10px;
+            padding: 1rem 1.1rem;
+            margin-bottom: 1.2rem;
+            font-size: 0.85rem;
+        }
+        .printable-receipt h3 { font-size: 1.05rem; margin-bottom: 0.2rem; }
+        .printable-receipt .receipt-sub { color: #728265; font-size: 0.75rem; margin-bottom: 0.7rem; }
+        .printable-receipt table { width: 100%; border-collapse: collapse; margin: 0.6rem 0; }
+        .printable-receipt th, .printable-receipt td {
+            text-align: left; padding: 4px 2px; font-size: 0.8rem; border-bottom: 1px solid #eae2d3;
+        }
+        .printable-receipt th { color: #3f5e27; }
+        .receipt-meta { font-size: 0.8rem; margin-bottom: 0.3rem; }
+        .receipt-total-row { font-weight: 700; color: #2d3b2d; border-top: 1px dashed #bbb; padding-top: 6px; margin-top: 4px; }
+
+        .success-buttons { display: flex; gap: 10px; }
         .btn-print {
-            background: #b07d2b; color: white; border: none; padding: 8px 16px;
-            border-radius: 15px; cursor: pointer; margin-top: 10px; font-weight: 600;
+            background: #2980b9; color: #fff; border: none; flex: 1;
+            padding: 0.75rem; border-radius: 20px; font-size: 0.85rem; font-weight: 600; cursor: pointer;
+            display: flex; align-items: center; justify-content: center; gap: 6px;
         }
+        .btn-print:hover { background: #21618c; }
+        .btn-new-order {
+            background: #ffffff; color: #2d3b2d; border: 1px solid #d4c7b0; flex: 1;
+            padding: 0.75rem; border-radius: 20px; font-size: 0.85rem; font-weight: 600; cursor: pointer;
+        }
+        .btn-new-order:hover { background: #eae2d3; }
 
-        /* PRINT STYLING */
         @media print {
             body * { visibility: hidden; }
             #printable-receipt, #printable-receipt * { visibility: visible; }
-            #printable-receipt { position: absolute; left: 0; top: 0; width: 100%; }
+            #printable-receipt {
+                position: absolute; left: 0; top: 0; width: 100%;
+                margin: 0; border: none; padding: 10px;
+            }
         }
 
         /* FOOTER */
@@ -399,7 +493,7 @@
         <div class="header-actions">
             <i class="fas fa-phone-alt header-phone"></i>
             <a href="https://wa.me/923092700965" target="_blank" class="nav-whatsapp-btn">
-                <i class="fab fa-whatsapp"></i> WhatsApp
+                <i class="fab fa-whatsapp"></i> Order on WhatsApp
             </a>
         </div>
     </header>
@@ -407,6 +501,7 @@
     <div class="quick-links">
         <a href="#grid-herbal">Herbal Products</a>
         <a href="#grid-nuts">Dry Fruits &amp; Nuts</a>
+        <a href="#grid-dates-honey">Dates &amp; Honey</a>
         <a href="#contact">Contact</a>
     </div>
 
@@ -414,7 +509,7 @@
     <section class="hero" id="about">
         <div class="hero-text">
             <h2>Natural Goodness<br><em>for a</em> Healthier Life</h2>
-            <p>Fresh quality with best price — explore our herbal roots &amp; seeds, premium dry fruits, and pure honey.</p>
+            <p>[fresh quality with best price] &mdash; explore our herbal roots &amp; seeds, premium dry fruits, and pure honey.</p>
             <div class="hero-buttons">
                 <a href="#products-start" class="btn-primary-custom">Shop Now</a>
                 <a href="https://wa.me/923092700965" target="_blank" class="btn-secondary-custom">Contact Us</a>
@@ -435,6 +530,7 @@
             </div>
         </div>
         <div class="feature-card">
+            <!-- UPDATED WITH DRY FRUIT IMAGE -->
             <img src="https://i.ibb.co/bg4dF9C9/dry-almonds-500x500-1.jpg" alt="Premium Dry Fruits" class="feature-card-img">
             <div>
                 <h4>Premium Dry Fruits</h4>
@@ -454,8 +550,16 @@
     <div class="search-container" id="products-start">
         <div class="search-wrapper">
             <i class="fas fa-search"></i>
-            <input type="text" id="search-input" placeholder="Search products (e.g. Almond, Dates, Flax, Musli...)" onkeyup="filterProducts()">
+            <input type="text" id="search-input" placeholder="Search products (e.g. Almond, Dates, Flax, Musli, Honey...)" onkeyup="filterProducts()">
         </div>
+    </div>
+
+    <!-- SEARCH RESULTS DISPLAY CONTAINER -->
+    <div id="search-results-wrapper" style="display: none;">
+        <div class="section-title-wrapper">
+            <h2>Search Results</h2>
+        </div>
+        <div class="products-grid" id="search-grid"></div>
     </div>
 
     <!-- MAIN CATEGORIES -->
@@ -464,244 +568,552 @@
             <h2>Our Products</h2>
         </div>
 
-        <span class="category-subtitle" id="grid-herbal"><i class="fas fa-leaf"></i> Organic Herbal Products</span>
-        <div class="products-grid">
-            <div class="product-card">
-                <img src="https://i.ibb.co/bg4dF9C9/dry-almonds-500x500-1.jpg" alt="Herbal Mixture">
-                <div class="product-details">
-                    <div class="product-title">Special Herbal Mix</div>
-                    <div class="product-price">Rs. 1,200</div>
-                    <button class="add-to-cart-btn" onclick="addToCart('Special Herbal Mix', 1200)">Add to Cart</button>
-                </div>
-            </div>
+        <!-- SECTION 1: HERBAL PRODUCTS -->
+        <span class="category-subtitle"><i class="fas fa-leaf"></i> Organic Seeds, Roots &amp; Packs</span>
+        <div class="products-grid" id="grid-herbal"></div>
+        <div class="show-more-wrapper">
+            <button class="btn-show-more" id="btn-herbal" onclick="toggleShowMore('herbal')">
+                Show More <i class="fas fa-chevron-down"></i>
+            </button>
         </div>
 
-        <span class="category-subtitle" id="grid-nuts"><i class="fas fa-seedling"></i> Premium Dry Fruits</span>
-        <div class="products-grid">
-            <div class="product-card">
-                <img src="https://i.ibb.co/bg4dF9C9/dry-almonds-500x500-1.jpg" alt="Almonds">
-                <div class="product-details">
-                    <div class="product-title">Kagzi Almonds (500g)</div>
-                    <div class="product-price">Rs. 1,500</div>
-                    <button class="add-to-cart-btn" onclick="addToCart('Kagzi Almonds (500g)', 1500)">Add to Cart</button>
-                </div>
-            </div>
+        <!-- SECTION 2: DRY FRUITS NUTS -->
+        <span class="category-subtitle"><i class="fas fa-seedling"></i> Almonds, Walnuts, Cashews &amp; Pistachio</span>
+        <div class="products-grid" id="grid-nuts"></div>
+        <div class="show-more-wrapper">
+            <button class="btn-show-more" id="btn-nuts" onclick="toggleShowMore('nuts')">
+                Show More <i class="fas fa-chevron-down"></i>
+            </button>
+        </div>
+
+        <!-- SECTION 3: DATES & HONEY -->
+        <span class="category-subtitle"><i class="fas fa-box"></i> Dates, Apricots, Figs, Raisins &amp; Honey</span>
+        <div class="products-grid" id="grid-dates-honey"></div>
+        <div class="show-more-wrapper">
+            <button class="btn-show-more" id="btn-dates-honey" onclick="toggleShowMore('dates-honey')">
+                Show More <i class="fas fa-chevron-down"></i>
+            </button>
         </div>
     </div>
 
-    <!-- FLOATING CART & WHATSAPP BUTTONS -->
-    <div class="floating-cart" onclick="openCart()">
-        <i class="fas fa-shopping-bag"></i>
+    <!-- FLOATING CART BUTTON -->
+    <div class="floating-cart" onclick="toggleCart()">
+        <i class="fas fa-shopping-cart"></i>
         <span class="cart-count" id="cart-count">0</span>
     </div>
 
-    <a href="https://wa.me/923092700965" target="_blank" class="whatsapp-float">
+    <!-- FLOATING WHATSAPP BUTTON -->
+    <a href="https://wa.me/923092700965" class="whatsapp-float" target="_blank" title="Contact on WhatsApp">
         <i class="fab fa-whatsapp"></i>
     </a>
 
-    <!-- CART & CHECKOUT MODAL -->
+    <!-- CART MODAL -->
     <div class="modal-overlay" id="cart-modal">
         <div class="modal-content">
-            <span class="close-modal" onclick="closeCart()">&times;</span>
+            <span class="close-modal" onclick="toggleCart()">&times;</span>
             <h2>Your Shopping Cart</h2>
 
-            <ul class="cart-items-list" id="cart-items-list">
-                <!-- Cart items will be generated here dynamically -->
-            </ul>
-
-            <div class="cart-summary">
-                <div class="summary-row"><span>Subtotal:</span><span id="cart-subtotal">Rs. 0</span></div>
-                <div class="summary-row"><span>Delivery:</span><span>Rs. 250</span></div>
-                <div class="summary-row total-row"><span>Total:</span><span id="cart-total">Rs. 250</span></div>
+            <div class="cart-items-list" id="cart-items">
+                <p style="text-align:center; color:#777;">Your cart is empty.</p>
             </div>
 
-            <!-- FORMSPREE DIRECT ORDER FORM -->
-            <form id="order-form" class="checkout-form" action="https://formspree.io/f/xbgljond" method="POST">
-                <input type="hidden" name="Order_Details" id="hidden-order-details">
-                <input type="hidden" name="Total_Amount" id="hidden-total-amount">
+            <!-- BILL SUMMARY -->
+            <div class="cart-summary" id="cart-summary">
+                <div class="summary-row">
+                    <span>Items Subtotal:</span>
+                    <span id="subtotal-amount">Rs. 0</span>
+                </div>
+                <div class="summary-row">
+                    <span>Delivery Charges:</span>
+                    <span id="delivery-amount">Rs. 100</span>
+                </div>
+                <div class="summary-row total-row">
+                    <span>Grand Total:</span>
+                    <span id="grand-total-amount">Rs. 100</span>
+                </div>
+            </div>
 
-                <label for="cust-name">Full Name *</label>
-                <input type="text" id="cust-name" name="Customer_Name" required placeholder="Enter your full name">
+            <div id="order-input-view">
+                <h3>Customer Details</h3>
+                <!-- FORMSPREE INTEGRATION: submitted automatically via JS, customer never leaves the site -->
+                <form class="checkout-form" id="checkout-form" action="https://formspree.io/f/xbgljond" method="POST">
+                    <label for="cust-name">Full Name</label>
+                    <input type="text" id="cust-name" name="Customer Name" placeholder="Enter your full name" required>
 
-                <label for="cust-phone">Phone Number *</label>
-                <input type="tel" id="cust-phone" name="Customer_Phone" required placeholder="03XXXXXXXXX">
+                    <label for="cust-phone">Phone Number</label>
+                    <input type="tel" id="cust-phone" name="Phone Number" placeholder="Enter phone number (e.g. 03092700965)" required>
 
-                <label for="cust-address">Delivery Address *</label>
-                <textarea id="cust-address" name="Customer_Address" rows="2" required placeholder="Complete house address & city"></textarea>
+                    <label for="delivery-zone">Select Delivery Option</label>
+                    <select id="delivery-zone" name="Delivery Option" onchange="updateCartUI()">
+                        <option value="100">Local Delivery (Rs. 100)</option>
+                        <option value="200">Out-of-City Cargo (Rs. 200)</option>
+                    </select>
 
-                <label for="pay-method">Payment Method</label>
-                <select id="pay-method" name="Payment_Method">
-                    <option value="Cash on Delivery">Cash on Delivery (COD)</option>
-                    <option value="Bank Transfer">Bank Transfer / EasyPaisa / JazzCash</option>
-                </select>
+                    <label for="cust-address">Delivery Address</label>
+                    <textarea id="cust-address" name="Delivery Address" rows="2" placeholder="Street or House Address" required></textarea>
 
-                <button type="submit" class="btn-place-order" id="submit-btn">
-                    <i class="fas fa-paper-plane"></i> Place Order Now
-                </button>
-            </form>
+                    <!-- PAYMENT METHOD SELECTOR -->
+                    <label for="payment-method">Payment Method</label>
+                    <select id="payment-method" name="Payment Method" onchange="toggleBankDetails()">
+                        <option value="Cash on Delivery (COD)">Cash on Delivery (COD)</option>
+                        <option value="Online Payment (Bank / EasyPaisa)">Online Payment (Bank Transfer / EasyPaisa)</option>
+                    </select>
 
-            <div class="order-success-msg" id="order-success-msg">
-                <i class="fas fa-check-circle" style="font-size: 2rem; color: #155724;"></i>
-                <h3>Shukriya! Aap ka order receive ho gaya hai.</h3>
-                <p>Hum jald hi aap se rabta karain ge.</p>
-                
-                <div id="printable-receipt" style="margin-top: 15px; text-align: left; background: #fff; padding: 10px; border: 1px solid #ccc; font-size: 0.85rem;">
-                    <h4>Madina Herbal Order Receipt</h4>
-                    <p id="receipt-details"></p>
+                    <!-- BANK & EASYPAISA DETAILS BOX -->
+                    <div class="bank-details-box" id="bank-info">
+                        <strong style="color:#b07d2b; font-size:0.95rem;">Payment Account Details:</strong><br>
+                        • <strong>EasyPaisa:</strong> 03467224956<br>
+                        • <strong>Meezan Bank:</strong> 98280106636773<br>
+                        <small style="display:block; margin-top:4px; color:#555;"><i>* Payment bhejne ke baad screenshot receipt zaroor share karein.</i></small>
+                    </div>
+
+                    <!-- HIDDEN FIELDS FOR CART DETAILS & TOTAL IN EMAIL -->
+                    <input type="hidden" name="_subject" value="New Order - Madina Herbal & Dry Fruit">
+                    <textarea id="hidden-order-details" name="Order Details" style="display:none;"></textarea>
+                    <input type="hidden" id="hidden-grand-total" name="Grand Total" value="">
+
+                    <button type="submit" class="btn-place-order" id="place-order-btn">
+                        <i class="fas fa-check-circle"></i> Place Order
+                    </button>
+                </form>
+            </div>
+
+            <!-- ON-SITE ORDER CONFIRMATION + PRINTABLE RECEIPT (shown after order is sent) -->
+            <div id="order-success-view" class="order-success-view" style="display:none;">
+                <div class="success-icon"><i class="fas fa-check"></i></div>
+                <h2>Order Received!</h2>
+                <p class="order-success-note" id="success-note">Thank you! Your order has been sent to Madina Herbal &amp; Dry Fruit. We'll contact you shortly to confirm delivery.</p>
+
+                <div class="printable-receipt" id="printable-receipt">
+                    <h3>Madina Herbal &amp; Dry Fruit</h3>
+                    <div class="receipt-sub">[Fresh quality with best price] &middot; Order Receipt</div>
+                    <div class="receipt-meta"><strong>Order #:</strong> <span id="receipt-order-no"></span></div>
+                    <div class="receipt-meta"><strong>Date:</strong> <span id="receipt-date"></span></div>
+                    <div class="receipt-meta"><strong>Customer:</strong> <span id="receipt-name"></span></div>
+                    <div class="receipt-meta"><strong>Phone:</strong> <span id="receipt-phone"></span></div>
+                    <div class="receipt-meta"><strong>Address:</strong> <span id="receipt-address"></span></div>
+                    <div class="receipt-meta"><strong>Payment:</strong> <span id="receipt-payment"></span></div>
+
+                    <table>
+                        <thead><tr><th>Item</th><th>Qty</th><th>Amount</th></tr></thead>
+                        <tbody id="receipt-items"></tbody>
+                    </table>
+
+                    <div class="summary-row"><span>Subtotal</span><span id="receipt-subtotal"></span></div>
+                    <div class="summary-row"><span>Delivery</span><span id="receipt-delivery"></span></div>
+                    <div class="summary-row receipt-total-row"><span>Grand Total</span><span id="receipt-grandtotal"></span></div>
                 </div>
 
-                <button class="btn-print" onclick="window.print()">Print Order Receipt</button>
+                <div class="success-buttons">
+                    <button type="button" class="btn-print" onclick="window.print()">
+                        <i class="fas fa-print"></i> Print Receipt
+                    </button>
+                    <button type="button" class="btn-new-order" onclick="resetOrderFlow()">Place Another Order</button>
+                </div>
             </div>
         </div>
     </div>
 
     <!-- FOOTER -->
     <footer id="contact">
-        <p>&copy; 2026 Madina Herbal &amp; Dry Fruit. All Rights Reserved.</p>
+        <p>&copy; 2026 Madina Herbal & Dry Fruit. All Rights Reserved.</p>
+        <p style="margin-top: 4px;">Owner Email: kaifkaif223036@gmail.com | Phone: 03092700965</p>
     </footer>
 
     <!-- JAVASCRIPT LOGIC -->
     <script>
+        // 1. HERBAL PRODUCTS & SEEDS CATEGORY
+        const herbalProducts = [
+            { id: 101, name: 'Dry Pumpkin Seeds', price: 2200, displayPrice: '550 / 250g', unitType: '250g', image: 'https://i.ibb.co/XZ5YGpCF/dry-pumpkin-seeds-500x500.jpg' },
+            { id: 102, name: 'Sunflower Seeds', price: 1000, displayPrice: '250 / 250g', unitType: '250g', image: 'https://i.ibb.co/0p0H75V3/7df37c6eb75ee4647cc3805a52c8354d.jpg' },
+            { id: 103, name: 'White Till Seed', price: 800, displayPrice: '200 / 250g', unitType: '250g', image: 'https://i.ibb.co/k2WNpB2j/white-till-seed.jpg' },
+            { id: 104, name: 'Dried Safed Musli Roots', price: 1500, displayPrice: '150 / 10g (Min 50g)', unitType: 'gram10', minQty: 50, stepQty: 10, image: 'https://i.ibb.co/v6KPRyYG/dried-safed-musli-roots-500x500.jpg' },
+            { id: 105, name: 'Herbal Special Item', price: 4000, displayPrice: '200 / 50g (Min 50g)', unitType: 'gram50', minQty: 50, stepQty: 50, image: 'https://i.ibb.co/C5bB8rJC/71hn-TMAg99-L-AC-UF1000-1000-QL80.jpg' },
+            { id: 106, name: 'Herbal Powder Pack (250g)', price: 250, displayPrice: '250 / Packet', unitType: 'packet', image: 'https://i.ibb.co/9mHkX5mY/1789223122209.png' },
+            { id: 107, name: 'Special Herbal Mix (500g)', price: 500, displayPrice: '500 / Packet', unitType: 'packet', image: 'https://i.ibb.co/cKQS8gqs/1789224100781.png' },
+            { id: 108, name: 'Herbal Special Pack', price: 300, displayPrice: '300 / Packet', unitType: 'packet', image: 'https://i.ibb.co/ZZdTSbL/download.jpg' },
+            { id: 109, name: 'Flax Seeds', price: 250, displayPrice: '250 / Packet', unitType: 'packet', image: 'https://i.ibb.co/8nW5KxBj/download-1.jpg' }
+        ];
+
+        // 2. DRY FRUITS - NUTS & SEEDS CATEGORY
+        const dryFruitNuts = [
+            { id: 1, name: 'American Almond Giri', price: 3400, displayPrice: '3400 / kg', unitType: 'kg', image: 'https://i.ibb.co/bg4dF9C9/dry-almonds-500x500-1.jpg' },
+            { id: 2, name: 'Magaz Badam Gurbandi', price: 3000, displayPrice: '3000 / kg', unitType: 'kg', image: 'https://i.ibb.co/YFTRZfBX/images-11.jpg' },
+            { id: 3, name: 'Xinjiang Thin Shell Walnut (Akhrot)', price: 800, displayPrice: '800 / kg', unitType: 'kg', image: 'https://i.ibb.co/PdfYJpt/chinese-xinjiang-thin-shell-walnut-dried-walnut.jpg' },
+            { id: 4, name: 'Walnut Kernel (Akhrot Giri)', price: 2400, displayPrice: '2400 / kg', unitType: 'kg', image: 'https://i.ibb.co/3mBrHR1m/images-8.jpg' },
+            { id: 5, name: 'Salted Kaju', price: 3800, displayPrice: '3800 / kg', unitType: 'kg', image: 'https://i.ibb.co/fG1sbp70/teated-18781-703935-151021070958804.jpg' },
+            { id: 6, name: 'Plain Kaju', price: 3600, displayPrice: '3600 / kg', unitType: 'kg', image: 'https://i.ibb.co/XZR8mWkn/z4m4491-TOuw-Od07d-RUq-Y3-Jc-Zcq-EF2r9sk-Aysf-Kw-K.jpg' },
+            { id: 7, name: 'Salted Pistachio', price: 5000, displayPrice: '5000 / kg', unitType: 'kg', image: 'https://i.ibb.co/kgc6XyzB/images-4.jpg' },
+            { id: 16, name: 'Mong Phali & Kaghzi Badam Mix', price: 1950, displayPrice: '1950 / kg', unitType: 'kg', image: 'https://i.ibb.co/0ydKPb6L/Untitleddesign-86dd85bb-a316-4afb-8d5a-3b094690b02c.png' },
+            { id: 17, name: 'Chilgoza Kernel (Chilgoza Giri)', price: 9900, displayPrice: '9900 / kg', unitType: 'kg', image: 'https://i.ibb.co/Jw5wd3Kp/S186ab039b1354c7eb5b41ed12833a0af-U.jpg' }
+        ];
+
+        // 3. DRY FRUITS - DATES, APRICOTS & HONEY CATEGORY
+        const dryFruitDatesHoney = [
+            { id: 18, name: 'Fresh Zahidi Dates (Zahidi Khajoor)', price: 480, displayPrice: '480 / kg', unitType: 'kg', image: 'https://i.ibb.co/qY7gNDg3/fresh-zahidi-dates-500x500.jpg' },
+            { id: 19, name: 'Rabbi Dates (Rabbi Khajoor)', price: 800, displayPrice: '800 / kg', unitType: 'kg', image: 'https://i.ibb.co/cWsyRkd/Khajoor-Rabbi-Dates-Rabbi.webp' },
+            { id: 20, name: 'Muzafati Dates', price: 900, displayPrice: '900 / kg', unitType: 'kg', image: 'https://i.ibb.co/zttfBfF/product-jpeg.jpg' },
+            { id: 8, name: 'Dry Apricot (Khumani)', price: 1000, displayPrice: '1000 / kg', unitType: 'kg', image: 'https://i.ibb.co/kj0mKHp/images-10.jpg' },
+            { id: 9, name: 'Apricot (Khumani Special)', price: 1400, displayPrice: '1400 / kg', unitType: 'kg', image: 'https://i.ibb.co/PG92LmTd/images-9.jpg' },
+            { id: 10, name: 'Fig (Anjeer)', price: 2900, displayPrice: '2900 / kg', unitType: 'kg', image: 'https://i.ibb.co/cP0pgP2/images-3.jpg' },
+            { id: 11, name: 'Premium Raisin (Kishmish)', price: 1400, displayPrice: '1400 / kg', unitType: 'kg', image: 'https://i.ibb.co/VYCFk7Nv/Sdf266a4d4f9d476c97e9dbc95c2574470.jpg' },
+            { id: 12, name: 'Black Raisin', price: 1600, displayPrice: '1600 / kg', unitType: 'kg', image: 'https://i.ibb.co/84L8k57b/36399765-776a466f-10c3-4461-b2e3-03c9cfc0366f.jpg' },
+            { id: 13, name: 'Khopra (Dried Coconut)', price: 1200, displayPrice: '1200 / kg', unitType: 'kg', image: 'https://i.ibb.co/fzG82C88/images-13.jpg' },
+            { id: 14, name: 'Phool Makhana', price: 3950, displayPrice: '3950 / kg', unitType: 'kg', image: 'https://i.ibb.co/Y7r2b58C/images-12.jpg' },
+            { id: 15, name: 'Pure Raw Honey (Chota Shehed)', price: 5600, displayPrice: '5600 / kg', unitType: 'kg', image: 'https://i.ibb.co/KppgHPT6/raw-honey2.jpg' }
+        ];
+
+        const allProducts = [...herbalProducts, ...dryFruitNuts, ...dryFruitDatesHoney];
         let cart = [];
 
-        function addToCart(title, price) {
-            let item = cart.find(i => i.title === title);
-            if (item) {
-                item.qty++;
+        // State to keep track of expanded categories
+        const categoryState = {
+            herbal: false,
+            nuts: false,
+            'dates-honey': false
+        };
+
+        function createProductCard(product) {
+            return `
+                <div class="product-card">
+                    <img src="${product.image}" alt="${product.name}" onerror="this.src='https://via.placeholder.com/240x170?text=Madina+Herbal'">
+                    <div class="product-details">
+                        <div class="product-title">${product.name}</div>
+                        <div class="product-price">Rs. ${product.displayPrice}</div>
+                        <button class="add-to-cart-btn" onclick="addToCart(${product.id})">Add to Cart</button>
+                    </div>
+                </div>
+            `;
+        }
+
+        // Render Grid with limit (4 items initially)
+        function renderCategoryGrid(gridId, products, isExpanded) {
+            const listToRender = isExpanded ? products : products.slice(0, 4);
+            document.getElementById(gridId).innerHTML = listToRender.map(createProductCard).join('');
+        }
+
+        function renderAllGrids() {
+            renderCategoryGrid('grid-herbal', herbalProducts, categoryState.herbal);
+            renderCategoryGrid('grid-nuts', dryFruitNuts, categoryState.nuts);
+            renderCategoryGrid('grid-dates-honey', dryFruitDatesHoney, categoryState['dates-honey']);
+        }
+
+        // Toggle Show More / Show Less
+        function toggleShowMore(category) {
+            categoryState[category] = !categoryState[category];
+            const btn = document.getElementById(`btn-${category}`);
+
+            if (category === 'herbal') {
+                renderCategoryGrid('grid-herbal', herbalProducts, categoryState.herbal);
+            } else if (category === 'nuts') {
+                renderCategoryGrid('grid-nuts', dryFruitNuts, categoryState.nuts);
+            } else if (category === 'dates-honey') {
+                renderCategoryGrid('grid-dates-honey', dryFruitDatesHoney, categoryState['dates-honey']);
+            }
+
+            if (categoryState[category]) {
+                btn.innerHTML = 'Show Less <i class="fas fa-chevron-up"></i>';
             } else {
-                cart.push({ title, price, qty: 1 });
+                btn.innerHTML = 'Show More <i class="fas fa-chevron-down"></i>';
             }
-            updateCartUI();
-            openCart();
         }
 
-        function changeQty(index, delta) {
-            cart[index].qty += delta;
-            if (cart[index].qty <= 0) {
-                cart.splice(index, 1);
-            }
-            updateCartUI();
-        }
+        // LIVE SEARCH
+        function filterProducts() {
+            const query = document.getElementById('search-input').value.toLowerCase().trim();
+            const resultsWrapper = document.getElementById('search-results-wrapper');
+            const searchGrid = document.getElementById('search-grid');
+            const mainCategories = document.getElementById('main-categories');
 
-        function deleteItem(index) {
-            cart.splice(index, 1);
-            updateCartUI();
-        }
-
-        function updateCartUI() {
-            const list = document.getElementById('cart-items-list');
-            const cartCount = document.getElementById('cart-count');
-            const subtotalElem = document.getElementById('cart-subtotal');
-            const totalElem = document.getElementById('cart-total');
-
-            list.innerHTML = '';
-            let subtotal = 0;
-            let totalQty = 0;
-
-            cart.forEach((item, index) => {
-                subtotal += item.price * item.qty;
-                totalQty += item.qty;
-
-                let li = document.createElement('li');
-                li.className = 'cart-item';
-                li.innerHTML = `
-                    <div>
-                        <strong>${item.title}</strong><br>
-                        Rs. ${item.price} x ${item.qty} = Rs. ${item.price * item.qty}
-                    </div>
-                    <div class="qty-controls">
-                        <button class="qty-btn" onclick="changeQty(${index}, -1)">-</button>
-                        <span>${item.qty}</span>
-                        <button class="qty-btn" onclick="changeQty(${index}, 1)">+</button>
-                        <button class="delete-btn" onclick="deleteItem(${index})"><i class="fas fa-trash"></i></button>
-                    </div>
-                `;
-                list.appendChild(li);
-            });
-
-            cartCount.innerText = totalQty;
-            subtotalElem.innerText = `Rs. ${subtotal}`;
-            let delivery = cart.length > 0 ? 250 : 0;
-            let grandTotal = subtotal + delivery;
-            totalElem.innerText = `Rs. ${grandTotal}`;
-
-            // Update hidden fields for Formspree submit
-            let detailsText = cart.map(i => `${i.title} (Qty: ${i.qty}) - Rs.${i.price * i.qty}`).join('\n');
-            document.getElementById('hidden-order-details').value = detailsText;
-            document.getElementById('hidden-total-amount').value = `Rs. ${grandTotal} (Inc. Rs.250 Delivery)`;
-        }
-
-        function openCart() { document.getElementById('cart-modal').style.display = 'flex'; }
-        function closeCart() { document.getElementById('cart-modal').style.display = 'none'; }
-
-        // Formspree AJAX Submission Handling
-        const form = document.getElementById('order-form');
-        form.addEventListener('submit', function(e) {
-            e.preventDefault();
-            
-            if (cart.length === 0) {
-                alert('Aap ka cart khali hai!');
+            if (query === '') {
+                resultsWrapper.style.display = 'none';
+                mainCategories.style.display = 'block';
                 return;
             }
 
-            const btn = document.getElementById('submit-btn');
-            btn.innerHTML = 'Sending Order...';
-            btn.disabled = true;
+            const filtered = allProducts.filter(p => p.name.toLowerCase().includes(query));
 
-            const formData = new FormData(form);
+            if (filtered.length > 0) {
+                searchGrid.innerHTML = filtered.map(createProductCard).join('');
+            } else {
+                searchGrid.innerHTML = '<p style="grid-column: 1/-1; text-align: center; color: #777; padding: 2rem 0;">No matching products found.</p>';
+            }
 
-            fetch(form.action, {
-                method: 'POST',
-                body: formData,
-                headers: { 'Accept': 'application/json' }
-            }).then(response => {
+            mainCategories.style.display = 'none';
+            resultsWrapper.style.display = 'block';
+        }
+
+        function addToCart(productId) {
+            const product = allProducts.find(p => p.id === productId);
+            const existingItem = cart.find(item => item.id === productId);
+
+            if (existingItem) {
+                if (product.unitType === 'gram10') {
+                    existingItem.quantity += 10;
+                } else if (product.unitType === 'gram50') {
+                    existingItem.quantity += 50;
+                } else if (product.unitType === '250g') {
+                    existingItem.quantity += 0.25;
+                } else if (product.unitType === 'packet') {
+                    existingItem.quantity += 1;
+                } else {
+                    existingItem.quantity = Math.round((existingItem.quantity + 0.25) * 100) / 100;
+                }
+            } else {
+                if (product.unitType === 'gram10' || product.unitType === 'gram50') {
+                    cart.push({ ...product, quantity: product.minQty || 50 });
+                } else if (product.unitType === 'packet') {
+                    cart.push({ ...product, quantity: 1 });
+                } else {
+                    cart.push({ ...product, quantity: 0.25 });
+                }
+            }
+            updateCartUI();
+        }
+
+        function increaseQty(productId) {
+            const item = cart.find(item => item.id === productId);
+            if (item) {
+                if (item.unitType === 'gram10') {
+                    item.quantity += 10;
+                } else if (item.unitType === 'gram50') {
+                    item.quantity += 50;
+                } else if (item.unitType === 'packet') {
+                    item.quantity += 1;
+                } else {
+                    item.quantity = Math.round((item.quantity + 0.25) * 100) / 100;
+                }
+                updateCartUI();
+            }
+        }
+
+        function decreaseQty(productId) {
+            const item = cart.find(item => item.id === productId);
+            if (item) {
+                if (item.unitType === 'gram10' || item.unitType === 'gram50') {
+                    const step = item.stepQty || 10;
+                    if (item.quantity > (item.minQty || 50)) {
+                        item.quantity -= step;
+                    } else {
+                        removeFromCart(productId);
+                        return;
+                    }
+                } else if (item.unitType === 'packet') {
+                    if (item.quantity > 1) {
+                        item.quantity -= 1;
+                    } else {
+                        removeFromCart(productId);
+                        return;
+                    }
+                } else {
+                    if (item.quantity > 0.25) {
+                        item.quantity = Math.round((item.quantity - 0.25) * 100) / 100;
+                    } else {
+                        removeFromCart(productId);
+                        return;
+                    }
+                }
+                updateCartUI();
+            }
+        }
+
+        function removeFromCart(productId) {
+            cart = cart.filter(item => item.id !== productId);
+            updateCartUI();
+        }
+
+        function formatQuantity(item) {
+            if (item.unitType === 'gram10' || item.unitType === 'gram50') {
+                return `${item.quantity} g`;
+            } else if (item.unitType === 'packet') {
+                return `${item.quantity} pkt`;
+            } else {
+                if (item.quantity < 1) {
+                    return `${Math.round(item.quantity * 1000)} g`;
+                } else {
+                    return `${item.quantity} kg`;
+                }
+            }
+        }
+
+        function calculateItemTotal(item) {
+            if (item.unitType === 'gram10' || item.unitType === 'gram50') {
+                return Math.round((item.price / 1000) * item.quantity);
+            } else if (item.unitType === 'packet') {
+                return Math.round(item.price * item.quantity);
+            } else {
+                return Math.round(item.price * item.quantity);
+            }
+        }
+
+        function updateCartUI() {
+            document.getElementById('cart-count').innerText = cart.length;
+
+            const cartList = document.getElementById('cart-items');
+            const subtotalElem = document.getElementById('subtotal-amount');
+            const deliveryElem = document.getElementById('delivery-amount');
+            const grandTotalElem = document.getElementById('grand-total-amount');
+
+            const deliveryFee = parseInt(document.getElementById('delivery-zone').value) || 100;
+
+            if (cart.length === 0) {
+                cartList.innerHTML = '<p style="text-align:center; color:#777; padding: 1rem 0;">Your cart is empty.</p>';
+                subtotalElem.innerText = 'Rs. 0';
+                deliveryElem.innerText = `Rs. ${deliveryFee}`;
+                grandTotalElem.innerText = 'Rs. 0';
+                return;
+            }
+
+            let subtotalCost = 0;
+            cartList.innerHTML = cart.map(item => {
+                const itemTotal = calculateItemTotal(item);
+                subtotalCost += itemTotal;
+                return `
+                    <div class="cart-item">
+                        <div class="cart-item-info">
+                            <strong>${item.name}</strong><br>
+                            <span style="color:#b07d2b;">Rs. ${item.displayPrice} &times; ${formatQuantity(item)} = <strong>Rs. ${itemTotal}</strong></span>
+                        </div>
+                        <div class="qty-controls">
+                            <button class="qty-btn" onclick="decreaseQty(${item.id})">-</button>
+                            <span style="font-weight:bold; min-width:50px; text-align:center; font-size:0.85rem;">${formatQuantity(item)}</span>
+                            <button class="qty-btn" onclick="increaseQty(${item.id})">+</button>
+                            <button class="delete-btn" onclick="removeFromCart(${item.id})"><i class="fas fa-trash-alt"></i></button>
+                        </div>
+                    </div>
+                `;
+            }).join('');
+
+            const grandTotal = subtotalCost + deliveryFee;
+
+            subtotalElem.innerText = `Rs. ${subtotalCost}`;
+            deliveryElem.innerText = `Rs. ${deliveryFee}`;
+            grandTotalElem.innerText = `Rs. ${grandTotal}`;
+        }
+
+        function toggleCart() {
+            const modal = document.getElementById('cart-modal');
+            modal.style.display = modal.style.display === 'flex' ? 'none' : 'flex';
+        }
+
+        function toggleBankDetails() {
+            const selectVal = document.getElementById('payment-method').value;
+            const bankBox = document.getElementById('bank-info');
+            if (selectVal.includes('Online')) {
+                bankBox.style.display = 'block';
+            } else {
+                bankBox.style.display = 'none';
+            }
+        }
+
+        // Automatically sends the order to the owner (via Formspree) without the
+        // customer ever leaving the site, then shows an on-site confirmation +
+        // printable receipt. No WhatsApp/email app needs to be opened manually.
+        async function handleOrderSubmit(event) {
+            event.preventDefault();
+
+            if (cart.length === 0) {
+                alert('Aap ka cart khali hai. Pehle kuch products add karein.');
+                return;
+            }
+
+            const form = document.getElementById('checkout-form');
+            const name = document.getElementById('cust-name').value.trim();
+            const phone = document.getElementById('cust-phone').value.trim();
+            const address = document.getElementById('cust-address').value.trim();
+            const deliveryFee = parseInt(document.getElementById('delivery-zone').value);
+            const paymentMethod = document.getElementById('payment-method').value;
+
+            if (!name || !phone || !address) {
+                alert('Baraye meharbani saari details (Name, Phone, Address) fill karein.');
+                return;
+            }
+
+            let subtotalCost = 0;
+            let orderSummary = "";
+            const receiptItems = cart.map((item, index) => {
+                const itemTotal = calculateItemTotal(item);
+                subtotalCost += itemTotal;
+                orderSummary += `${index + 1}. ${item.name} (${formatQuantity(item)}) - Rs. ${itemTotal}\n`;
+                return { name: item.name, qty: formatQuantity(item), total: itemTotal };
+            });
+
+            const grandTotal = subtotalCost + deliveryFee;
+
+            // Fill the hidden fields so the owner's email (sent automatically via Formspree) has full order details
+            document.getElementById('hidden-order-details').value =
+                orderSummary + `\nSubtotal: Rs. ${subtotalCost}\nDelivery Fee: Rs. ${deliveryFee}\nGrand Total: Rs. ${grandTotal}`;
+            document.getElementById('hidden-grand-total').value = `Rs. ${grandTotal}`;
+
+            const placeBtn = document.getElementById('place-order-btn');
+            placeBtn.disabled = true;
+            placeBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending Order...';
+
+            try {
+                const response = await fetch(form.action, {
+                    method: 'POST',
+                    body: new FormData(form),
+                    headers: { 'Accept': 'application/json' }
+                });
+
                 if (response.ok) {
-                    form.style.display = 'none';
-                    const successMsg = document.getElementById('order-success-msg');
-                    successMsg.style.display = 'block';
-
-                    // Generate Printable Receipt Details
-                    const name = document.getElementById('cust-name').value;
-                    const phone = document.getElementById('cust-phone').value;
-                    const address = document.getElementById('cust-address').value;
-                    const total = document.getElementById('hidden-total-amount').value;
-                    const details = document.getElementById('hidden-order-details').value;
-
-                    document.getElementById('receipt-details').innerHTML = `
-                        <strong>Name:</strong> ${name}<br>
-                        <strong>Phone:</strong> ${phone}<br>
-                        <strong>Address:</strong> ${address}<br>
-                        <strong>Items:</strong><br>${details.replace(/\n/g, '<br>')}<br>
-                        <strong>Total Amount:</strong> ${total}
-                    `;
-
+                    showOrderConfirmation({ name, phone, address, paymentMethod, subtotalCost, deliveryFee, grandTotal, receiptItems });
                     cart = [];
                     updateCartUI();
                 } else {
-                    alert('Order submit karne mein koi masla hua hai. Dobara koshish karain.');
-                    btn.innerHTML = '<i class="fas fa-paper-plane"></i> Place Order Now';
-                    btn.disabled = false;
+                    throw new Error('Formspree responded with an error');
                 }
-            }).catch(error => {
-                alert('Connection error. Internet check karain.');
-                btn.innerHTML = '<i class="fas fa-paper-plane"></i> Place Order Now';
-                btn.disabled = false;
-            });
-        });
-
-        // Search Filter Logic
-        function filterProducts() {
-            let input = document.getElementById('search-input').value.toLowerCase();
-            let cards = document.querySelectorAll('.product-card');
-            cards.forEach(card => {
-                let title = card.querySelector('.product-title').innerText.toLowerCase();
-                if (title.includes(input)) {
-                    card.style.display = 'flex';
-                } else {
-                    card.style.display = 'none';
-                }
-            });
+            } catch (err) {
+                alert('Order bhejte waqt masla ho gaya. Baraye meharbani dobara koshish karein, ya WhatsApp 0309-2700965 par rabta karein.');
+            } finally {
+                placeBtn.disabled = false;
+                placeBtn.innerHTML = '<i class="fas fa-check-circle"></i> Place Order';
+            }
         }
+
+        function showOrderConfirmation(data) {
+            const orderNo = 'MHD-' + Date.now().toString().slice(-6);
+            const now = new Date();
+
+            document.getElementById('success-note').innerText =
+                `Thank you, ${data.name}! Your order has been sent to Madina Herbal & Dry Fruit. We'll contact you shortly to confirm delivery.`;
+
+            document.getElementById('receipt-order-no').innerText = orderNo;
+            document.getElementById('receipt-date').innerText = now.toLocaleString('en-PK');
+            document.getElementById('receipt-name').innerText = data.name;
+            document.getElementById('receipt-phone').innerText = data.phone;
+            document.getElementById('receipt-address').innerText = data.address;
+            document.getElementById('receipt-payment').innerText = data.paymentMethod;
+
+            document.getElementById('receipt-items').innerHTML = data.receiptItems.map(item => `
+                <tr><td>${item.name}</td><td>${item.qty}</td><td>Rs. ${item.total}</td></tr>
+            `).join('');
+
+            document.getElementById('receipt-subtotal').innerText = `Rs. ${data.subtotalCost}`;
+            document.getElementById('receipt-delivery').innerText = `Rs. ${data.deliveryFee}`;
+            document.getElementById('receipt-grandtotal').innerText = `Rs. ${data.grandTotal}`;
+
+            document.getElementById('order-input-view').style.display = 'none';
+            document.getElementById('cart-items').style.display = 'none';
+            document.getElementById('cart-summary').style.display = 'none';
+            document.getElementById('order-success-view').style.display = 'block';
+        }
+
+        function resetOrderFlow() {
+            document.getElementById('checkout-form').reset();
+            document.getElementById('bank-info').style.display = 'none';
+            document.getElementById('order-success-view').style.display = 'none';
+            document.getElementById('order-input-view').style.display = 'block';
+            document.getElementById('cart-items').style.display = 'block';
+            document.getElementById('cart-summary').style.display = 'block';
+        }
+
+        // INITIALIZE PAGE
+        window.onload = function() {
+            renderAllGrids();
+            updateCartUI();
+            document.getElementById('checkout-form').addEventListener('submit', handleOrderSubmit);
+        };
     </script>
 </body>
 </html>

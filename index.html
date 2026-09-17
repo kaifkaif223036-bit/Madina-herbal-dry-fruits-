@@ -562,25 +562,26 @@
             </div>
 
             <h3>Customer Details</h3>
-            <form class="checkout-form" id="checkout-form" onsubmit="event.preventDefault();">
+            <!-- FORMSPREE INTEGRATION ADDED HERE -->
+            <form class="checkout-form" id="checkout-form" action="https://formspree.io/f/xbgljondur" method="POST">
                 <label for="cust-name">Full Name</label>
-                <input type="text" id="cust-name" placeholder="Enter your full name" required>
+                <input type="text" id="cust-name" name="Customer Name" placeholder="Enter your full name" required>
 
                 <label for="cust-phone">Phone Number</label>
-                <input type="tel" id="cust-phone" placeholder="Enter phone number (e.g. 03092700965)" required>
+                <input type="tel" id="cust-phone" name="Phone Number" placeholder="Enter phone number (e.g. 03092700965)" required>
 
                 <label for="delivery-zone">Select Delivery Option</label>
-                <select id="delivery-zone" onchange="updateCartUI()">
+                <select id="delivery-zone" name="Delivery Option" onchange="updateCartUI()">
                     <option value="100">Local Delivery (Rs. 100)</option>
                     <option value="200">Out-of-City Cargo (Rs. 200)</option>
                 </select>
 
                 <label for="cust-address">Delivery Address</label>
-                <textarea id="cust-address" rows="2" placeholder="Street or House Address" required></textarea>
+                <textarea id="cust-address" name="Delivery Address" rows="2" placeholder="Street or House Address" required></textarea>
 
                 <!-- PAYMENT METHOD SELECTOR -->
                 <label for="payment-method">Payment Method</label>
-                <select id="payment-method" onchange="toggleBankDetails()">
+                <select id="payment-method" name="Payment Method" onchange="toggleBankDetails()">
                     <option value="Cash on Delivery (COD)">Cash on Delivery (COD)</option>
                     <option value="Online Payment (Bank / EasyPaisa)">Online Payment (Bank Transfer / EasyPaisa)</option>
                 </select>
@@ -592,6 +593,10 @@
                     • <strong>Meezan Bank:</strong> 98280106636773<br>
                     <small style="display:block; margin-top:4px; color:#555;"><i>* Payment bhejne ke baad screenshot receipt zaroor share karein.</i></small>
                 </div>
+
+                <!-- HIDDEN FIELDS FOR CARTS DETAILS & TOTAL IN EMAIL -->
+                <textarea id="hidden-order-details" name="Order Details" style="display:none;"></textarea>
+                <input type="hidden" id="hidden-grand-total" name="Grand Total" value="">
 
                 <div class="action-buttons">
                     <button type="button" class="btn-email" onclick="processOrder('email')">
@@ -686,7 +691,7 @@
         function renderAllGrids() {
             renderCategoryGrid('grid-herbal', herbalProducts, categoryState.herbal);
             renderCategoryGrid('grid-nuts', dryFruitNuts, categoryState.nuts);
-            renderCategoryGrid('grid-dates-honey', dryFruitDatesHoney, categoryState.dates-honey);
+            renderCategoryGrid('grid-dates-honey', dryFruitDatesHoney, categoryState['dates-honey']);
         }
 
         // Toggle Show More / Show Less
@@ -903,6 +908,7 @@
                 return;
             }
 
+            const form = document.getElementById('checkout-form');
             const name = document.getElementById('cust-name').value.trim();
             const phone = document.getElementById('cust-phone').value.trim();
             const address = document.getElementById('cust-address').value.trim();
@@ -915,9 +921,7 @@
             }
 
             let subtotalCost = 0;
-            let orderSummary = "--- NEW ORDER DETAILS ---\n\n";
-            orderSummary += `Customer Name: ${name}\nPhone: ${phone}\nAddress: ${address}\nPayment Method: ${paymentMethod}\n\n`;
-            orderSummary += "Items Ordered:\n";
+            let orderSummary = "";
 
             cart.forEach((item, index) => {
                 const itemTotal = calculateItemTotal(item);
@@ -926,16 +930,24 @@
             });
 
             const grandTotal = subtotalCost + parseInt(deliveryFee);
-            orderSummary += `\nSubtotal: Rs. ${subtotalCost}`;
-            orderSummary += `\nDelivery Fee: Rs. ${deliveryFee}`;
-            orderSummary += `\nGrand Total: Rs. ${grandTotal}`;
 
             if (type === 'whatsapp') {
-                const whatsappUrl = `https://wa.me/923092700965?text=${encodeURIComponent(orderSummary)}`;
+                let waSummary = "--- NEW ORDER DETAILS ---\n\n";
+                waSummary += `Customer Name: ${name}\nPhone: ${phone}\nAddress: ${address}\nPayment Method: ${paymentMethod}\n\n`;
+                waSummary += "Items Ordered:\n" + orderSummary;
+                waSummary += `\nSubtotal: Rs. ${subtotalCost}`;
+                waSummary += `\nDelivery Fee: Rs. ${deliveryFee}`;
+                waSummary += `\nGrand Total: Rs. ${grandTotal}`;
+
+                const whatsappUrl = `https://wa.me/923092700965?text=${encodeURIComponent(waSummary)}`;
                 window.open(whatsappUrl, '_blank');
             } else if (type === 'email') {
-                const mailtoUrl = `mailto:kaifkaif223036@gmail.com?subject=New Order from ${encodeURIComponent(name)}&body=${encodeURIComponent(orderSummary)}`;
-                window.location.href = mailtoUrl;
+                // Populate hidden fields for Formspree submit
+                document.getElementById('hidden-order-details').value = orderSummary + `\nSubtotal: Rs. ${subtotalCost}\nDelivery Fee: Rs. ${deliveryFee}`;
+                document.getElementById('hidden-grand-total').value = `Rs. ${grandTotal}`;
+                
+                // Submit form directly to Formspree
+                form.submit();
             }
         }
 

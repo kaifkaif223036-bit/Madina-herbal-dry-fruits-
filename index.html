@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Madina Herbal & Dry Fruit - [Fresh quality with best price]</title>
+    <title>Madina Herbal & Dry Fruit - Fresh quality with best price</title>
 
     <!-- FontAwesome Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -75,7 +75,7 @@
             .nav-whatsapp-btn { padding: 10px 20px; font-size: 0.85rem; }
         }
 
-        /* CATEGORY QUICK LINKS (mobile nav substitute) */
+        /* CATEGORY QUICK LINKS */
         .quick-links {
             display: flex;
             gap: 10px;
@@ -233,29 +233,6 @@
         .products-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 15px; padding: 0 4% 0.5rem 4%; }
         @media (min-width: 768px) { .products-grid { grid-template-columns: repeat(3, 1fr); gap: 22px; } }
         @media (min-width: 1024px) { .products-grid { grid-template-columns: repeat(4, 1fr); } }
-
-        /* SHOW MORE BUTTON STYLING */
-        .show-more-wrapper { text-align: center; margin: 1rem 0 2rem 0; }
-        .btn-show-more {
-            background-color: #3f5e27;
-            color: #ffffff;
-            border: none;
-            padding: 10px 24px;
-            font-size: 0.9rem;
-            font-weight: 600;
-            border-radius: 25px;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            box-shadow: 0 4px 10px rgba(63, 94, 39, 0.2);
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-        }
-        .btn-show-more:hover {
-            background-color: #2c441a;
-            transform: translateY(-2px);
-            box-shadow: 0 6px 14px rgba(63, 94, 39, 0.3);
-        }
 
         /* PRODUCT CARD */
         .product-card {
@@ -436,7 +413,7 @@
     <section class="hero" id="about">
         <div class="hero-text">
             <h2>Natural Goodness<br><em>for a</em> Healthier Life</h2>
-            <p>[fresh quality with best price] &mdash; explore our herbal roots &amp; seeds, premium dry fruits, and pure honey.</p>
+            <p>Fresh quality with best price &mdash; explore our herbal roots &amp; seeds, premium dry fruits, and pure honey.</p>
             <div class="hero-buttons">
                 <a href="#products-start" class="btn-primary-custom">Shop Now</a>
                 <a href="https://wa.me/923092700965" target="_blank" class="btn-secondary-custom">Contact Us</a>
@@ -495,477 +472,325 @@
         </div>
 
         <!-- SECTION 1: HERBAL PRODUCTS -->
-        <span class="category-subtitle"><i class="fas fa-leaf"></i> Organic Seeds, Roots &amp; Packs</span>
-        <div class="products-grid" id="grid-herbal"></div>
-        <div class="show-more-wrapper">
-            <button class="btn-show-more" id="btn-herbal" onclick="toggleShowMore('herbal')">
-                Show More <i class="fas fa-chevron-down"></i>
-            </button>
+        <span class="category-subtitle" id="grid-herbal"><i class="fas fa-leaf"></i> Organic Herbal Products</span>
+        <div class="products-grid">
+            <div class="product-card" data-name="flax seed alsi seeds">
+                <img src="https://i.ibb.co/L5k6v7F/flax-seeds.jpg" alt="Flax Seed">
+                <div class="product-details">
+                    <div class="product-title">Flax Seed (Alsi) 250g</div>
+                    <div class="product-price">Rs. 250</div>
+                    <button class="add-to-cart-btn" onclick="addToCart('Flax Seed (Alsi) 250g', 250)">Add to Cart</button>
+                </div>
+            </div>
+            <div class="product-card" data-name="white musli safed musli">
+                <img src="https://i.ibb.co/m0fGZ9M/safed-musli.jpg" alt="Safed Musli">
+                <div class="product-details">
+                    <div class="product-title">Safed Musli Powder 100g</div>
+                    <div class="product-price">Rs. 600</div>
+                    <button class="add-to-cart-btn" onclick="addToCart('Safed Musli Powder 100g', 600)">Add to Cart</button>
+                </div>
+            </div>
         </div>
 
-        <!-- SECTION 2: DRY FRUITS NUTS -->
-        <span class="category-subtitle"><i class="fas fa-seedling"></i> Almonds, Walnuts, Cashews &amp; Pistachio</span>
-        <div class="products-grid" id="grid-nuts"></div>
-        <div class="show-more-wrapper">
-            <button class="btn-show-more" id="btn-nuts" onclick="toggleShowMore('nuts')">
-                Show More <i class="fas fa-chevron-down"></i>
-            </button>
+        <!-- SECTION 2: DRY FRUITS & NUTS -->
+        <span class="category-subtitle" id="grid-nuts"><i class="fas fa-seedling"></i> Premium Dry Fruits &amp; Nuts</span>
+        <div class="products-grid">
+            <div class="product-card" data-name="american almond badam">
+                <img src="https://i.ibb.co/bg4dF9C9/dry-almonds-500x500-1.jpg" alt="Almond">
+                <div class="product-details">
+                    <div class="product-title">American Almonds 250g</div>
+                    <div class="product-price">Rs. 750</div>
+                    <button class="add-to-cart-btn" onclick="addToCart('American Almonds 250g', 750)">Add to Cart</button>
+                </div>
+            </div>
+            <div class="product-card" data-name="cashew kaju plain">
+                <img src="https://i.ibb.co/4M0NvyL/cashews.jpg" alt="Cashews">
+                <div class="product-details">
+                    <div class="product-title">Plain Kaju (Cashews) 250g</div>
+                    <div class="product-price">Rs. 900</div>
+                    <button class="add-to-cart-btn" onclick="addToCart('Plain Kaju (Cashews) 250g', 900)">Add to Cart</button>
+                </div>
+            </div>
         </div>
 
         <!-- SECTION 3: DATES & HONEY -->
-        <span class="category-subtitle"><i class="fas fa-box"></i> Dates, Apricots, Figs, Raisins &amp; Honey</span>
-        <div class="products-grid" id="grid-dates-honey"></div>
-        <div class="show-more-wrapper">
-            <button class="btn-show-more" id="btn-dates-honey" onclick="toggleShowMore('dates-honey')">
-                Show More <i class="fas fa-chevron-down"></i>
-            </button>
+        <span class="category-subtitle" id="grid-dates-honey"><i class="fas fa-jar"></i> Pure Honey &amp; Premium Dates</span>
+        <div class="products-grid">
+            <div class="product-card" data-name="ajwa dates khajoor">
+                <img src="https://i.ibb.co/VMyh0XG/ajwa-dates.jpg" alt="Ajwa Dates">
+                <div class="product-details">
+                    <div class="product-title">Ajwa Dates (Khajoor) 500g</div>
+                    <div class="product-price">Rs. 1,200</div>
+                    <button class="add-to-cart-btn" onclick="addToCart('Ajwa Dates (Khajoor) 500g', 1200)">Add to Cart</button>
+                </div>
+            </div>
+            <div class="product-card" data-name="pure sidr honey berry shahad">
+                <img src="https://i.ibb.co/0Vp9HwY/sidr-honey.jpg" alt="Sidr Honey">
+                <div class="product-details">
+                    <div class="product-title">Pure Sidr Honey 500g</div>
+                    <div class="product-price">Rs. 1,800</div>
+                    <button class="add-to-cart-btn" onclick="addToCart('Pure Sidr Honey 500g', 1800)">Add to Cart</button>
+                </div>
+            </div>
         </div>
     </div>
 
     <!-- FLOATING CART BUTTON -->
-    <div class="floating-cart" onclick="toggleCart()">
+    <div class="floating-cart" onclick="toggleCartModal()">
         <i class="fas fa-shopping-cart"></i>
         <span class="cart-count" id="cart-count">0</span>
     </div>
 
     <!-- FLOATING WHATSAPP BUTTON -->
-    <a href="https://wa.me/923092700965" class="whatsapp-float" target="_blank" title="Contact on WhatsApp">
+    <a href="https://wa.me/923092700965" class="whatsapp-float" target="_blank" id="contact">
         <i class="fab fa-whatsapp"></i>
     </a>
 
-    <!-- CART MODAL -->
+    <!-- CART & CHECKOUT MODAL -->
     <div class="modal-overlay" id="cart-modal">
         <div class="modal-content">
-            <span class="close-modal" onclick="toggleCart()">&times;</span>
+            <span class="close-modal" onclick="toggleCartModal()">&times;</span>
             <h2>Your Shopping Cart</h2>
 
-            <div class="cart-items-list" id="cart-items">
-                <p style="text-align:center; color:#777;">Your cart is empty.</p>
+            <ul class="cart-items-list" id="cart-items-list">
+                <!-- Cart items will be loaded dynamically via JS -->
+            </ul>
+
+            <div class="cart-summary">
+                <div class="summary-row"><span>Subtotal:</span><span id="subtotal-val">Rs. 0</span></div>
+                <div class="summary-row"><span>Delivery Charges:</span><span id="delivery-val">Rs. 200</span></div>
+                <div class="summary-row total-row"><span>Total:</span><span id="total-val">Rs. 200</span></div>
             </div>
 
-            <!-- BILL SUMMARY -->
-            <div class="cart-summary" id="cart-summary">
-                <div class="summary-row">
-                    <span>Items Subtotal:</span>
-                    <span id="subtotal-amount">Rs. 0</span>
-                </div>
-                <div class="summary-row">
-                    <span>Delivery Charges:</span>
-                    <span id="delivery-amount">Rs. 100</span>
-                </div>
-                <div class="summary-row total-row">
-                    <span>Grand Total:</span>
-                    <span id="grand-total-amount">Rs. 100</span>
-                </div>
-            </div>
+            <!-- FORMSPREE CHECKOUT FORM -->
+            <form id="checkout-form" class="checkout-form" action="https://formspree.io/f/xbgljond" method="POST">
+                <h3>Checkout Details</h3>
 
-            <h3>Customer Details</h3>
-            <!-- AUTOMATED FORMSPREE FETCH SUBMISSION -->
-            <form class="checkout-form" id="checkout-form" onsubmit="submitOrderForm(event)">
-                <label for="cust-name">Full Name</label>
-                <input type="text" id="cust-name" name="Customer Name" placeholder="Enter your full name" required>
+                <!-- Hidden inputs to send Cart items & Total price to Formspree -->
+                <input type="hidden" name="Order_Items" id="form-order-items">
+                <input type="hidden" name="Total_Amount" id="form-total-amount">
 
-                <label for="cust-phone">Phone Number</label>
-                <input type="tel" id="cust-phone" name="Phone Number" placeholder="Enter phone number (e.g. 03092700965)" required>
+                <label for="cust-name">Full Name *</label>
+                <input type="text" id="cust-name" name="Name" required placeholder="Muhammad Ahmed">
 
-                <label for="delivery-zone">Select Delivery Option</label>
-                <select id="delivery-zone" name="Delivery Option" onchange="updateCartUI()">
-                    <option value="100">Local Delivery (Rs. 100)</option>
-                    <option value="200">Out-of-City Cargo (Rs. 200)</option>
+                <label for="cust-phone">Phone Number *</label>
+                <input type="tel" id="cust-phone" name="Phone" required placeholder="03001234567">
+
+                <label for="cust-email">Email Address</label>
+                <input type="email" id="cust-email" name="Email" placeholder="example@mail.com">
+
+                <label for="cust-address">Delivery Address *</label>
+                <textarea id="cust-address" name="Address" rows="2" required placeholder="House No, Street, City"></textarea>
+
+                <label for="payment-method">Payment Method *</label>
+                <select id="payment-method" name="Payment_Method" onchange="toggleBankDetails()" required>
+                    <option value="Cash on Delivery">Cash on Delivery (COD)</option>
+                    <option value="Bank Transfer / EasyPaisa">Bank Transfer / EasyPaisa / JazzCash</option>
                 </select>
 
-                <label for="cust-address">Delivery Address</label>
-                <textarea id="cust-address" name="Delivery Address" rows="2" placeholder="Street or House Address" required></textarea>
-
-                <!-- PAYMENT METHOD SELECTOR -->
-                <label for="payment-method">Payment Method</label>
-                <select id="payment-method" name="Payment Method" onchange="toggleBankDetails()">
-                    <option value="Cash on Delivery (COD)">Cash on Delivery (COD)</option>
-                    <option value="Online Payment (Bank / EasyPaisa)">Online Payment (Bank Transfer / EasyPaisa)</option>
-                </select>
-
-                <!-- BANK & EASYPAISA DETAILS BOX -->
-                <div class="bank-details-box" id="bank-info">
-                    <strong style="color:#b07d2b; font-size:0.95rem;">Payment Account Details:</strong><br>
-                    • <strong>EasyPaisa:</strong> 03467224956<br>
-                    • <strong>Meezan Bank:</strong> 98280106636773<br>
-                    <small style="display:block; margin-top:4px; color:#555;"><i>* Payment bhejne ke baad screenshot receipt zaroor share karein.</i></small>
+                <div class="bank-details-box" id="bank-details-box">
+                    <strong>Account Details:</strong><br>
+                    Bank: Meezan Bank<br>
+                    Title: Madina Herbal<br>
+                    Account / IBAN: PK00 MEZN 0000 1234 5678<br>
+                    EasyPaisa/JazzCash: 03092700965<br>
+                    <small>*Please send payment screenshot on WhatsApp after placing order.</small>
                 </div>
-
-                <!-- HIDDEN FIELDS FOR CARTS DETAILS & TOTAL IN EMAIL -->
-                <textarea id="hidden-order-details" name="Order Details" style="display:none;"></textarea>
-                <input type="hidden" id="hidden-grand-total" name="Grand Total" value="">
 
                 <button type="submit" class="btn-place-order" id="submit-btn">
-                    <i class="fas fa-check-circle"></i> Place Order Now
+                    <i class="fas fa-check-circle"></i> Place Order
                 </button>
             </form>
 
-            <div class="order-success-msg" id="success-msg">
-                <strong>Aap ka order kamyabi se place ho gaya hai!</strong><br>
-                Shukriya! Hum jald hi aap se rabta karenge.
+            <div class="order-success-msg" id="order-success-msg">
+                🎉 Thank you! Your order has been placed successfully. We will contact you soon.
             </div>
         </div>
     </div>
 
     <!-- FOOTER -->
-    <footer id="contact">
-        <p>&copy; 2026 Madina Herbal & Dry Fruit. All Rights Reserved.</p>
-        <p style="margin-top: 4px;">Owner Email: kaifkaif223036@gmail.com | Phone: 03092700965</p>
+    <footer>
+        <p>&copy; 2026 Madina Herbal &amp; Dry Fruit Store. All Rights Reserved.</p>
     </footer>
 
-    <!-- JAVASCRIPT LOGIC -->
+    <!-- JAVASCRIPT -->
     <script>
-        // 1. HERBAL PRODUCTS & SEEDS CATEGORY
-        const herbalProducts = [
-            { id: 101, name: 'Dry Pumpkin Seeds', price: 2200, displayPrice: '550 / 250g', unitType: '250g', image: 'https://i.ibb.co/XZ5YGpCF/dry-pumpkin-seeds-500x500.jpg' },
-            { id: 102, name: 'Sunflower Seeds', price: 1000, displayPrice: '250 / 250g', unitType: '250g', image: 'https://i.ibb.co/0p0H75V3/7df37c6eb75ee4647cc3805a52c8354d.jpg' },
-            { id: 103, name: 'White Till Seed', price: 800, displayPrice: '200 / 250g', unitType: '250g', image: 'https://i.ibb.co/k2WNpB2j/white-till-seed.jpg' },
-            { id: 104, name: 'Dried Safed Musli Roots', price: 1500, displayPrice: '150 / 10g (Min 50g)', unitType: 'gram10', minQty: 50, stepQty: 10, image: 'https://i.ibb.co/v6KPRyYG/dried-safed-musli-roots-500x500.jpg' },
-            { id: 105, name: 'Herbal Special Item', price: 4000, displayPrice: '200 / 50g (Min 50g)', unitType: 'gram50', minQty: 50, stepQty: 50, image: 'https://i.ibb.co/C5bB8rJC/71hn-TMAg99-L-AC-UF1000-1000-QL80.jpg' },
-            { id: 106, name: 'Herbal Powder Pack (250g)', price: 250, displayPrice: '250 / Packet', unitType: 'packet', image: 'https://i.ibb.co/9mHkX5mY/1789223122209.png' },
-            { id: 107, name: 'Special Herbal Mix (500g)', price: 500, displayPrice: '500 / Packet', unitType: 'packet', image: 'https://i.ibb.co/cKQS8gqs/1789224100781.png' },
-            { id: 108, name: 'Herbal Special Pack', price: 300, displayPrice: '300 / Packet', unitType: 'packet', image: 'https://i.ibb.co/ZZdTSbL/download.jpg' },
-            { id: 109, name: 'Flax Seeds', price: 250, displayPrice: '250 / Packet', unitType: 'packet', image: 'https://i.ibb.co/8nW5KxBj/download-1.jpg' }
-        ];
-
-        // 2. DRY FRUITS - NUTS & SEEDS CATEGORY
-        const dryFruitNuts = [
-            { id: 1, name: 'American Almond Giri', price: 3400, displayPrice: '3400 / kg', unitType: 'kg', image: 'https://i.ibb.co/bg4dF9C9/dry-almonds-500x500-1.jpg' },
-            { id: 2, name: 'Magaz Badam Gurbandi', price: 3000, displayPrice: '3000 / kg', unitType: 'kg', image: 'https://i.ibb.co/YFTRZfBX/images-11.jpg' },
-            { id: 3, name: 'Xinjiang Thin Shell Walnut (Akhrot)', price: 800, displayPrice: '800 / kg', unitType: 'kg', image: 'https://i.ibb.co/PdfYJpt/chinese-xinjiang-thin-shell-walnut-dried-walnut.jpg' },
-            { id: 4, name: 'Walnut Kernel (Akhrot Giri)', price: 2400, displayPrice: '2400 / kg', unitType: 'kg', image: 'https://i.ibb.co/3mBrHR1m/images-8.jpg' },
-            { id: 5, name: 'Salted Kaju', price: 3800, displayPrice: '3800 / kg', unitType: 'kg', image: 'https://i.ibb.co/fG1sbp70/teated-18781-703935-151021070958804.jpg' },
-            { id: 6, name: 'Plain Kaju', price: 3600, displayPrice: '3600 / kg', unitType: 'kg', image: 'https://i.ibb.co/XZR8mWkn/z4m4491-TOuw-Od07d-RUq-Y3-Jc-Zcq-EF2r9sk-Aysf-Kw-K.jpg' },
-            { id: 7, name: 'Salted Pistachio', price: 5000, displayPrice: '5000 / kg', unitType: 'kg', image: 'https://i.ibb.co/kgc6XyzB/images-4.jpg' },
-            { id: 16, name: 'Mong Phali & Kaghzi Badam Mix', price: 1950, displayPrice: '1950 / kg', unitType: 'kg', image: 'https://i.ibb.co/0ydKPb6L/Untitleddesign-86dd85bb-a316-4afb-8d5a-3b094690b02c.png' },
-            { id: 17, name: 'Chilgoza Kernel (Chilgoza Giri)', price: 9900, displayPrice: '9900 / kg', unitType: 'kg', image: 'https://i.ibb.co/Jw5wd3Kp/S186ab039b1354c7eb5b41ed12833a0af-U.jpg' }
-        ];
-
-        // 3. DRY FRUITS - DATES, APRICOTS & HONEY CATEGORY
-        const dryFruitDatesHoney = [
-            { id: 18, name: 'Fresh Zahidi Dates (Zahidi Khajoor)', price: 480, displayPrice: '480 / kg', unitType: 'kg', image: 'https://i.ibb.co/qY7gNDg3/fresh-zahidi-dates-500x500.jpg' },
-            { id: 19, name: 'Rabbi Dates (Rabbi Khajoor)', price: 800, displayPrice: '800 / kg', unitType: 'kg', image: 'https://i.ibb.co/cWsyRkd/Khajoor-Rabbi-Dates-Rabbi.webp' },
-            { id: 20, name: 'Muzafati Dates', price: 900, displayPrice: '900 / kg', unitType: 'kg', image: 'https://i.ibb.co/zttfBfF/product-jpeg.jpg' },
-            { id: 8, name: 'Dry Apricot (Khumani)', price: 1000, displayPrice: '1000 / kg', unitType: 'kg', image: 'https://i.ibb.co/kj0mKHp/images-10.jpg' },
-            { id: 9, name: 'Apricot (Khumani Special)', price: 1400, displayPrice: '1400 / kg', unitType: 'kg', image: 'https://i.ibb.co/PG92LmTd/images-9.jpg' },
-            { id: 10, name: 'Fig (Anjeer)', price: 2900, displayPrice: '2900 / kg', unitType: 'kg', image: 'https://i.ibb.co/cP0pgP2/images-3.jpg' },
-            { id: 11, name: 'Premium Raisin (Kishmish)', price: 1400, displayPrice: '1400 / kg', unitType: 'kg', image: 'https://i.ibb.co/VYCFk7Nv/Sdf266a4d4f9d476c97e9dbc95c2574470.jpg' },
-            { id: 12, name: 'Black Raisin', price: 1600, displayPrice: '1600 / kg', unitType: 'kg', image: 'https://i.ibb.co/84L8k57b/36399765-776a466f-10c3-4461-b2e3-03c9cfc0366f.jpg' },
-            { id: 13, name: 'Khopra (Dried Coconut)', price: 1200, displayPrice: '1200 / kg', unitType: 'kg', image: 'https://i.ibb.co/fzG82C88/images-13.jpg' },
-            { id: 14, name: 'Phool Makhana', price: 3950, displayPrice: '3950 / kg', unitType: 'kg', image: 'https://i.ibb.co/Y7r2b58C/images-12.jpg' },
-            { id: 15, name: 'Pure Raw Honey (Chota Shehed)', price: 5600, displayPrice: '5600 / kg', unitType: 'kg', image: 'https://i.ibb.co/KppgHPT6/raw-honey2.jpg' }
-        ];
-
-        const allProducts = [...herbalProducts, ...dryFruitNuts, ...dryFruitDatesHoney];
         let cart = [];
+        const deliveryCharge = 200;
 
-        const categoryState = {
-            herbal: false,
-            nuts: false,
-            'dates-honey': false
-        };
-
-        function createProductCard(product) {
-            return `
-                <div class="product-card">
-                    <img src="${product.image}" alt="${product.name}" onerror="this.src='https://via.placeholder.com/240x170?text=Madina+Herbal'">
-                    <div class="product-details">
-                        <div class="product-title">${product.name}</div>
-                        <div class="product-price">Rs. ${product.displayPrice}</div>
-                        <button class="add-to-cart-btn" onclick="addToCart(${product.id})">Add to Cart</button>
-                    </div>
-                </div>
-            `;
-        }
-
-        function renderCategoryGrid(gridId, products, isExpanded) {
-            const listToRender = isExpanded ? products : products.slice(0, 4);
-            document.getElementById(gridId).innerHTML = listToRender.map(createProductCard).join('');
-        }
-
-        function renderAllGrids() {
-            renderCategoryGrid('grid-herbal', herbalProducts, categoryState.herbal);
-            renderCategoryGrid('grid-nuts', dryFruitNuts, categoryState.nuts);
-            renderCategoryGrid('grid-dates-honey', dryFruitDatesHoney, categoryState['dates-honey']);
-        }
-
-        function toggleShowMore(category) {
-            categoryState[category] = !categoryState[category];
-            const btn = document.getElementById(`btn-${category}`);
-
-            if (category === 'herbal') {
-                renderCategoryGrid('grid-herbal', herbalProducts, categoryState.herbal);
-            } else if (category === 'nuts') {
-                renderCategoryGrid('grid-nuts', dryFruitNuts, categoryState.nuts);
-            } else if (category === 'dates-honey') {
-                renderCategoryGrid('grid-dates-honey', dryFruitDatesHoney, categoryState['dates-honey']);
-            }
-
-            if (categoryState[category]) {
-                btn.innerHTML = 'Show Less <i class="fas fa-chevron-up"></i>';
+        // Add Product to Cart
+        function addToCart(title, price) {
+            let existingIndex = cart.findIndex(item => item.title === title);
+            if (existingIndex > -1) {
+                cart[existingIndex].quantity += 1;
             } else {
-                btn.innerHTML = 'Show More <i class="fas fa-chevron-down"></i>';
+                cart.push({ title: title, price: price, quantity: 1 });
+            }
+            updateCartUI();
+            toggleCartModal(true);
+        }
+
+        // Update Cart UI & Prices
+        function updateCartUI() {
+            const listEl = document.getElementById('cart-items-list');
+            const countEl = document.getElementById('cart-count');
+            const subtotalEl = document.getElementById('subtotal-val');
+            const totalEl = document.getElementById('total-val');
+
+            listEl.innerHTML = '';
+            let totalItems = 0;
+            let subtotal = 0;
+
+            if (cart.length === 0) {
+                listEl.innerHTML = '<li style="text-align:center; color:#888; padding: 10px;">Your cart is empty.</li>';
+            } else {
+                cart.forEach((item, index) => {
+                    totalItems += item.quantity;
+                    subtotal += item.price * item.quantity;
+
+                    let li = document.createElement('li');
+                    li.className = 'cart-item';
+                    li.innerHTML = `
+                        <div class="cart-item-info">
+                            <strong>${item.title}</strong><br>
+                            Rs. ${item.price} x ${item.quantity} = Rs. ${item.price * item.quantity}
+                        </div>
+                        <div class="qty-controls">
+                            <button class="qty-btn" onclick="changeQty(${index}, -1)">-</button>
+                            <span>${item.quantity}</span>
+                            <button class="qty-btn" onclick="changeQty(${index}, 1)">+</button>
+                            <button class="delete-btn" onclick="removeItem(${index})"><i class="fas fa-trash"></i></button>
+                        </div>
+                    `;
+                    listEl.appendChild(li);
+                });
+            }
+
+            countEl.innerText = totalItems;
+            subtotalEl.innerText = `Rs. ${subtotal}`;
+            
+            let grandTotal = subtotal > 0 ? subtotal + deliveryCharge : 0;
+            totalEl.innerText = `Rs. ${grandTotal}`;
+
+            // Prepare hidden inputs for Formspree
+            document.getElementById('form-order-items').value = cart.map(i => `${i.title} (x${i.quantity}) - Rs.${i.price * i.quantity}`).join(' | ');
+            document.getElementById('form-total-amount').value = `Rs. ${grandTotal} (Subtotal: Rs. ${subtotal} + Delivery: Rs. ${deliveryCharge})`;
+        }
+
+        // Change Item Quantity
+        function changeQty(index, change) {
+            cart[index].quantity += change;
+            if (cart[index].quantity <= 0) {
+                cart.splice(index, 1);
+            }
+            updateCartUI();
+        }
+
+        // Remove Item
+        function removeItem(index) {
+            cart.splice(index, 1);
+            updateCartUI();
+        }
+
+        // Open/Close Cart Modal
+        function toggleCartModal(forceOpen = false) {
+            const modal = document.getElementById('cart-modal');
+            if (forceOpen) {
+                modal.style.display = 'flex';
+            } else {
+                modal.style.display = modal.style.display === 'flex' ? 'none' : 'flex';
             }
         }
 
+        // Show/Hide Bank Details
+        function toggleBankDetails() {
+            const method = document.getElementById('payment-method').value;
+            const bankBox = document.getElementById('bank-details-box');
+            bankBox.style.display = (method.includes('Bank') || method.includes('EasyPaisa')) ? 'block' : 'none';
+        }
+
+        // Live Product Search Filter
         function filterProducts() {
-            const query = document.getElementById('search-input').value.toLowerCase().trim();
-            const resultsWrapper = document.getElementById('search-results-wrapper');
-            const searchGrid = document.getElementById('search-grid');
-            const mainCategories = document.getElementById('main-categories');
+            let input = document.getElementById('search-input').value.toLowerCase();
+            let mainCategories = document.getElementById('main-categories');
+            let searchWrapper = document.getElementById('search-results-wrapper');
+            let searchGrid = document.getElementById('search-grid');
 
-            if (query === '') {
-                resultsWrapper.style.display = 'none';
+            if (input.trim() === "") {
                 mainCategories.style.display = 'block';
+                searchWrapper.style.display = 'none';
+                searchGrid.innerHTML = '';
                 return;
-            }
-
-            const filtered = allProducts.filter(p => p.name.toLowerCase().includes(query));
-
-            if (filtered.length > 0) {
-                searchGrid.innerHTML = filtered.map(createProductCard).join('');
-            } else {
-                searchGrid.innerHTML = '<p style="grid-column: 1/-1; text-align: center; color: #777; padding: 2rem 0;">No matching products found.</p>';
             }
 
             mainCategories.style.display = 'none';
-            resultsWrapper.style.display = 'block';
-        }
+            searchWrapper.style.display = 'block';
+            searchGrid.innerHTML = '';
 
-        function addToCart(productId) {
-            const product = allProducts.find(p => p.id === productId);
-            const existingItem = cart.find(item => item.id === productId);
+            let allCards = document.querySelectorAll('#main-categories .product-card');
+            let matchCount = 0;
 
-            if (existingItem) {
-                if (product.unitType === 'gram10') {
-                    existingItem.quantity += 10;
-                } else if (product.unitType === 'gram50') {
-                    existingItem.quantity += 50;
-                } else if (product.unitType === '250g') {
-                    existingItem.quantity += 0.25;
-                } else if (product.unitType === 'packet') {
-                    existingItem.quantity += 1;
-                } else {
-                    existingItem.quantity = Math.round((existingItem.quantity + 0.25) * 100) / 100;
+            allCards.forEach(card => {
+                let name = card.getAttribute('data-name');
+                if (name && name.toLowerCase().includes(input)) {
+                    let clone = card.cloneNode(true);
+                    searchGrid.appendChild(clone);
+                    matchCount++;
                 }
-            } else {
-                if (product.unitType === 'gram10' || product.unitType === 'gram50') {
-                    cart.push({ ...product, quantity: product.minQty || 50 });
-                } else if (product.unitType === 'packet') {
-                    cart.push({ ...product, quantity: 1 });
-                } else {
-                    cart.push({ ...product, quantity: 0.25 });
-                }
-            }
-            updateCartUI();
-        }
-
-        function increaseQty(productId) {
-            const item = cart.find(item => item.id === productId);
-            if (item) {
-                if (item.unitType === 'gram10') {
-                    item.quantity += 10;
-                } else if (item.unitType === 'gram50') {
-                    item.quantity += 50;
-                } else if (item.unitType === 'packet') {
-                    item.quantity += 1;
-                } else {
-                    item.quantity = Math.round((item.quantity + 0.25) * 100) / 100;
-                }
-                updateCartUI();
-            }
-        }
-
-        function decreaseQty(productId) {
-            const item = cart.find(item => item.id === productId);
-            if (item) {
-                if (item.unitType === 'gram10' || item.unitType === 'gram50') {
-                    const step = item.stepQty || 10;
-                    if (item.quantity > (item.minQty || 50)) {
-                        item.quantity -= step;
-                    } else {
-                        removeFromCart(productId);
-                        return;
-                    }
-                } else if (item.unitType === 'packet') {
-                    if (item.quantity > 1) {
-                        item.quantity -= 1;
-                    } else {
-                        removeFromCart(productId);
-                        return;
-                    }
-                } else {
-                    if (item.quantity > 0.25) {
-                        item.quantity = Math.round((item.quantity - 0.25) * 100) / 100;
-                    } else {
-                        removeFromCart(productId);
-                        return;
-                    }
-                }
-                updateCartUI();
-            }
-        }
-
-        function removeFromCart(productId) {
-            cart = cart.filter(item => item.id !== productId);
-            updateCartUI();
-        }
-
-        function formatQuantity(item) {
-            if (item.unitType === 'gram10' || item.unitType === 'gram50') {
-                return `${item.quantity} g`;
-            } else if (item.unitType === 'packet') {
-                return `${item.quantity} pkt`;
-            } else {
-                if (item.quantity < 1) {
-                    return `${Math.round(item.quantity * 1000)} g`;
-                } else {
-                    return `${item.quantity} kg`;
-                }
-            }
-        }
-
-        function calculateItemTotal(item) {
-            if (item.unitType === 'gram10' || item.unitType === 'gram50') {
-                return Math.round((item.price / 1000) * item.quantity);
-            } else if (item.unitType === 'packet') {
-                return Math.round(item.price * item.quantity);
-            } else {
-                return Math.round(item.price * item.quantity);
-            }
-        }
-
-        function updateCartUI() {
-            document.getElementById('cart-count').innerText = cart.length;
-
-            const cartList = document.getElementById('cart-items');
-            const subtotalElem = document.getElementById('subtotal-amount');
-            const deliveryElem = document.getElementById('delivery-amount');
-            const grandTotalElem = document.getElementById('grand-total-amount');
-
-            const deliveryFee = parseInt(document.getElementById('delivery-zone').value) || 100;
-
-            if (cart.length === 0) {
-                cartList.innerHTML = '<p style="text-align:center; color:#777; padding: 1rem 0;">Your cart is empty.</p>';
-                subtotalElem.innerText = 'Rs. 0';
-                deliveryElem.innerText = `Rs. ${deliveryFee}`;
-                grandTotalElem.innerText = 'Rs. 0';
-                return;
-            }
-
-            let subtotalCost = 0;
-            cartList.innerHTML = cart.map(item => {
-                const itemTotal = calculateItemTotal(item);
-                subtotalCost += itemTotal;
-                return `
-                    <div class="cart-item">
-                        <div class="cart-item-info">
-                            <strong>${item.name}</strong><br>
-                            <span style="color:#b07d2b;">Rs. ${item.displayPrice} &times; ${formatQuantity(item)} = <strong>Rs. ${itemTotal}</strong></span>
-                        </div>
-                        <div class="qty-controls">
-                            <button class="qty-btn" onclick="decreaseQty(${item.id})">-</button>
-                            <span style="font-weight:bold; min-width:50px; text-align:center; font-size:0.85rem;">${formatQuantity(item)}</span>
-                            <button class="qty-btn" onclick="increaseQty(${item.id})">+</button>
-                            <button class="delete-btn" onclick="removeFromCart(${item.id})"><i class="fas fa-trash-alt"></i></button>
-                        </div>
-                    </div>
-                `;
-            }).join('');
-
-            const grandTotal = subtotalCost + deliveryFee;
-
-            subtotalElem.innerText = `Rs. ${subtotalCost}`;
-            deliveryElem.innerText = `Rs. ${deliveryFee}`;
-            grandTotalElem.innerText = `Rs. ${grandTotal}`;
-        }
-
-        function toggleCart() {
-            const modal = document.getElementById('cart-modal');
-            modal.style.display = modal.style.display === 'flex' ? 'none' : 'flex';
-        }
-
-        function toggleBankDetails() {
-            const selectVal = document.getElementById('payment-method').value;
-            const bankBox = document.getElementById('bank-info');
-            if (selectVal.includes('Online')) {
-                bankBox.style.display = 'block';
-            } else {
-                bankBox.style.display = 'none';
-            }
-        }
-
-        // AUTOMATED FETCH SUBMISSION (CUSTOMER REHAIN WEBSITE PAR HI)
-        async function submitOrderForm(event) {
-            event.preventDefault();
-
-            if (cart.length === 0) {
-                alert('Aap ka cart khali hai. Pehle kuch products add karein.');
-                return;
-            }
-
-            const submitBtn = document.getElementById('submit-btn');
-            const successMsg = document.getElementById('success-msg');
-            const deliveryFee = document.getElementById('delivery-zone').value;
-
-            let subtotalCost = 0;
-            let orderSummary = "";
-
-            cart.forEach((item, index) => {
-                const itemTotal = calculateItemTotal(item);
-                subtotalCost += itemTotal;
-                orderSummary += `${index + 1}. ${item.name} (${formatQuantity(item)}) - Rs. ${itemTotal}\n`;
             });
 
-            const grandTotal = subtotalCost + parseInt(deliveryFee);
+            if (matchCount === 0) {
+                searchGrid.innerHTML = '<p style="grid-column: 1/-1; text-align: center; color: #888;">No products found matching your search.</p>';
+            }
+        }
 
-            // Set hidden fields
-            document.getElementById('hidden-order-details').value = orderSummary + `\nSubtotal: Rs. ${subtotalCost}\nDelivery Fee: Rs. ${deliveryFee}`;
-            document.getElementById('hidden-grand-total').value = `Rs. ${grandTotal}`;
+        // FORMSPREE AJAX FORM SUBMISSION
+        document.getElementById('checkout-form').addEventListener('submit', async function(e) {
+            e.preventDefault();
+            
+            if (cart.length === 0) {
+                alert('Your cart is empty! Please add products before placing an order.');
+                return;
+            }
 
-            // Prepare Form Data for Formspree
-            const formData = new FormData(document.getElementById('checkout-form'));
-
+            const form = e.target;
+            const submitBtn = document.getElementById('submit-btn');
+            const successMsg = document.getElementById('order-success-msg');
+            
             submitBtn.disabled = true;
             submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Processing Order...';
 
             try {
-                const response = await fetch('https://formspree.io/f/xbgljondur', {
-                    method: 'POST',
-                    body: formData,
+                const response = await fetch(form.action, {
+                    method: form.method,
+                    body: new FormData(form),
                     headers: { 'Accept': 'application/json' }
                 });
 
                 if (response.ok) {
                     successMsg.style.display = 'block';
-                    submitBtn.style.display = 'none';
+                    form.style.display = 'none';
                     cart = [];
                     updateCartUI();
-                    document.getElementById('checkout-form').reset();
                     setTimeout(() => {
-                        toggleCart();
+                        toggleCartModal();
+                        form.reset();
+                        form.style.display = 'block';
                         successMsg.style.display = 'none';
-                        submitBtn.style.display = 'flex';
                         submitBtn.disabled = false;
-                        submitBtn.innerHTML = '<i class="fas fa-check-circle"></i> Place Order Now';
+                        submitBtn.innerHTML = '<i class="fas fa-check-circle"></i> Place Order';
                     }, 4000);
                 } else {
-                    alert('Order send karne mein masla hua hai. Dobara koshish karein.');
+                    alert('There was a problem submitting your order. Please try again or order via WhatsApp.');
                     submitBtn.disabled = false;
-                    submitBtn.innerHTML = '<i class="fas fa-check-circle"></i> Place Order Now';
+                    submitBtn.innerHTML = '<i class="fas fa-check-circle"></i> Place Order';
                 }
             } catch (error) {
-                alert('Network error. Apne internet connection ko check karein.');
+                alert('Connection error. Please check your internet connection.');
                 submitBtn.disabled = false;
-                submitBtn.innerHTML = '<i class="fas fa-check-circle"></i> Place Order Now';
+                submitBtn.innerHTML = '<i class="fas fa-check-circle"></i> Place Order';
             }
-        }
-
-        window.onload = function() {
-            renderAllGrids();
-            updateCartUI();
-        };
+        });
     </script>
 </body>
 </html>

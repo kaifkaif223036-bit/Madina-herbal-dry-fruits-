@@ -474,7 +474,7 @@
         <!-- SECTION 1: HERBAL PRODUCTS -->
         <span class="category-subtitle" id="grid-herbal"><i class="fas fa-leaf"></i> Organic Herbal Products</span>
         <div class="products-grid">
-            <div class="product-card" data-name="flax seed alsi seeds">
+            <div class="product-card" data-name="flax seed alsi seeds" data-title="Flax Seed (Alsi) 250g" data-price="250" data-img="https://i.ibb.co/L5k6v7F/flax-seeds.jpg">
                 <img src="https://i.ibb.co/L5k6v7F/flax-seeds.jpg" alt="Flax Seed">
                 <div class="product-details">
                     <div class="product-title">Flax Seed (Alsi) 250g</div>
@@ -482,7 +482,7 @@
                     <button class="add-to-cart-btn" onclick="addToCart('Flax Seed (Alsi) 250g', 250)">Add to Cart</button>
                 </div>
             </div>
-            <div class="product-card" data-name="white musli safed musli">
+            <div class="product-card" data-name="white musli safed musli" data-title="Safed Musli Powder 100g" data-price="600" data-img="https://i.ibb.co/m0fGZ9M/safed-musli.jpg">
                 <img src="https://i.ibb.co/m0fGZ9M/safed-musli.jpg" alt="Safed Musli">
                 <div class="product-details">
                     <div class="product-title">Safed Musli Powder 100g</div>
@@ -495,7 +495,7 @@
         <!-- SECTION 2: DRY FRUITS & NUTS -->
         <span class="category-subtitle" id="grid-nuts"><i class="fas fa-seedling"></i> Premium Dry Fruits &amp; Nuts</span>
         <div class="products-grid">
-            <div class="product-card" data-name="american almond badam">
+            <div class="product-card" data-name="american almond badam" data-title="American Almonds 250g" data-price="750" data-img="https://i.ibb.co/bg4dF9C9/dry-almonds-500x500-1.jpg">
                 <img src="https://i.ibb.co/bg4dF9C9/dry-almonds-500x500-1.jpg" alt="Almond">
                 <div class="product-details">
                     <div class="product-title">American Almonds 250g</div>
@@ -503,7 +503,7 @@
                     <button class="add-to-cart-btn" onclick="addToCart('American Almonds 250g', 750)">Add to Cart</button>
                 </div>
             </div>
-            <div class="product-card" data-name="cashew kaju plain">
+            <div class="product-card" data-name="cashew kaju plain" data-title="Plain Kaju (Cashews) 250g" data-price="900" data-img="https://i.ibb.co/4M0NvyL/cashews.jpg">
                 <img src="https://i.ibb.co/4M0NvyL/cashews.jpg" alt="Cashews">
                 <div class="product-details">
                     <div class="product-title">Plain Kaju (Cashews) 250g</div>
@@ -516,7 +516,7 @@
         <!-- SECTION 3: DATES & HONEY -->
         <span class="category-subtitle" id="grid-dates-honey"><i class="fas fa-jar"></i> Pure Honey &amp; Premium Dates</span>
         <div class="products-grid">
-            <div class="product-card" data-name="ajwa dates khajoor">
+            <div class="product-card" data-name="ajwa dates khajoor" data-title="Ajwa Dates (Khajoor) 500g" data-price="1200" data-img="https://i.ibb.co/VMyh0XG/ajwa-dates.jpg">
                 <img src="https://i.ibb.co/VMyh0XG/ajwa-dates.jpg" alt="Ajwa Dates">
                 <div class="product-details">
                     <div class="product-title">Ajwa Dates (Khajoor) 500g</div>
@@ -524,7 +524,7 @@
                     <button class="add-to-cart-btn" onclick="addToCart('Ajwa Dates (Khajoor) 500g', 1200)">Add to Cart</button>
                 </div>
             </div>
-            <div class="product-card" data-name="pure sidr honey berry shahad">
+            <div class="product-card" data-name="pure sidr honey berry shahad" data-title="Pure Sidr Honey 500g" data-price="1800" data-img="https://i.ibb.co/0Vp9HwY/sidr-honey.jpg">
                 <img src="https://i.ibb.co/0Vp9HwY/sidr-honey.jpg" alt="Sidr Honey">
                 <div class="product-details">
                     <div class="product-title">Pure Sidr Honey 500g</div>
@@ -565,10 +565,6 @@
             <!-- FORMSPREE CHECKOUT FORM -->
             <form id="checkout-form" class="checkout-form" action="https://formspree.io/f/xbgljond" method="POST">
                 <h3>Checkout Details</h3>
-
-                <!-- Hidden inputs to send Cart items & Total price to Formspree -->
-                <input type="hidden" name="Order_Items" id="form-order-items">
-                <input type="hidden" name="Total_Amount" id="form-total-amount">
 
                 <label for="cust-name">Full Name *</label>
                 <input type="text" id="cust-name" name="Name" required placeholder="Muhammad Ahmed">
@@ -671,10 +667,6 @@
             
             let grandTotal = subtotal > 0 ? subtotal + deliveryCharge : 0;
             totalEl.innerText = `Rs. ${grandTotal}`;
-
-            // Prepare hidden inputs for Formspree
-            document.getElementById('form-order-items').value = cart.map(i => `${i.title} (x${i.quantity}) - Rs.${i.price * i.quantity}`).join(' | ');
-            document.getElementById('form-total-amount').value = `Rs. ${grandTotal} (Subtotal: Rs. ${subtotal} + Delivery: Rs. ${deliveryCharge})`;
         }
 
         // Change Item Quantity
@@ -709,14 +701,14 @@
             bankBox.style.display = (method.includes('Bank') || method.includes('EasyPaisa')) ? 'block' : 'none';
         }
 
-        // Live Product Search Filter
+        // FIX: LIVE SEARCH FILTER (Rebuilds DOM dynamically to keep buttons fully active)
         function filterProducts() {
-            let input = document.getElementById('search-input').value.toLowerCase();
+            let input = document.getElementById('search-input').value.toLowerCase().trim();
             let mainCategories = document.getElementById('main-categories');
             let searchWrapper = document.getElementById('search-results-wrapper');
             let searchGrid = document.getElementById('search-grid');
 
-            if (input.trim() === "") {
+            if (input === "") {
                 mainCategories.style.display = 'block';
                 searchWrapper.style.display = 'none';
                 searchGrid.innerHTML = '';
@@ -733,8 +725,27 @@
             allCards.forEach(card => {
                 let name = card.getAttribute('data-name');
                 if (name && name.toLowerCase().includes(input)) {
-                    let clone = card.cloneNode(true);
-                    searchGrid.appendChild(clone);
+                    let title = card.getAttribute('data-title');
+                    let price = parseInt(card.getAttribute('data-price'));
+                    let imgSrc = card.getAttribute('data-img');
+
+                    let newCard = document.createElement('div');
+                    newCard.className = 'product-card';
+                    newCard.innerHTML = `
+                        <img src="${imgSrc}" alt="${title}">
+                        <div class="product-details">
+                            <div class="product-title">${title}</div>
+                            <div class="product-price">Rs. ${price.toLocaleString()}</div>
+                            <button class="add-to-cart-btn">Add to Cart</button>
+                        </div>
+                    `;
+
+                    // Bind active click handler to prevent search grid breakdown
+                    newCard.querySelector('.add-to-cart-btn').addEventListener('click', function() {
+                        addToCart(title, price);
+                    });
+
+                    searchGrid.appendChild(newCard);
                     matchCount++;
                 }
             });
@@ -744,7 +755,7 @@
             }
         }
 
-        // FORMSPREE AJAX FORM SUBMISSION (FIXED JSON PAYLOAD)
+        // FIX: FORMSPREE AJAX SUBMISSION USING JSON (Prevents CORS & Parsing errors on GitHub Pages)
         document.getElementById('checkout-form').addEventListener('submit', async function(e) {
             e.preventDefault();
             
@@ -760,15 +771,18 @@
             submitBtn.disabled = true;
             submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Processing Order...';
 
-            // Constructing JSON Payload to prevent Formspree CORS & Parsing errors
+            let subtotal = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
+            let grandTotal = subtotal + deliveryCharge;
+            let orderItemsStr = cart.map(i => `${i.title} (x${i.quantity}) - Rs.${i.price * i.quantity}`).join(' | ');
+
             const payload = {
-                Order_Items: document.getElementById('form-order-items').value,
-                Total_Amount: document.getElementById('form-total-amount').value,
                 Name: document.getElementById('cust-name').value,
                 Phone: document.getElementById('cust-phone').value,
                 Email: document.getElementById('cust-email').value,
                 Address: document.getElementById('cust-address').value,
-                Payment_Method: document.getElementById('payment-method').value
+                Payment_Method: document.getElementById('payment-method').value,
+                Order_Items: orderItemsStr,
+                Total_Amount: `Rs. ${grandTotal} (Subtotal: Rs. ${subtotal} + Delivery: Rs. ${deliveryCharge})`
             };
 
             try {
@@ -795,7 +809,7 @@
                         submitBtn.innerHTML = '<i class="fas fa-check-circle"></i> Place Order';
                     }, 4000);
                 } else {
-                    alert('Order submission failed. Please ensure Formspree form ID is activated and domains are allowed.');
+                    alert('Order submission failed. Please ensure your Formspree form ID is active and valid.');
                     submitBtn.disabled = false;
                     submitBtn.innerHTML = '<i class="fas fa-check-circle"></i> Place Order';
                 }
